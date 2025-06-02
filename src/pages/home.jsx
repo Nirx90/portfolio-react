@@ -9,6 +9,7 @@ import {
   Button,
   Avatar,
   Link,
+  LinearProgress,
 } from "@mui/material";
 import { GitHub, LinkedIn, Email } from "@mui/icons-material";
 import NavBar from "../components/NavBar";
@@ -22,33 +23,71 @@ export default function HomePage() {
         sx={{ bgcolor: "#1976d2", color: "white", py: 8, textAlign: "center" }}
       >
         <Container maxWidth="md">
-          <Avatar
-            src={"https://cscdoc.in-maa-1.linodeobjects.com/CRM-ONE/staff/profileImage/profileImage-1747121255145-205727504.jpeg"}
-            alt={"Profile_Image"}
-            sx={{ width: 120, height: 120, mx: "auto", mb: 2 }}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
           >
-            N
-          </Avatar>
-          <Typography variant="h3" component="h1" gutterBottom>
-            Nirav Chaudhari
-          </Typography>
-          <Typography variant="h6">
-            Full Stack Developer | Next Js | React | Node.js
-          </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "start",
+                alignItems: "self-start",
+                width: "40%",
+              }}
+            >
+              <Typography
+                sx={{
+                  textAlign: "justify",
+                }}
+              >
+                I am a dynamic and innovative developer specializing in website
+                development, mobile app creation, and customized software
+                solutions. I combine technical expertise with creative
+                problem-solving to deliver high-quality digital products that
+                meet the unique needs of my clients.
+              </Typography>
+            </Box>
+            <Box>
+              <Avatar
+                src={
+                  "https://cscdoc.in-maa-1.linodeobjects.com/CRM-ONE/staff/profileImage/profileImage-1747121255145-205727504.jpeg"
+                }
+                alt={"Profile_Image"}
+                sx={{ width: 200, height: 200, mx: "auto", mb: 2 }}
+              >
+                N
+              </Avatar>
+              <Typography variant="h3" component="h1" gutterBottom>
+                Nirav Chaudhari
+              </Typography>
+              <Typography variant="h6">
+                Full Stack Developer
+              </Typography>
+            </Box>
+          </Box>
         </Container>
       </Box>
 
       {/* About Section */}
       <Box sx={{ py: 6 }}>
         <Container maxWidth="md">
-          <Typography variant="h4" gutterBottom>
-            About Me
-          </Typography>
-          <Typography variant="body1">
-            I am a passionate developer with 2+ years of experience in building
-            responsive web apps. Skilled in React, Node.js. I love building
-            beautiful UIs and efficient APIs.
-          </Typography>
+          <div class="skill_bar">
+            <div class="info">
+              <div class="head">
+                <p>HTML5</p>
+              </div>
+              <LinearProgress color="secondary" />
+
+              <Typography>90%</Typography>
+            </div>
+            <div class="bar">
+              <span ></span>
+            </div>
+          </div>
         </Container>
       </Box>
 
