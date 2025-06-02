@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Box,
   Container,
@@ -10,25 +9,31 @@ import {
   Button,
   Avatar,
   Link,
-} from '@mui/material';
-import { GitHub, LinkedIn, Email } from '@mui/icons-material';
+} from "@mui/material";
+import { GitHub, LinkedIn, Email } from "@mui/icons-material";
+import NavBar from "../components/NavBar";
 
 export default function HomePage() {
   return (
     <Box>
-      {/* Hero Section */}
-      <Box sx={{ bgcolor: '#1976d2', color: 'white', py: 8, textAlign: 'center' }}>
+      <NavBar />
+
+      <Box
+        sx={{ bgcolor: "#1976d2", color: "white", py: 8, textAlign: "center" }}
+      >
         <Container maxWidth="md">
           <Avatar
-            alt="Your Name"
-            src="/avatar.jpg" // Replace with your image
-            sx={{ width: 120, height: 120, mx: 'auto', mb: 2 }}
-          />
+            src={"https://cscdoc.in-maa-1.linodeobjects.com/CRM-ONE/staff/profileImage/profileImage-1747121255145-205727504.jpeg"}
+            alt={"Profile_Image"}
+            sx={{ width: 120, height: 120, mx: "auto", mb: 2 }}
+          >
+            N
+          </Avatar>
           <Typography variant="h3" component="h1" gutterBottom>
-            John Doe
+            Nirav Chaudhari
           </Typography>
           <Typography variant="h6">
-            Full Stack Developer | React | Node.js | .NET
+            Full Stack Developer | Next Js | React | Node.js
           </Typography>
         </Container>
       </Box>
@@ -40,23 +45,33 @@ export default function HomePage() {
             About Me
           </Typography>
           <Typography variant="body1">
-            I am a passionate developer with 4+ years of experience in building responsive web apps.
-            Skilled in React, Node.js, and .NET backend systems. I love building beautiful UIs and efficient APIs.
+            I am a passionate developer with 2+ years of experience in building
+            responsive web apps. Skilled in React, Node.js. I love building
+            beautiful UIs and efficient APIs.
           </Typography>
         </Container>
       </Box>
 
       {/* Projects Section */}
-      <Box sx={{ bgcolor: '#f5f5f5', py: 6 }}>
+      <Box sx={{ bgcolor: "#f5f5f5", py: 6 }}>
         <Container maxWidth="lg">
           <Typography variant="h4" gutterBottom>
             Projects
           </Typography>
           <Grid container spacing={4}>
             {[
-              { title: 'Task Manager', desc: 'A full-stack app to manage tasks with user roles and dashboards.' },
-              { title: 'Portfolio Website', desc: 'This very site built with React and MUI.' },
-              { title: 'Expense Tracker', desc: 'Track income, expenses and get monthly analytics.' },
+              {
+                title: "Task Manager",
+                desc: "A full-stack app to manage tasks with user roles and dashboards.",
+              },
+              {
+                title: "Portfolio Website",
+                desc: "This very site built with React and MUI.",
+              },
+              {
+                title: "Expense Tracker",
+                desc: "Track income, expenses and get monthly analytics.",
+              },
             ].map((project, idx) => (
               <Grid item xs={12} sm={6} md={4} key={idx}>
                 <Card>
@@ -77,7 +92,7 @@ export default function HomePage() {
 
       {/* Contact Section */}
       <Box sx={{ py: 6 }}>
-        <Container maxWidth="md" sx={{ textAlign: 'center' }}>
+        <Container maxWidth="md" sx={{ textAlign: "center" }}>
           <Typography variant="h4" gutterBottom>
             Contact
           </Typography>
@@ -88,10 +103,18 @@ export default function HomePage() {
             <Link href="mailto:you@example.com" sx={{ mx: 1 }}>
               <Email fontSize="large" />
             </Link>
-            <Link href="https://github.com/yourusername" target="_blank" sx={{ mx: 1 }}>
+            <Link
+              href="https://github.com/yourusername"
+              target="_blank"
+              sx={{ mx: 1 }}
+            >
               <GitHub fontSize="large" />
             </Link>
-            <Link href="https://linkedin.com/in/yourprofile" target="_blank" sx={{ mx: 1 }}>
+            <Link
+              href="https://linkedin.com/in/yourprofile"
+              target="_blank"
+              sx={{ mx: 1 }}
+            >
               <LinkedIn fontSize="large" />
             </Link>
           </Box>
