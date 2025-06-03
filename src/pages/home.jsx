@@ -14,6 +14,14 @@ import {
 import { GitHub, LinkedIn, Email } from "@mui/icons-material";
 import NavBar from "../components/NavBar";
 import CustomCard from "../components/CustomCards";
+import { IconBrandAngular, IconBrandMongodb, IconBrandNodejs, IconBrandReact } from "@tabler/icons-react";
+
+const skills = [
+  { name: "React", level: 90, icon: <IconBrandReact /> },
+  { name: "Node.js", level: 85, icon: <IconBrandNodejs /> },
+  { name: "Angular", level: 80, icon: <IconBrandAngular /> },
+  { name: "MongoDB", level: 75, icon: <IconBrandMongodb /> },
+];
 
 export default function HomePage() {
   return (
@@ -65,30 +73,43 @@ export default function HomePage() {
               <Typography variant="h3" component="h1" gutterBottom>
                 Nirav Chaudhari
               </Typography>
-              <Typography variant="h6">
-                Full Stack Developer
-              </Typography>
+              <Typography variant="h6">Full Stack Developer</Typography>
             </Box>
           </Box>
         </Container>
       </Box>
 
-      {/* About Section */}
       <Box sx={{ py: 6 }}>
         <Container maxWidth="md">
-          <div class="skill_bar">
-            <div class="info">
-              <div class="head">
-                <p>HTML5</p>
-              </div>
-              <LinearProgress color="secondary" />
+          <Typography variant="h4" align="center" gutterBottom>
+            My Skills
+          </Typography>
 
-              <Typography>90%</Typography>
-            </div>
-            <div class="bar">
-              <span ></span>
-            </div>
-          </div>
+          <Grid container spacing={4}>
+            {skills.map((skill) => (
+              <Grid item xs={12} sm={6} md={6} key={skill.name}>
+                <CustomCard>
+                  <CardContent>
+                    <Box display="flex" alignItems="center" gap={2}>
+                      <Avatar>{skill.icon}</Avatar>
+                      <Box flexGrow={1}>
+                        <Typography variant="h6">{skill.name}</Typography>
+                        <Typography variant="body2" color="textSecondary">
+                          {skill.level}%
+                        </Typography>
+                        <LinearProgress
+                          variant="determinate"
+                          value={skill.level}
+                          color="secondary"
+                          sx={{ mt: 1, height: 10, borderRadius: 5 }}
+                        />
+                      </Box>
+                    </Box>
+                  </CardContent>
+                </CustomCard>
+              </Grid>
+            ))}
+          </Grid>
         </Container>
       </Box>
 
