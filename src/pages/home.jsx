@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { GitHub, LinkedIn, Email } from "@mui/icons-material";
 import NavBar from "../components/NavBar";
+import CustomCard from "../components/CustomCards";
 
 export default function HomePage() {
   return (
@@ -97,7 +98,7 @@ export default function HomePage() {
           <Typography variant="h4" gutterBottom>
             Projects
           </Typography>
-          <Grid container spacing={4}>
+          <Grid container spacing={2}>
             {[
               {
                 title: "Task Manager",
@@ -113,7 +114,7 @@ export default function HomePage() {
               },
             ].map((project, idx) => (
               <Grid item xs={12} sm={6} md={4} key={idx}>
-                <Card>
+                <CustomCard>
                   <CardContent>
                     <Typography variant="h6">{project.title}</Typography>
                     <Typography variant="body2">{project.desc}</Typography>
@@ -122,7 +123,7 @@ export default function HomePage() {
                     <Button size="small">View</Button>
                     <Button size="small">GitHub</Button>
                   </CardActions>
-                </Card>
+                </CustomCard>
               </Grid>
             ))}
           </Grid>
