@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -12,24 +12,28 @@ import {
   ListItemText,
   Menu,
   MenuItem,
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import WbSunnyIcon from '@mui/icons-material/WbSunny';
+  useTheme,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
 
-const navItems = ['Home', 'About', 'Projects', 'Contact'];
+const navItems = ["Home", "About", "Projects", "Contact"];
 
 export default function NavBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [userMenuAnchor, setUserMenuAnchor] = useState(null);
   const [themeMenuAnchor, setThemeMenuAnchor] = useState(null);
 
+  const theme = useTheme();
+
   const toggleDrawer = (open) => () => setDrawerOpen(open);
 
   const handleUserMenuClick = (event) => setUserMenuAnchor(event.currentTarget);
   const handleUserMenuClose = () => setUserMenuAnchor(null);
 
-  const handleThemeMenuClick = (event) => setThemeMenuAnchor(event.currentTarget);
+  const handleThemeMenuClick = (event) =>
+    setThemeMenuAnchor(event.currentTarget);
   const handleThemeMenuClose = () => setThemeMenuAnchor(null);
 
   const handleThemeChange = (theme) => {
@@ -42,7 +46,7 @@ export default function NavBar() {
       <Button
         key={item}
         color="inherit"
-        sx={{ my: 1, mx: isMobile ? 0 : 1, width: isMobile ? '100%' : 'auto' }}
+        sx={{ my: 1, mx: isMobile ? 0 : 1, width: isMobile ? "100%" : "auto" }}
         href={`#${item.toLowerCase()}`}
       >
         {item}
@@ -51,20 +55,52 @@ export default function NavBar() {
 
   return (
     <>
+      {/* <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: 4,
+        }}
+      >
+        <Typography
+          variant="h4"
+          sx={{ fontWeight: 700, color: theme.palette.primary.main }}
+        >
+          Nirav Chaudhari
+        </Typography>
+        <Box>
+          <Button color="primary" sx={{ mr: 2 }}>
+            Work
+          </Button>
+          <Button color="primary" sx={{ mr: 2 }}>
+            About
+          </Button>
+          <Button variant="contained" color="primary">
+            Contact
+          </Button>
+        </Box>
+      </Box> */}
       <AppBar position="sticky" color="primary">
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <Toolbar sx={{ justifyContent: "space-between" }}>
           {/* Logo or Title */}
           <Typography variant="h6" component="div">
-            MyPortfolio
+            Nirav Chaudhari
           </Typography>
 
           {/* Nav Links (desktop only) */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, flexGrow: 1, justifyContent: 'center' }}>
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              flexGrow: 1,
+              justifyContent: "center",
+            }}
+          >
             {renderNavLinks()}
           </Box>
 
           {/* Right Side Icons */}
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
             {/* Theme Menu */}
             <IconButton color="inherit" onClick={handleThemeMenuClick}>
               <WbSunnyIcon />
@@ -73,10 +109,10 @@ export default function NavBar() {
               anchorEl={themeMenuAnchor}
               open={Boolean(themeMenuAnchor)}
               onClose={handleThemeMenuClose}
-              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              transformOrigin={{ vertical: "top", horizontal: "right" }}
             >
-              {['Light', 'Dark', 'Neomorphism'].map((theme) => (
+              {["Light", "Dark", "Neomorphism"].map((theme) => (
                 <MenuItem key={theme} onClick={() => handleThemeChange(theme)}>
                   {theme}
                 </MenuItem>
@@ -91,8 +127,8 @@ export default function NavBar() {
               anchorEl={userMenuAnchor}
               open={Boolean(userMenuAnchor)}
               onClose={handleUserMenuClose}
-              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              transformOrigin={{ vertical: "top", horizontal: "right" }}
             >
               <MenuItem onClick={handleUserMenuClose}>Login</MenuItem>
               <MenuItem onClick={handleUserMenuClose}>Logout</MenuItem>
@@ -102,7 +138,7 @@ export default function NavBar() {
             <IconButton
               edge="end"
               color="inherit"
-              sx={{ display: { md: 'none' } }}
+              sx={{ display: { md: "none" } }}
               onClick={toggleDrawer(true)}
             >
               <MenuIcon />
@@ -116,7 +152,12 @@ export default function NavBar() {
         <Box sx={{ width: 200, p: 2 }}>
           <List>
             {navItems.map((item) => (
-              <ListItem button component="a" href={`#${item.toLowerCase()}`} key={item}>
+              <ListItem
+                button
+                component="a"
+                href={`#${item.toLowerCase()}`}
+                key={item}
+              >
                 <ListItemText primary={item} />
               </ListItem>
             ))}
