@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -26,6 +26,8 @@ const PortfolioHomepage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
+  const [darkMode, setDarkMode] = useState(false);
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -48,26 +50,46 @@ const PortfolioHomepage = () => {
     },
   };
 
+  const handleToggleTheme = () => {
+    setDarkMode(!darkMode);
+  }
+
   return (
     <>
-      <NavBar />
+      <NavBar darkMode={darkMode} handleToggleTheme={handleToggleTheme}/>
       <Box
         sx={{
           minHeight: "100vh",
-          background: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+          // background: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+          // background: "linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)",
+          // background: "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)",
+          background:
+            darkMode
+              ? "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)"
+              : "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
           p: isMobile ? 2 : 4,
           position: "relative",
           overflow: "hidden",
           "&::before": {
             content: '""',
             position: "absolute",
-            top: "-50%",
-            right: "-50%",
-            width: "100%",
-            height: "100%",
+            top: "-30%",
+            left: "-20%",
+            width: "150%",
+            height: "150%",
             background:
-              "radial-gradient(circle, rgba(25,118,210,0.1) 0%, transparent 70%)",
-            transform: "rotate(30deg)",
+              "radial-gradient(circle, rgba(25,118,210,0.08) 0%, transparent 70%)",
+            zIndex: 0,
+          },
+          "&::after": {
+            content: '""',
+            position: "absolute",
+            bottom: 0,
+            right: 0,
+            width: "300px",
+            height: "300px",
+            background:
+              "radial-gradient(circle, rgba(25,118,210,0.1) 0%, transparent 80%)",
             zIndex: 0,
           },
         }}
@@ -114,7 +136,9 @@ const PortfolioHomepage = () => {
                   <motion.div variants={itemVariants}>
                     <Typography
                       variant="h5"
-                      sx={{ mb: 3, color: theme.palette.text.secondary }}
+                      sx={{ mb: 3, 
+                        color: darkMode ? "whitesmoke" : theme.palette.text.main,
+                      }}
                     >
                       Hi, I'm{" "}
                       <span style={{ color: theme.palette.primary.main }}>
@@ -127,7 +151,9 @@ const PortfolioHomepage = () => {
                   <motion.div variants={itemVariants}>
                     <Typography
                       variant="body1"
-                      sx={{ mb: 4, fontSize: "1.1rem" }}
+                      sx={{ mb: 4, fontSize: "1.1rem",
+                        color: darkMode ? "whitesmoke" : theme.palette.text.secondary,
+                       }}
                     >
                       I build performant, accessible, and beautiful web
                       applications with modern technologies and user-focused
@@ -159,22 +185,26 @@ const PortfolioHomepage = () => {
                 <Box item xs={12} md={6}>
                   <motion.div
                     variants={itemVariants}
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ y: -5, scale: 1.02 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
                     <Paper
                       elevation={8}
                       sx={{
                         p: 2,
-                        borderRadius: "16px",
-                        background: "rgba(255, 255, 255, 0.7)",
-                        backdropFilter: "blur(10px)",
-                        border: "1px solid rgba(255, 255, 255, 0.3)",
+                        borderRadius: "20px",
+                        background: "rgba(255, 255, 255, 0.05)", // transparent white
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        backdropFilter: "blur(14px)",
+                        WebkitBackdropFilter: "blur(14px)",
+                        // boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
+                        boxShadow: darkMode ? "none" : "0 8px 32px rgba(31, 38, 135, 0.2)",
                       }}
                     >
                       <Box
                         sx={{
-                          background:
+                          background: 
+                            darkMode ? "none" :
                             "linear-gradient(45deg, #1976d2, #4dabf5)",
                           borderRadius: "12px",
                           p: 3,
@@ -212,12 +242,9 @@ const PortfolioHomepage = () => {
                           variant="outlined"
                           size="small"
                           sx={{
-                            color: "white",
-                            borderColor: "white",
-                            "&:hover": {
-                              borderColor: "white",
-                              backgroundColor: "rgba(255,255,255,0.1)",
-                            },
+                            color: darkMode ? "primary" : "white",
+                            borderColor: darkMode ? "primary" : "white",
+                            borderRadius:"15px"
                           }}
                         >
                           View Case Study
@@ -233,7 +260,9 @@ const PortfolioHomepage = () => {
             <Box sx={{ mt: 10 }}>
               <Typography
                 variant="h4"
-                sx={{ textAlign: "center", mb: 4, fontWeight: 700 }}
+                sx={{ textAlign: "center", mb: 4, fontWeight: 700,
+                  color: darkMode ? "whitesmoke" : theme.palette.text.primary,
+                }}
               >
                 What I Do
               </Typography>
@@ -268,18 +297,32 @@ const PortfolioHomepage = () => {
                 ].map((skill, index) => (
                   <Grid item xs={12} md={4} sm={6} key={index}>
                     <motion.div
-                      whileHover={{ y: -5 }}
+                      whileHover={{ y: -5, scale: 1.02 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
                       <Paper
                         elevation={3}
+                        // sx={{
+                        //   p: 3,
+                        //   minHeight: 190,
+                        //   borderRadius: "12px",
+                        //   background: "rgba(255, 255, 255, 0.7)",
+                        //   backdropFilter: "blur(5px)",
+                        //   border: "1px solid rgba(255, 255, 255, 0.2)",
+                        // }}
                         sx={{
                           p: 3,
-                          minHeight: 190,
-                          borderRadius: "12px",
-                          background: "rgba(255, 255, 255, 0.7)",
-                          backdropFilter: "blur(5px)",
-                          border: "1px solid rgba(255, 255, 255, 0.2)",
+                          minHeight: 220,
+                          borderRadius: "20px",
+                          // background: "rgba(255, 255, 255, 0.15)",
+                          // background: "rgba(255, 255, 255, 0.05)",
+
+                          background: darkMode ? "rgba(255, 255, 255, 0.05)" : "rgba(255, 255, 255, 0.05)",
+                          backdropFilter: "blur(12px)",
+                          WebkitBackdropFilter: "blur(12px)", // For Safari
+                          border: "1px solid rgba(255, 255, 255, 0.3)",
+                          boxShadow: darkMode ? "none" : "0 8px 32px rgba(31, 38, 135, 0.2)",
+                          transition: "transform 0.3s ease",
                         }}
                       >
                         <Box
@@ -300,14 +343,18 @@ const PortfolioHomepage = () => {
                         </Box>
                         <Typography
                           variant="h5"
-                          sx={{ mb: 1, fontWeight: 600 }}
+                          sx={{ mb: 1, 
+                            fontWeight: 600 ,
+                            color: darkMode ? "whitesmoke" : theme.palette.text.primary,
+                          }}
                         >
                           {skill.title}
                         </Typography>
                         <Typography
                           variant="body1"
                           sx={{
-                            color: theme.palette.text.secondary,
+                            // color: theme.palette.text.secondary,
+                            color: darkMode ? "whitesmoke" : theme.palette.text.secondary,
                             textAlign: "justify",
                           }}
                         >
@@ -323,7 +370,9 @@ const PortfolioHomepage = () => {
             <Box sx={{ mt: 10, mb: 6 }}>
               <Typography
                 variant="h4"
-                sx={{ textAlign: "center", mb: 4, fontWeight: 700 }}
+                sx={{ textAlign: "center", mb: 4, fontWeight: 700 ,
+                  color: darkMode ? "whitesmoke" : theme.palette.text.primary,
+                }}
               >
                 My Tech Stack
               </Typography>

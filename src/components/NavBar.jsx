@@ -13,18 +13,18 @@ import {
   Menu,
   MenuItem,
   useTheme,
+  Switch,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import { DarkMode } from "@mui/icons-material";
 
 const navItems = ["Home", "About", "Projects", "Contact"];
 
-export default function NavBar() {
+export default function NavBar({ darkMode, handleToggleTheme }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [userMenuAnchor, setUserMenuAnchor] = useState(null);
-  const [themeMenuAnchor, setThemeMenuAnchor] = useState(null);
-
   const theme = useTheme();
 
   const toggleDrawer = (open) => () => setDrawerOpen(open);
@@ -32,15 +32,7 @@ export default function NavBar() {
   const handleUserMenuClick = (event) => setUserMenuAnchor(event.currentTarget);
   const handleUserMenuClose = () => setUserMenuAnchor(null);
 
-  const handleThemeMenuClick = (event) =>
-    setThemeMenuAnchor(event.currentTarget);
-  const handleThemeMenuClose = () => setThemeMenuAnchor(null);
-
-  const handleThemeChange = (theme) => {
-    console.log(`Theme changed to: ${theme}`); // You can wire this into actual theme logic
-    handleThemeMenuClose();
-  };
-
+  
   const renderNavLinks = (isMobile = false) =>
     navItems.map((item) => (
       <Button
@@ -81,7 +73,26 @@ export default function NavBar() {
           </Button>
         </Box>
       </Box> */}
-      <AppBar position="sticky" color="primary">
+      <AppBar
+        // position="sticky"
+        sx={{
+          // background: "rgba(255, 255, 255, 0.02)", // subtle tint, almost transparent
+          background:
+            darkMode ?
+            "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)" 
+            : "primary",
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)", // Safari support
+          border: "1px solid rgba(255, 255, 255, 0.1)", // soft frosted border
+          borderBottomRightRadius: "20px",
+          borderBottomLeftRadius: "20px",
+          boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)", // deeper shadow for stronger float on dark background
+          transition: "all 0.3s ease",
+          px: 2,
+          // py: 1,
+          zIndex: 1100, // ensure it stays above content
+        }}
+      >
         <Toolbar sx={{ justifyContent: "space-between" }}>
           {/* Logo or Title */}
           <Typography variant="h6" component="div">
@@ -102,22 +113,16 @@ export default function NavBar() {
           {/* Right Side Icons */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
             {/* Theme Menu */}
-            <IconButton color="inherit" onClick={handleThemeMenuClick}>
-              <WbSunnyIcon />
+
+            <IconButton color="inherit">
+              <DarkMode />
             </IconButton>
-            <Menu
-              anchorEl={themeMenuAnchor}
-              open={Boolean(themeMenuAnchor)}
-              onClose={handleThemeMenuClose}
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              transformOrigin={{ vertical: "top", horizontal: "right" }}
-            >
-              {["Light", "Dark", "Neomorphism"].map((theme) => (
-                <MenuItem key={theme} onClick={() => handleThemeChange(theme)}>
-                  {theme}
-                </MenuItem>
-              ))}
-            </Menu>
+            <Switch
+              checked={darkMode}
+              onChange={handleToggleTheme}
+              name="darkMode"
+              color="primary"
+            />
 
             {/* User Menu */}
             <IconButton color="inherit" onClick={handleUserMenuClick}>
