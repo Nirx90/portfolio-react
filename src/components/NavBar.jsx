@@ -19,20 +19,51 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import { DarkMode } from "@mui/icons-material";
+import { useDispatch, useSelector } from "react-redux";
+import { resetNavbar, setNavbarColors } from "../slices/navbarSlice";
+import { resetTheme, setThemeColors } from "../slices/themeSlice";
 
 const navItems = ["Home", "About", "Projects", "Contact"];
 
-export default function NavBar({ darkMode, handleToggleTheme }) {
+export default function NavBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [userMenuAnchor, setUserMenuAnchor] = useState(null);
-  const theme = useTheme();
+
+  const [darkMode, setDarkMode] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const { backgroundColor } = useSelector((state) => state.navbar);
 
   const toggleDrawer = (open) => () => setDrawerOpen(open);
 
   const handleUserMenuClick = (event) => setUserMenuAnchor(event.currentTarget);
   const handleUserMenuClose = () => setUserMenuAnchor(null);
 
-  
+  const handleDarkMode = () => {
+    const nextMode = !darkMode;
+    setDarkMode(nextMode);
+
+    if (nextMode) {
+      dispatch(
+        setNavbarColors({
+          backgroundColor: "black",
+          textColor: "#ffffff",
+        })
+      );
+      dispatch(
+        setThemeColors({
+          backgroundColor: "black",
+          primaryTextColor: "whitesmoke",
+          secondaryTextColor : "whitesmoke"
+        })
+      );
+    } else {
+      dispatch(resetNavbar());
+      dispatch(resetTheme());
+    }
+  };
+
   const renderNavLinks = (isMobile = false) =>
     navItems.map((item) => (
       <Button
@@ -77,10 +108,11 @@ export default function NavBar({ darkMode, handleToggleTheme }) {
         // position="sticky"
         sx={{
           // background: "rgba(255, 255, 255, 0.02)", // subtle tint, almost transparent
-          background:
-            darkMode ?
-            "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)" 
-            : "primary",
+          // background:
+          //   darkMode ?
+          //   "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)"
+          //   : "primary",
+          background: backgroundColor,
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)", // Safari support
           border: "1px solid rgba(255, 255, 255, 0.1)", // soft frosted border
@@ -119,7 +151,7 @@ export default function NavBar({ darkMode, handleToggleTheme }) {
             </IconButton>
             <Switch
               checked={darkMode}
-              onChange={handleToggleTheme}
+              onChange={() => handleDarkMode()}
               name="darkMode"
               color="primary"
             />
