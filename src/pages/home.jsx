@@ -67,8 +67,7 @@ const PortfolioHomepage = () => {
           //   ? "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)"
           //   : "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
           background: backgroundColor,
-          p: isMobile ? 2 : 4,
-          m: 0,
+          py: isMobile ? 2 : 4,
           position: "relative",
           overflow: "hidden",
           "&::before": {
@@ -80,7 +79,6 @@ const PortfolioHomepage = () => {
             height: "150%",
             background:
               "radial-gradient(circle, rgba(25,118,210,0.08) 0%, transparent 70%)",
-            zIndex: 0,
           },
           "&::after": {
             content: '""',
@@ -91,13 +89,10 @@ const PortfolioHomepage = () => {
             height: "300px",
             background:
               "radial-gradient(circle, rgba(25,118,210,0.1) 0%, transparent 80%)",
-            zIndex: 0,
           },
         }}
       >
-        <Box sx={{ position: "relative", zIndex: 1 }}>
-          {/* Header */}
-
+        <Box sx={{ position: "relative" }}>
           <Container>
             {/* Hero Section */}
             <motion.div

@@ -14,6 +14,8 @@ import {
   MenuItem,
   useTheme,
   Switch,
+  Input,
+  TextField,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
@@ -22,11 +24,38 @@ import { DarkMode } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { resetNavbar, setNavbarColors } from "../slices/navbarSlice";
 import { resetTheme, setThemeColors } from "../slices/themeSlice";
+import { IconSettings } from "@tabler/icons-react";
 
 const navItems = ["Home", "About", "Projects", "Contact"];
 
 export default function NavBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [openSideDrwer, setOpenSideDrawer] = useState(false);
+
+  const [formData, setFormData] = useState({
+    bgColor: "",
+    borderRadious: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    dispatch(
+      setThemeColors({
+        backgroundColor: formData.bgColor,
+        primaryTextColor: "whitesmoke",
+        secondaryTextColor: "whitesmoke",
+        BoxShadow: "none",
+      })
+    );
+  };
+
+  const toggleSideDrawer = () => {
+    setOpenSideDrawer(true);
+  };
   const [userMenuAnchor, setUserMenuAnchor] = useState(null);
 
   const [darkMode, setDarkMode] = useState(false);
@@ -55,7 +84,8 @@ export default function NavBar() {
         setThemeColors({
           backgroundColor: "black",
           primaryTextColor: "whitesmoke",
-          secondaryTextColor : "whitesmoke"
+          secondaryTextColor: "whitesmoke",
+          BoxShadow: "none",
         })
       );
     } else {
@@ -78,32 +108,6 @@ export default function NavBar() {
 
   return (
     <>
-      {/* <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          mb: 4,
-        }}
-      >
-        <Typography
-          variant="h4"
-          sx={{ fontWeight: 700, color: theme.palette.primary.main }}
-        >
-          Nirav Chaudhari
-        </Typography>
-        <Box>
-          <Button color="primary" sx={{ mr: 2 }}>
-            Work
-          </Button>
-          <Button color="primary" sx={{ mr: 2 }}>
-            About
-          </Button>
-          <Button variant="contained" color="primary">
-            Contact
-          </Button>
-        </Box>
-      </Box> */}
       <AppBar
         // position="sticky"
         sx={{
@@ -143,7 +147,7 @@ export default function NavBar() {
           </Box>
 
           {/* Right Side Icons */}
-          <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             {/* Theme Menu */}
 
             <IconButton color="inherit">
@@ -160,6 +164,7 @@ export default function NavBar() {
             <IconButton color="inherit" onClick={handleUserMenuClick}>
               <AccountCircle />
             </IconButton>
+            <IconSettings onClick={toggleSideDrawer} cursor="pointer" />
             <Menu
               anchorEl={userMenuAnchor}
               open={Boolean(userMenuAnchor)}
@@ -183,6 +188,28 @@ export default function NavBar() {
           </Box>
         </Toolbar>
       </AppBar>
+
+      <Drawer
+        anchor="right"
+        open={openSideDrwer}
+        onClose={() => setOpenSideDrawer(false)}
+      >
+        <Box sx={{ width: 400, p: 2 }}>
+          <TextField 
+            name="bgColor" type="text" value={formData.bgColor} 
+          />
+          <TextField
+            name="bgColor"
+            type="color"
+            value={formData.bgColor}
+            onChange={handleChange}
+          />
+
+          <Button sx={{
+            bottom : 0
+          }}>Reset</Button>
+        </Box>
+      </Drawer>
 
       {/* Mobile Drawer */}
       <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
