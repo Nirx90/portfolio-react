@@ -25,6 +25,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetNavbar, setNavbarColors } from "../slices/navbarSlice";
 import { resetTheme, setThemeColors } from "../slices/themeSlice";
 import { IconSettings } from "@tabler/icons-react";
+import SideDrawer from "./SideDrawer";
+import { resetserviceCard, setserviceCardDarkMode } from "../slices/serviceCardSlice";
 
 const navItems = ["Home", "About", "Projects", "Contact"];
 
@@ -32,31 +34,11 @@ export default function NavBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [openSideDrwer, setOpenSideDrawer] = useState(false);
 
-  const [formData, setFormData] = useState({
-    bgColor: "",
-    borderRadious: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    dispatch(
-      setThemeColors({
-        backgroundColor: formData.bgColor,
-        primaryTextColor: "whitesmoke",
-        secondaryTextColor: "whitesmoke",
-        BoxShadow: "none",
-      })
-    );
-  };
-
-  const toggleSideDrawer = () => {
-    setOpenSideDrawer(true);
-  };
   const [userMenuAnchor, setUserMenuAnchor] = useState(null);
+
+  const handleSideDrawerClose = () => {
+    setOpenSideDrawer(false)
+  }
 
   const [darkMode, setDarkMode] = useState(false);
 
@@ -88,9 +70,18 @@ export default function NavBar() {
           BoxShadow: "none",
         })
       );
+      dispatch(
+        setserviceCardDarkMode({
+          BackgroundColor: "black",
+          PrimaryTextColor: "whitesmoke",
+          SecondaryTextColor: "whitesmoke",
+          BoxShadow: "none",
+        })
+      );
     } else {
       dispatch(resetNavbar());
       dispatch(resetTheme());
+      dispatch(resetserviceCard());
     }
   };
 
@@ -164,7 +155,7 @@ export default function NavBar() {
             <IconButton color="inherit" onClick={handleUserMenuClick}>
               <AccountCircle />
             </IconButton>
-            <IconSettings onClick={toggleSideDrawer} cursor="pointer" />
+            <IconSettings onClick={()=> setOpenSideDrawer(true)} cursor="pointer" />
             <Menu
               anchorEl={userMenuAnchor}
               open={Boolean(userMenuAnchor)}
@@ -189,28 +180,7 @@ export default function NavBar() {
         </Toolbar>
       </AppBar>
 
-      <Drawer
-        anchor="right"
-        open={openSideDrwer}
-        onClose={() => setOpenSideDrawer(false)}
-      >
-        <Box sx={{ width: 400, p: 2 }}>
-          <TextField 
-            name="bgColor" type="text" value={formData.bgColor} 
-          />
-          <TextField
-            name="bgColor"
-            type="color"
-            value={formData.bgColor}
-            onChange={handleChange}
-          />
-
-          <Button sx={{
-            bottom : 0
-          }}>Reset</Button>
-        </Box>
-      </Drawer>
-
+      <SideDrawer open={openSideDrwer} onClose={handleSideDrawerClose}/>
       {/* Mobile Drawer */}
       <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
         <Box sx={{ width: 200, p: 2 }}>
