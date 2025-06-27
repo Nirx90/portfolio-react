@@ -24,6 +24,7 @@ import NavBar from "../components/NavBar";
 import { useDispatch, useSelector } from "react-redux";
 import { setThemeColors } from "../slices/themeSlice";
 import ServiceCards from "../components/ServiceCards";
+import WorkExperience from "../components/WorkExperience";
 
 const PortfolioHomepage = () => {
   const theme = useTheme();
@@ -32,7 +33,8 @@ const PortfolioHomepage = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   const dispatch = useDispatch();
-  const { backgroundColor, primaryTextColor, secondaryTextColor, BoxShadow } = useSelector((state) => state.theme);
+  const { backgroundColor, primaryTextColor, secondaryTextColor, BoxShadow } =
+    useSelector((state) => state.theme);
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -260,8 +262,12 @@ const PortfolioHomepage = () => {
               </Box>
             </motion.div>
 
-            {/* Skills Section */}
+            {/* Service Section */}
             <ServiceCards />
+            
+            <Box mt={10}>
+              <WorkExperience />
+            </Box>
 
             <Box sx={{ mt: 10, mb: 6 }}>
               <Typography

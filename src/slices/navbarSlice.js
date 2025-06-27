@@ -1,31 +1,61 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
-// export const updateBackground = createAsyncThunk("user/fetchUser", async () => {
-
-// });
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  backgroundColor: "primary",
-  textColor: "white",
+  BackgroundColor: "primary",
+  TextColor: "white",
+  BorderWidth: 2,
+  BorderRadious: 25,
+  Padding: 12,
+  Transparency: 2,
 };
 
 const navbarSlice = createSlice({
   name: "navbar",
   initialState,
   reducers: {
-    setNavbarColors: (state, action) => {
-      const { backgroundColor, textColor } = action.payload;
-      state.backgroundColor = backgroundColor;
-      state.textColor = textColor;
+    setNavBarDarkMode: (state, action) => {
+      const { BackgroundColor, TextColor } = action.payload;
+      state.BackgroundColor = BackgroundColor;
+      state.TextColor = TextColor;
+    },
+    setNavBarBackgroundColor: (state, action) => {
+      const data = action.payload;
+      state.BackgroundColor = data.BackgroundColor;
+    },
+
+    setNavBarTextColor: (state, action) => {
+      const {TextColor} = action.payload;
+      state.TextColor = TextColor;
+    },
+    setNavBarBorderWidth: (state, action) => {
+      const { BorderWidth } = action.payload;
+      state.BorderWidth = BorderWidth;
+    },
+    setNavBarBorderRadious: (state, action) => {
+      const { BorderRadious } = action.payload;
+      state.BorderRadious = BorderRadious;
+    },
+    setNavBarTransparency: (state, action) => {
+      const { Transparency } = action.payload;
+      state.Transparency = Transparency;
+    },
+    setNavBarPadding: (state, action) => {
+      const { Padding } = action.payload;
+      state.Padding = Padding;
     },
     resetNavbar: () => initialState,
   },
-  extraReducers: (builder) => {
-    // builder.addCase(updateBackground, (state, action) => {
-    //   state.darkMode = false;
-    // });
-  },
+  extraReducers: (builder) => {},
 });
 
-export const { setNavbarColors, resetNavbar } = navbarSlice.actions;
+export const {
+  setNavBarDarkMode,
+  resetNavbar,
+  setNavBarPadding,
+  setNavBarBackgroundColor,
+  setNavBarBorderWidth,
+  setNavBarBorderRadious,
+  setNavBarTransparency,
+  setNavBarTextColor
+} = navbarSlice.actions;
 export default navbarSlice.reducer;

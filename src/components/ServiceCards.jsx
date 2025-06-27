@@ -15,7 +15,6 @@ import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 
 const ServiceCards = () => {
-  const theme = useTheme();
 
   const dispatch = useDispatch();
   const serviceCardCss = useSelector((state) => state.serviceCard);

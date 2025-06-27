@@ -12,21 +12,19 @@ import {
   ListItemText,
   Menu,
   MenuItem,
-  useTheme,
   Switch,
-  Input,
-  TextField,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import { DarkMode } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { resetNavbar, setNavbarColors } from "../slices/navbarSlice";
+import { resetNavbar, setNavBarDarkMode } from "../slices/navbarSlice";
 import { resetTheme, setThemeColors } from "../slices/themeSlice";
-import { IconSettings } from "@tabler/icons-react";
+import { IconMoonFilled, IconSettings, IconSettingsFilled } from "@tabler/icons-react";
 import SideDrawer from "./SideDrawer";
-import { resetserviceCard, setserviceCardDarkMode } from "../slices/serviceCardSlice";
+import {
+  resetserviceCard,
+  setserviceCardDarkMode,
+} from "../slices/serviceCardSlice";
 
 const navItems = ["Home", "About", "Projects", "Contact"];
 
@@ -37,14 +35,14 @@ export default function NavBar() {
   const [userMenuAnchor, setUserMenuAnchor] = useState(null);
 
   const handleSideDrawerClose = () => {
-    setOpenSideDrawer(false)
-  }
+    setOpenSideDrawer(false);
+  };
 
   const [darkMode, setDarkMode] = useState(false);
 
   const dispatch = useDispatch();
 
-  const { backgroundColor } = useSelector((state) => state.navbar);
+  const navBarCss = useSelector((state) => state.navbar);
 
   const toggleDrawer = (open) => () => setDrawerOpen(open);
 
@@ -57,9 +55,9 @@ export default function NavBar() {
 
     if (nextMode) {
       dispatch(
-        setNavbarColors({
-          backgroundColor: "black",
-          textColor: "#ffffff",
+        setNavBarDarkMode({
+          BackgroundColor: "black",
+          TextColor: "#ffffff",
         })
       );
       dispatch(
@@ -89,8 +87,13 @@ export default function NavBar() {
     navItems.map((item) => (
       <Button
         key={item}
-        color="inherit"
-        sx={{ my: 1, mx: isMobile ? 0 : 1, width: isMobile ? "100%" : "auto" }}
+        // color="inherit"
+        sx={{
+          my: 1,
+          mx: isMobile ? 0 : 1,
+          width: isMobile ? "100%" : "auto",
+          color: navBarCss.TextColor,
+        }}
         href={`#${item.toLowerCase()}`}
       >
         {item}
@@ -103,26 +106,23 @@ export default function NavBar() {
         // position="sticky"
         sx={{
           // background: "rgba(255, 255, 255, 0.02)", // subtle tint, almost transparent
-          // background:
-          //   darkMode ?
-          //   "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)"
-          //   : "primary",
-          background: backgroundColor,
+          // background: "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)"
+          background: navBarCss.BackgroundColor,
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)", // Safari support
           border: "1px solid rgba(255, 255, 255, 0.1)", // soft frosted border
-          borderBottomRightRadius: "20px",
-          borderBottomLeftRadius: "20px",
+          borderBottomRightRadius: navBarCss.BorderRadious,
+          borderBottomLeftRadius: navBarCss.BorderRadious,
           boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)", // deeper shadow for stronger float on dark background
           transition: "all 0.3s ease",
-          px: 2,
+          px: navBarCss.Padding,
           // py: 1,
-          zIndex: 1100, // ensure it stays above content
+          zIndex: 1100,
         }}
       >
         <Toolbar sx={{ justifyContent: "space-between" }}>
           {/* Logo or Title */}
-          <Typography variant="h6" component="div">
+          <Typography variant="h6" component="div" color={navBarCss.TextColor}>
             Nirav Chaudhari
           </Typography>
 
@@ -142,20 +142,31 @@ export default function NavBar() {
             {/* Theme Menu */}
 
             <IconButton color="inherit">
-              <DarkMode />
+              <IconMoonFilled color={navBarCss.TextColor} />
             </IconButton>
             <Switch
               checked={darkMode}
               onChange={() => handleDarkMode()}
               name="darkMode"
-              color="primary"
+              // color="primary"
+              sx={{
+                color: navBarCss.TextColor,
+              }}
             />
 
             {/* User Menu */}
             <IconButton color="inherit" onClick={handleUserMenuClick}>
-              <AccountCircle />
+              <AccountCircle
+                sx={{
+                  color: navBarCss.TextColor,
+                }}
+              />
             </IconButton>
-            <IconSettings onClick={()=> setOpenSideDrawer(true)} cursor="pointer" />
+            <IconSettingsFilled
+              onClick={() => setOpenSideDrawer(true)}
+              cursor="pointer"
+              color={navBarCss.TextColor}
+            />
             <Menu
               anchorEl={userMenuAnchor}
               open={Boolean(userMenuAnchor)}
@@ -174,13 +185,13 @@ export default function NavBar() {
               sx={{ display: { md: "none" } }}
               onClick={toggleDrawer(true)}
             >
-              <MenuIcon />
+              <MenuIcon color={navBarCss.TextColor} />
             </IconButton>
           </Box>
         </Toolbar>
       </AppBar>
 
-      <SideDrawer open={openSideDrwer} onClose={handleSideDrawerClose}/>
+      <SideDrawer open={openSideDrwer} onClose={handleSideDrawerClose} />
       {/* Mobile Drawer */}
       <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
         <Box sx={{ width: 200, p: 2 }}>

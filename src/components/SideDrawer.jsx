@@ -20,9 +20,10 @@ import {
   setserviceCardBorderWidth,
 } from "../slices/serviceCardSlice";
 import { resetNavbar } from "../slices/navbarSlice";
+import SettingNavBar from "./settings/SettingNavBar";
 
 export default function SideDrawer({ open, onClose }) {
-  const [tab, setTab] = React.useState("custom");
+  const [tab, setTab] = React.useState("navbar");
   const [serviceCardBG, setServiceCardBG] = React.useState("");
   const [serviceCardBR, setServiceCardBR] = React.useState(12);
   const [serviceCardBW, setServiceCardBW] = React.useState(1);
@@ -37,6 +38,8 @@ export default function SideDrawer({ open, onClose }) {
     dispatch(resetTheme());
     dispatch(resetNavbar());
     dispatch(resetserviceCard());
+    setServiceCardBR(12);
+    setServiceCardBW(1);
     onClose();
   };
 
@@ -84,7 +87,7 @@ export default function SideDrawer({ open, onClose }) {
   };
 
   return (
-    <Drawer anchor="right" open={open} onClose={onClose} >
+    <Drawer anchor="right" open={open} onClose={onClose}>
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
@@ -98,6 +101,11 @@ export default function SideDrawer({ open, onClose }) {
               sx={{ textTransform: "none", minWidth: "unset" }}
             />
             <Tab
+              value="navbar"
+              label="Nav Bar"
+              sx={{ textTransform: "none", minWidth: "unset" }}
+            />
+            <Tab
               value="custom"
               label="Custom"
               sx={{ textTransform: "none", minWidth: "unset" }}
@@ -107,74 +115,71 @@ export default function SideDrawer({ open, onClose }) {
               label="Drawer"
               sx={{ textTransform: "none", minWidth: "unset" }}
             />
+            <Tab
+              value="neomorphism"
+              label="Neomorphism"
+              sx={{ textTransform: "none", minWidth: "unset" }}
+            />
           </Tabs>
         </Box>
 
         {tab === "theme" && <Box sx={{ width: 400, p: 2 }}></Box>}
+        {tab === "navbar" && <SettingNavBar />}
         {tab === "custom" && (
           <Box sx={{ width: 400, p: 2 }}>
             <Paper
               sx={{
-                p:2,
-                display: "flex",
+                p: 2,
               }}
             >
-              <Box sx={{ width: "85%" }}>
-                <Typography
-                  sx={{
-                    marginBottom: "5px",
-                  }}
-                >
-                  Theme Background Color
-                </Typography>
-                <TextField
-                  name="bgColor"
-                  size="small"
-                  value={formData.bgColor}
-                  onChange={handleChange}
-                  type="text"
-                  style={{ width: "100%" }}
-                />
-              </Box>
+              <Typography>Theme</Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  mt: 1,
+                }}
+              >
+                <Box sx={{ width: "85%" }}>
+                  <TextField
+                    label="Background Color"
+                    name="bgColor"
+                    size="small"
+                    value={formData.bgColor}
+                    onChange={handleChange}
+                    type="text"
+                    style={{ width: "100%" }}
+                  />
+                </Box>
 
-              <Box sx={{ width: "15%" }}>
-                <Typography
-                  sx={{
-                    marginBottom: "5px",
-                  }}
-                >
-                  Select
-                </Typography>
-                <TextField
-                  name="bgColor"
-                  size="small"
-                  value={formData.bgColor}
-                  onChange={handleChange}
-                  type="color"
-                  style={{ width: "100%" }}
-                />
+                <Box sx={{ width: "15%" }}>
+                  <TextField
+                    name="bgColor"
+                    size="small"
+                    value={formData.bgColor}
+                    onChange={handleChange}
+                    type="color"
+                    style={{ width: "100%" }}
+                  />
+                </Box>
               </Box>
             </Paper>
 
-            <Paper sx={{
-                p:2,
-                mt:2
-            }}>
+            <Paper
+              sx={{
+                p: 2,
+                mt: 2,
+              }}
+            >
               <Typography>Services Cards</Typography>
               <Box
                 sx={{
                   display: "flex",
+                  mt: 1,
                 }}
               >
                 <Box sx={{ width: "85%" }}>
-                  <Typography
-                    sx={{
-                      marginBottom: "5px",
-                    }}
-                  >
-                    Background Color
-                  </Typography>
                   <TextField
+                    label="Background Color"
                     name="bgColor"
                     size="small"
                     value={serviceCardBG}
@@ -185,13 +190,6 @@ export default function SideDrawer({ open, onClose }) {
                 </Box>
 
                 <Box sx={{ width: "15%" }}>
-                  <Typography
-                    sx={{
-                      marginBottom: "5px",
-                    }}
-                  >
-                    Select
-                  </Typography>
                   <TextField
                     name="bgColor"
                     size="small"
@@ -203,14 +201,17 @@ export default function SideDrawer({ open, onClose }) {
                 </Box>
               </Box>
 
-              <Box sx={{
-                display:'flex',
-                gap:5,
-                mt:2
-              }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: 5,
+                  mt: 2,
+                }}
+              >
                 <Box>
                   <Typography>Border Radious</Typography>
-                  <Box sx={{ width: 200 }}>
+                  <Box sx={{ width: 130 }}>
                     <Stack
                       spacing={2}
                       direction="row"
@@ -221,12 +222,13 @@ export default function SideDrawer({ open, onClose }) {
                         value={serviceCardBR}
                         onChange={handleServiceCardBRChange}
                       />
+                      <Typography>{serviceCardBR}</Typography>
                     </Stack>
                   </Box>
                 </Box>
                 <Box>
                   <Typography>Border Width</Typography>
-                  <Box sx={{ width: 100 }}>
+                  <Box sx={{ width: 130 }}>
                     <Stack
                       spacing={2}
                       direction="row"
@@ -237,6 +239,7 @@ export default function SideDrawer({ open, onClose }) {
                         value={serviceCardBW}
                         onChange={handleServiceCardBWChange}
                       />
+                      <Typography>{serviceCardBW}</Typography>
                     </Stack>
                   </Box>
                 </Box>
@@ -257,130 +260,28 @@ export default function SideDrawer({ open, onClose }) {
                 </Stack>
               </Box>
             </Paper>
-
-            {/* <Paper sx={{
-                p:2,
-                mt:2
-            }}>
-              <Typography>Skill Cards</Typography>
-              <Box
-                sx={{
-                  display: "flex",
-                }}
-              >
-                <Box sx={{ width: "85%" }}>
-                  <Typography
-                    sx={{
-                      marginBottom: "5px",
-                    }}
-                  >
-                    Background Color
-                  </Typography>
-                  <TextField
-                    name="bgColor"
-                    size="small"
-                    value={serviceCardBG}
-                    onChange={handleServiceCardBGChange}
-                    type="text"
-                    style={{ width: "100%" }}
-                  />
-                </Box>
-
-                <Box sx={{ width: "15%" }}>
-                  <Typography
-                    sx={{
-                      marginBottom: "5px",
-                    }}
-                  >
-                    Select
-                  </Typography>
-                  <TextField
-                    name="bgColor"
-                    size="small"
-                    value={serviceCardBG}
-                    onChange={handleServiceCardBGChange}
-                    type="color"
-                    style={{ width: "100%" }}
-                  />
-                </Box>
-              </Box>
-
-              <Box sx={{
-                display:'flex',
-                gap:5,
-                mt:2
-              }}>
-                <Box>
-                  <Typography>Border Radious</Typography>
-                  <Box sx={{ width: 200 }}>
-                    <Stack
-                      spacing={2}
-                      direction="row"
-                      sx={{ alignItems: "center", mb: 1 }}
-                    >
-                      <Slider
-                        aria-label="Border-Radious"
-                        value={serviceCardBR}
-                        onChange={handleServiceCardBRChange}
-                      />
-                    </Stack>
-                  </Box>
-                </Box>
-                <Box>
-                  <Typography>Border Width</Typography>
-                  <Box sx={{ width: 100 }}>
-                    <Stack
-                      spacing={2}
-                      direction="row"
-                      sx={{ alignItems: "center", mb: 1 }}
-                    >
-                      <Slider
-                        aria-label="Border-Width"
-                        value={serviceCardBW}
-                        onChange={handleServiceCardBWChange}
-                      />
-                    </Stack>
-                  </Box>
-                </Box>
-              </Box>
-
-              <Typography>Transparency</Typography>
-              <Box sx={{ width: 200 }}>
-                <Stack
-                  spacing={2}
-                  direction="row"
-                  sx={{ alignItems: "center", mb: 1 }}
-                >
-                  <Slider
-                    aria-label="Volume"
-                    value={20}
-                    onChange={handleChange}
-                  />
-                </Stack>
-              </Box>
-            </Paper> */}
-
-            <Box
-              sx={{
-                // position: "absolute",
-                // bottom: 20,
-                // right: 20,
-                display: "flex",
-                justifyContent: "flex-end",
-                gap: 2,
-                mt:2
-              }}
-            >
-              <Button variant="contained" onClick={handleReset}>
-                Reset
-              </Button>
-              <Button variant="contained" onClick={() => onClose()}>
-                Apply
-              </Button>
-            </Box>
           </Box>
         )}
         {tab === "drawer" && <Box sx={{ width: 400, p: 2 }}>drawer</Box>}
+
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: 20,
+            right: 20,
+            display: "flex",
+            justifyContent: "flex-end",
+            gap: 2,
+            mt: 2,
+          }}
+        >
+          <Button variant="contained" onClick={handleReset}>
+            Reset
+          </Button>
+          <Button variant="contained" onClick={() => onClose()}>
+            Apply
+          </Button>
+        </Box>
       </Box>
     </Drawer>
   );
