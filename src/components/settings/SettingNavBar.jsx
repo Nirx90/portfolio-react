@@ -57,7 +57,7 @@ export default function SettingNavBar() {
   };
 
   return (
-    <Box sx={{ width: 400, p: 2 }}>
+    <Box sx={{ p: 2 }}>
       <Paper
         sx={{
           p: 2,

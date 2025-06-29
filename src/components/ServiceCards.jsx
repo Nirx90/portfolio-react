@@ -70,7 +70,7 @@ const ServiceCards = () => {
                   elevation={3}
                   sx={{
                     p: 3,
-                    minHeight: 240,
+                    minHeight: 190,
                     borderRadius: serviceCardCss.BorderRadious,
                     // borderRadius: `${serviceCardCss.BorderRadious}%`,
                     // background: "rgba(255, 255, 255, 0.15)",

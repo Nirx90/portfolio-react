@@ -33,7 +33,7 @@ export default function SettingLayout() {
   };
 
   return (
-    <Box sx={{ width: 400, p: 2 }}>
+    <Box sx={{ p: 2 }}>
       <Paper
         sx={{
           p: 2,

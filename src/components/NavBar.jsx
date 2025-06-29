@@ -19,7 +19,12 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import { useDispatch, useSelector } from "react-redux";
 import { resetNavbar, setNavBarDarkMode } from "../slices/navbarSlice";
 import { resetTheme, setThemeColors } from "../slices/themeSlice";
-import { IconMoonFilled, IconSettings, IconSettingsFilled } from "@tabler/icons-react";
+import {
+  IconMoonFilled,
+  IconSettings,
+  IconSettingsFilled,
+  IconSunFilled,
+} from "@tabler/icons-react";
 import SideDrawer from "./SideDrawer";
 import {
   resetserviceCard,
@@ -43,6 +48,7 @@ export default function NavBar() {
   const dispatch = useDispatch();
 
   const navBarCss = useSelector((state) => state.navbar);
+  const {DarkMode} = useSelector((state) => state.theme);
 
   const toggleDrawer = (open) => () => setDrawerOpen(open);
 
@@ -51,6 +57,7 @@ export default function NavBar() {
 
   const handleDarkMode = () => {
     const nextMode = !darkMode;
+    console.log("🚀 ~ handleDarkMode ~ nextMode:", nextMode)
     setDarkMode(nextMode);
 
     if (nextMode) {
@@ -141,18 +148,30 @@ export default function NavBar() {
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             {/* Theme Menu */}
 
-            <IconButton color="inherit">
-              <IconMoonFilled color={navBarCss.TextColor} />
-            </IconButton>
-            <Switch
+            {DarkMode ? (
+              <IconSunFilled
+                color={navBarCss.TextColor}
+                name="darkMode"
+                onClick={() => handleDarkMode()}
+                cursor="pointer"
+                />
+              ) : (
+                <IconMoonFilled
+                color={navBarCss.TextColor}
+                name="darkMode"
+                onClick={() => handleDarkMode()}
+                cursor="pointer"
+              />
+            )}
+
+            {/* <Switch
               checked={darkMode}
               onChange={() => handleDarkMode()}
               name="darkMode"
-              // color="primary"
               sx={{
                 color: navBarCss.TextColor,
               }}
-            />
+            /> */}
 
             {/* User Menu */}
             <IconButton color="inherit" onClick={handleUserMenuClick}>
@@ -192,6 +211,7 @@ export default function NavBar() {
       </AppBar>
 
       <SideDrawer open={openSideDrwer} onClose={handleSideDrawerClose} />
+
       {/* Mobile Drawer */}
       <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
         <Box sx={{ width: 200, p: 2 }}>

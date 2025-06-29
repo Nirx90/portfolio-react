@@ -102,7 +102,6 @@ const WorkExperience = () => {
           boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
           transition: "transform 0.3s ease",
           p: 5,
-          width: 600,
         }}
       >
         <Stepper orientation="vertical" activeStep={experienceData.length}>

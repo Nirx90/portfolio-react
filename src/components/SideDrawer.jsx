@@ -3,14 +3,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { useDispatch } from "react-redux";
-import {
-  Button,
-  Drawer,
-} from "@mui/material";
+import { Button, Drawer, useMediaQuery, useTheme } from "@mui/material";
 import { resetTheme } from "../slices/themeSlice";
-import {
-  resetserviceCard,
-} from "../slices/serviceCardSlice";
+import { resetserviceCard } from "../slices/serviceCardSlice";
 import { resetNavbar } from "../slices/navbarSlice";
 import SettingNavBar from "./settings/SettingNavBar";
 import SettingLayout from "./settings/SettingLayout";
@@ -18,6 +13,10 @@ import SettingLayout from "./settings/SettingLayout";
 export default function SideDrawer({ open, onClose }) {
   const [tab, setTab] = React.useState("navbar");
   const dispatch = useDispatch();
+
+  const theme = useTheme()
+
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleReset = () => {
     dispatch(resetTheme());
@@ -30,7 +29,7 @@ export default function SideDrawer({ open, onClose }) {
 
   return (
     <Drawer anchor="right" open={open} onClose={onClose}>
-      <Box sx={{ width: "100%" }}>
+      <Box width={isMobile ? 300 : 450}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
             value={tab}
@@ -65,10 +64,10 @@ export default function SideDrawer({ open, onClose }) {
           </Tabs>
         </Box>
 
-        {tab === "theme" && <Box sx={{ width: 400, p: 2 }}></Box>}
+        {tab === "theme" && <Box sx={{ p: 2 }}></Box>}
         {tab === "navbar" && <SettingNavBar />}
-        {tab === "layout" && ( <SettingLayout /> )}
-        {tab === "drawer" && <Box sx={{ width: 400, p: 2 }}>drawer</Box>}
+        {tab === "layout" && <SettingLayout />}
+        {tab === "drawer" && <Box sx={{ p: 2 }}>drawer</Box>}
 
         <Box
           sx={{

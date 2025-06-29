@@ -33,7 +33,8 @@ const PortfolioHomepage = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   const dispatch = useDispatch();
-  const { backgroundColor, primaryTextColor, secondaryTextColor, BoxShadow } = useSelector((state) => state.theme);
+  const { backgroundColor, primaryTextColor, secondaryTextColor, BoxShadow } =
+    useSelector((state) => state.theme);
 
   // Animation variants
   const containerVariants = {
@@ -107,6 +108,7 @@ const PortfolioHomepage = () => {
                 sx={{
                   display: "flex",
                   alignItems: "center",
+                  justifyContent: "space-between",
                   flexWrap: "wrap",
                   mt: 8,
                 }}
@@ -184,7 +186,14 @@ const PortfolioHomepage = () => {
                   </motion.div>
                 </Box>
 
-                <Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width : '50%'
+                  }}
+                >
                   <motion.div
                     variants={itemVariants}
                     whileHover={{ y: -5, scale: 1.02 }}
@@ -195,7 +204,6 @@ const PortfolioHomepage = () => {
                       sx={{
                         mt: isMobile ? 8 : 0,
                         p: 2,
-                        borderRadius: "20px",
                         background: "rgba(255, 255, 255, 0.05)", // transparent white
                         border: "1px solid rgba(255, 255, 255, 0.1)",
                         backdropFilter: "blur(14px)",
@@ -204,57 +212,30 @@ const PortfolioHomepage = () => {
                         boxShadow: darkMode
                           ? "none"
                           : "0 8px 32px rgba(31, 38, 135, 0.2)",
+                        borderRadius: "50%",
                       }}
                     >
                       <Box
                         sx={{
-                          background: darkMode
-                            ? "none"
-                            : "linear-gradient(45deg, #1976d2, #4dabf5)",
+                          background: darkMode ? "none" : "linear-gradient(45deg, #1976d2, #4dabf5)",
                           // background: backgroundColor,
-                          borderRadius: "12px",
-                          p: 3,
-                          color: "white",
-                          position: "relative",
-                          overflow: "hidden",
+                          borderRadius: "50%",
+                          p: 3,                          
                         }}
                       >
                         <Box
+                          component="img"
+                          src="https://digitalks-crm-bucket.s3.ap-south-1.amazonaws.com/CRM-ONE/staff/profileImage/profileImage-1750330132699-570439323.jpg"
+                          alt="Profile"
                           sx={{
-                            position: "absolute",
-                            top: 0,
-                            right: 0,
-                            opacity: 0.1,
+                            width: 250,
+                            height: 250,
+                            borderRadius: "50%",
+                            objectFit: "cover",
+                            border: "3px solid rgba(255, 255, 255, 0.4)",
+                            boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
                           }}
-                        >
-                          <Code sx={{ fontSize: 150 }} />
-                        </Box>
-                        <Typography
-                          variant="h6"
-                          sx={{ mb: 1, fontWeight: 600 }}
-                        >
-                          Current Project
-                        </Typography>
-                        <Typography
-                          variant="h4"
-                          sx={{ mb: 2, fontWeight: 700 }}
-                        >
-                          E-commerce Dashboard
-                        </Typography>
-                        <Typography sx={{ mb: 3 }}>
-                          React, Node.js, MongoDB, MUI
-                        </Typography>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          sx={{
-                            color: primaryTextColor,
-                            borderColor: primaryTextColor,
-                            borderRadius: "15px",
-                          }}
-                        >
-                          View Case Study
-                        </Button>
+                        />
                       </Box>
                     </Paper>
                   </motion.div>
@@ -264,36 +245,13 @@ const PortfolioHomepage = () => {
 
             {/* Service Section */}
             <ServiceCards />
-            
+
             <Box mt={10}>
               <WorkExperience />
             </Box>
 
-            <Box sx={{ mt: 10, mb: 6 }}>
-              <Typography
-                variant="h4"
-                sx={{
-                  textAlign: "center",
-                  mb: 4,
-                  fontWeight: 700,
-                  color: primaryTextColor,
-                }}
-              >
-                My Tech Stack
-              </Typography>
-
-              <Box
-                spacing={3}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 3,
-                  flexWrap: "wrap",
-                }}
-              >
-                <SkillCard />
-              </Box>
+            <Box sx={{ mt: 10 }}>
+              <SkillCard />
             </Box>
           </Container>
         </Box>
