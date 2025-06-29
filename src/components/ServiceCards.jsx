@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -16,9 +16,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 const ServiceCards = () => {
 
-  const dispatch = useDispatch();
   const serviceCardCss = useSelector((state) => state.serviceCard);
-
+  
   return (
     <Box sx={{ position: "relative" }}>
       <Box sx={{ mt: 10 }}>
@@ -71,8 +70,9 @@ const ServiceCards = () => {
                   elevation={3}
                   sx={{
                     p: 3,
-                    minHeight: 220,
+                    minHeight: 240,
                     borderRadius: serviceCardCss.BorderRadious,
+                    // borderRadius: `${serviceCardCss.BorderRadious}%`,
                     // background: "rgba(255, 255, 255, 0.15)",
                     // background: "rgba(255, 255, 255, 0.05)",
 
@@ -81,7 +81,8 @@ const ServiceCards = () => {
                     backdropFilter: "blur(12px)",
                     WebkitBackdropFilter: "blur(12px)",
                     // border: "1px solid rgba(255, 255, 255, 0.3)",
-                    border: `${serviceCardCss.BorderWidth}px solid rgba(255, 255, 255, 0.3)`,
+                    // border: `${serviceCardCss.BorderWidth}px solid rgba(255, 255, 255, 0.3)`,
+                    border: `${serviceCardCss.BorderWidth}px solid ${serviceCardCss.BorderColor}`,
                     // boxShadow: darkMode
                     //   ? "none"
                     //   : "0 8px 32px rgba(31, 38, 135, 0.2)",

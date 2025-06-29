@@ -8,6 +8,7 @@ const initialState = {
   BorderRadious: "20px",
   BorderWidth: 1,
   Transparency: "none",
+  BorderColor : "#FFFFFF4D"
 };
 
 const serviceCardSlice = createSlice({
@@ -28,6 +29,11 @@ const serviceCardSlice = createSlice({
       const { BorderWidth } = action.payload;
       state.BorderWidth = BorderWidth;
     },
+    setserviceCardBorderColor: (state, action) => {
+      const { BorderColor } = action.payload;
+      console.log("🚀 ~ BorderColor:", BorderColor)
+      state.BorderColor = BorderColor;
+    },
     setserviceCardBorderRadious: (state, action) => {
       const { BorderRadious } = action.payload;
       state.BorderRadious = BorderRadious;
@@ -45,6 +51,7 @@ export const {
         setserviceCardBackgroundColor,
         setserviceCardBorderWidth,
         setserviceCardBorderRadious,
+        setserviceCardBorderColor,
         setserviceCardTransparency,
         setserviceCardDarkMode,
         resetserviceCard

@@ -33,8 +33,8 @@ const PortfolioHomepage = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   const dispatch = useDispatch();
-  const { backgroundColor, primaryTextColor, secondaryTextColor, BoxShadow } =
-    useSelector((state) => state.theme);
+  const { backgroundColor, primaryTextColor, secondaryTextColor, BoxShadow } = useSelector((state) => state.theme);
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
