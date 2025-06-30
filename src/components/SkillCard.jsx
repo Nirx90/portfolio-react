@@ -220,6 +220,7 @@ import "./SkillCard.css";
 
 const SkillCard = () => {
   const { DarkMode } = useSelector((state) => state.theme);
+  const skillCardCss = useSelector((state) => state.skillCard);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [hoveredSkill, setHoveredSkill] = useState(null);
 
@@ -386,17 +387,17 @@ const SkillCard = () => {
                 sx={{
                   p: 3,
                   minWidth: 150,
-                  borderRadius: 3,
+                  borderRadius: skillCardCss.BorderRadious,
 
-                  background: "rgba(255, 255, 255, 0.05)",
+                  background: skillCardCss.BackgroundColor,
                   backdropFilter: "blur(12px)",
                   WebkitBackdropFilter: "blur(12px)",
-                  border: `1px solid rgba(255, 255, 255, 0.3)`,
+                  border: `${skillCardCss.BorderWidth}px solid ${skillCardCss.BorderColor}`,
                   boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
                   transition: "transform 0.3s ease",
                   "&:hover": {
-                    borderColor: skill.color,
-                    boxShadow: `0 8px 24px ${skill.color}33`,
+                    borderColor: skillCardCss.BorderColor || skill.color,
+                    boxShadow: `0 8px 24px ${skillCardCss.BorderColor || skill.color}50`,
                   },
                 }}
               >
@@ -409,17 +410,17 @@ const SkillCard = () => {
                     gap: 1,
                   }}
                 >
-                  <Box style={{ color: skill.color }}>{skill.icon}</Box>
+                  <Box style={{ color: skillCardCss.IconColor || skill.color }}>{skill.icon}</Box>
                   <Typography
                     sx={{
-                      color: DarkMode ? "whitesmoke" : "black",
+                      color: skillCardCss.TextColor || "black",
                     }}
                   >
                     {skill.name}
                   </Typography>
                   <Typography
                     sx={{
-                      color: DarkMode ? "whitesmoke" : "black",
+                      color: skillCardCss.TextColor || "black",
                     }}
                   >
                     {skill.level}%
@@ -431,9 +432,9 @@ const SkillCard = () => {
                   sx={{
                     borderRadius: 5,
                     height: 10,
-                    backgroundColor: `${skill.color}33`,
+                    backgroundColor: `${skillCardCss.IconColor || skill.color}33`,
                     "& .MuiLinearProgress-bar": {
-                      backgroundColor: skill.color,
+                      backgroundColor: skillCardCss.IconColor || skill.color,
                       borderRadius: 5,
                     },
                   }}

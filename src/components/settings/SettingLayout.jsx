@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Paper, TextField, Typography } from "@mui/material";
 import SettingService from "./SettingService";
 import { setThemeColors } from "../../slices/themeSlice";
+import SettingSkills from "./SettingSkill";
 
 export default function SettingLayout() {
 
@@ -72,6 +73,8 @@ export default function SettingLayout() {
       </Paper>
 
       <SettingService />
+
+      <SettingSkills />
     </Box>
   );
 }

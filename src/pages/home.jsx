@@ -109,6 +109,7 @@ const PortfolioHomepage = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
+                  flexDirection: isMobile ? 'column' : 'row',
                   flexWrap: "wrap",
                   mt: 8,
                 }}
@@ -191,7 +192,8 @@ const PortfolioHomepage = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    width : '50%'
+                    width : isMobile ? "100%" : '50%',
+                    mt:5
                   }}
                 >
                   <motion.div

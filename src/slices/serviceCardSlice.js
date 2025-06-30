@@ -8,7 +8,7 @@ const initialState = {
   BorderRadious: "20px",
   BorderWidth: 1,
   Transparency: "none",
-  BorderColor : "#FFFFFF4D"
+  BorderColor: "#FFFFFF4D",
 };
 
 const serviceCardSlice = createSlice({
@@ -31,7 +31,6 @@ const serviceCardSlice = createSlice({
     },
     setserviceCardBorderColor: (state, action) => {
       const { BorderColor } = action.payload;
-      console.log("🚀 ~ BorderColor:", BorderColor)
       state.BorderColor = BorderColor;
     },
     setserviceCardBorderRadious: (state, action) => {
@@ -47,14 +46,14 @@ const serviceCardSlice = createSlice({
   extraReducers: (builder) => {},
 });
 
-export const { 
-        setserviceCardBackgroundColor,
-        setserviceCardBorderWidth,
-        setserviceCardBorderRadious,
-        setserviceCardBorderColor,
-        setserviceCardTransparency,
-        setserviceCardDarkMode,
-        resetserviceCard
-    } = serviceCardSlice.actions;
+export const {
+  setserviceCardBackgroundColor,
+  setserviceCardBorderWidth,
+  setserviceCardBorderRadious,
+  setserviceCardBorderColor,
+  setserviceCardTransparency,
+  setserviceCardDarkMode,
+  resetserviceCard,
+} = serviceCardSlice.actions;
 
 export default serviceCardSlice.reducer;

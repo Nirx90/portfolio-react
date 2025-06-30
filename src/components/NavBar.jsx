@@ -13,6 +13,8 @@ import {
   Menu,
   MenuItem,
   Switch,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
@@ -30,12 +32,17 @@ import {
   resetserviceCard,
   setserviceCardDarkMode,
 } from "../slices/serviceCardSlice";
+import { setSkillCardDarkMode } from "../slices/skillSlice";
 
 const navItems = ["Home", "About", "Projects", "Contact"];
 
 export default function NavBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [openSideDrwer, setOpenSideDrawer] = useState(false);
+
+  const theme = useTheme()
+
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [userMenuAnchor, setUserMenuAnchor] = useState(null);
 
@@ -57,7 +64,6 @@ export default function NavBar() {
 
   const handleDarkMode = () => {
     const nextMode = !darkMode;
-    console.log("🚀 ~ handleDarkMode ~ nextMode:", nextMode)
     setDarkMode(nextMode);
 
     if (nextMode) {
@@ -81,6 +87,11 @@ export default function NavBar() {
           PrimaryTextColor: "whitesmoke",
           SecondaryTextColor: "whitesmoke",
           BoxShadow: "none",
+        })
+      );
+      dispatch(
+        setSkillCardDarkMode({
+          TextColor: "whitesmoke",
         })
       );
     } else {
@@ -122,7 +133,7 @@ export default function NavBar() {
           borderBottomLeftRadius: navBarCss.BorderRadious,
           boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)", // deeper shadow for stronger float on dark background
           transition: "all 0.3s ease",
-          px: navBarCss.Padding,
+          px: isMobile ? 0 : navBarCss.Padding,
           // py: 1,
           zIndex: 1100,
         }}

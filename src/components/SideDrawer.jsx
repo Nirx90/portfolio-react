@@ -9,9 +9,10 @@ import { resetserviceCard } from "../slices/serviceCardSlice";
 import { resetNavbar } from "../slices/navbarSlice";
 import SettingNavBar from "./settings/SettingNavBar";
 import SettingLayout from "./settings/SettingLayout";
+import { resetSkillCard } from "../slices/skillSlice";
 
 export default function SideDrawer({ open, onClose }) {
-  const [tab, setTab] = React.useState("navbar");
+  const [tab, setTab] = React.useState("layout");
   const dispatch = useDispatch();
 
   const theme = useTheme()
@@ -22,8 +23,7 @@ export default function SideDrawer({ open, onClose }) {
     dispatch(resetTheme());
     dispatch(resetNavbar());
     dispatch(resetserviceCard());
-    setServiceCardBR(12);
-    setServiceCardBW(1);
+    dispatch(resetSkillCard())
     onClose();
   };
 
@@ -71,7 +71,7 @@ export default function SideDrawer({ open, onClose }) {
 
         <Box
           sx={{
-            position: "absolute",
+            position: "relative",
             bottom: 20,
             right: 20,
             display: "flex",
