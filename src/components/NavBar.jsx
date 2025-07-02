@@ -32,7 +32,7 @@ import {
   resetserviceCard,
   setserviceCardDarkMode,
 } from "../slices/serviceCardSlice";
-import { setSkillCardDarkMode } from "../slices/skillSlice";
+import { resetSkillCard, setSkillCardDarkMode } from "../slices/skillSlice";
 
 const navItems = ["Home", "About", "Projects", "Contact"];
 
@@ -92,12 +92,14 @@ export default function NavBar() {
       dispatch(
         setSkillCardDarkMode({
           TextColor: "whitesmoke",
+          // BorderColor : "#FFFFFF4D"
         })
       );
     } else {
       dispatch(resetNavbar());
       dispatch(resetTheme());
       dispatch(resetserviceCard());
+      dispatch(resetSkillCard());
     }
   };
 

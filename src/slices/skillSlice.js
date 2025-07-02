@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  BackgroundColor: "rgba(255, 255, 255, 0.05)",
+  BackgroundColor: "rgba(255, 255, 255, 0)",
   TextColor: "",
   IconColor : "",
   BoxShadow: "",
   BorderRadious: 3,
   BorderWidth: 1,
   Transparency: "none",
-  BorderColor: "#FFFFFF4D",
+  BorderColor: "",
 };
 
 const skillCardSlice = createSlice({
@@ -22,6 +22,7 @@ const skillCardSlice = createSlice({
     setSkillCardDarkMode: (state, action) => {
       const data = action.payload;
       state.TextColor = data.TextColor;
+      // state.BorderColor = data.BorderColor;
     },
     setSkillCardBorderWidth: (state, action) => {
       const { BorderWidth } = action.payload;

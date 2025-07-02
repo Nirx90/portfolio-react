@@ -25,6 +25,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setThemeColors } from "../slices/themeSlice";
 import ServiceCards from "../components/ServiceCards";
 import WorkExperience from "../components/WorkExperience";
+import ContactSection from "../components/Contact";
+import ReviewsSection from "../components/Reviews";
 
 const PortfolioHomepage = () => {
   const theme = useTheme();
@@ -109,7 +111,7 @@ const PortfolioHomepage = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
-                  flexDirection: isMobile ? 'column' : 'row',
+                  flexDirection: isMobile ? "column" : "row",
                   flexWrap: "wrap",
                   mt: 8,
                 }}
@@ -192,8 +194,8 @@ const PortfolioHomepage = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    width : isMobile ? "100%" : '50%',
-                    mt:5
+                    width: isMobile ? "100%" : "50%",
+                    mt: 5,
                   }}
                 >
                   <motion.div
@@ -219,10 +221,12 @@ const PortfolioHomepage = () => {
                     >
                       <Box
                         sx={{
-                          background: darkMode ? "none" : "linear-gradient(45deg, #1976d2, #4dabf5)",
+                          background: darkMode
+                            ? "none"
+                            : "linear-gradient(45deg, #1976d2, #4dabf5)",
                           // background: backgroundColor,
                           borderRadius: "50%",
-                          p: 3,                          
+                          p: 3,
                         }}
                       >
                         <Box
@@ -245,7 +249,6 @@ const PortfolioHomepage = () => {
               </Box>
             </motion.div>
 
-            {/* Service Section */}
             <ServiceCards />
 
             <Box mt={10}>
@@ -254,6 +257,14 @@ const PortfolioHomepage = () => {
 
             <Box sx={{ mt: 10 }}>
               <SkillCard />
+            </Box>
+
+            <Box sx={{ mt: 10 }}>
+              <ReviewsSection />
+            </Box>
+
+            <Box sx={{ mt: 10 }}>
+              <ContactSection />
             </Box>
           </Container>
         </Box>

@@ -94,7 +94,7 @@ const WorkExperience = () => {
       </Typography>
       <Paper
         sx={{
-          backgroundColor: DarkMode ? "black" : "rgba(255, 255, 255, 0.05)",
+          backgroundColor: DarkMode ? "black" : "rgba(255, 255, 255, 0)",
           borderRadius: 5,
           border: `1px solid rgba(255, 255, 255, 0.3)`,
           backdropFilter: "blur(12px)",
