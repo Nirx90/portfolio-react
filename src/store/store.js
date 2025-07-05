@@ -3,6 +3,7 @@ import themeReducer from "../slices/themeSlice";
 import navbarReducer from "../slices/navbarSlice";
 import serviceCardReducer from "../slices/serviceCardSlice";
 import skillCardReducer from "../slices/skillSlice";
+import experienceCardReducer from "../slices/experienceSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     navbar: navbarReducer,
     serviceCard: serviceCardReducer,
     skillCard: skillCardReducer,
+    experienceCard: experienceCardReducer,
   },
 });
 

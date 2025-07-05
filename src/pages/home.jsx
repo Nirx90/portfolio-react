@@ -259,6 +259,28 @@ const PortfolioHomepage = () => {
               <SkillCard />
             </Box>
 
+            {/* <Box sx={{
+              background:'#2196f3',
+              p:5,
+              display:'flex',
+              alignItems:'center',
+              justifyContent:'center',
+              flexDirection:'column',
+              gap:3,
+              mt:10
+            }}>
+              <Typography variant="h5" color="white">Do you have any project?</Typography>
+              <Typography variant="h4" color="white">I'm Available for Freelancing Project</Typography>
+              <Button sx={{
+                color:'white',
+                border:'1px solid white'
+              }}
+              variant="outlined"
+              >
+                Hire Me
+              </Button>
+            </Box> */}
+
             <Box sx={{ mt: 10 }}>
               <ReviewsSection />
             </Box>

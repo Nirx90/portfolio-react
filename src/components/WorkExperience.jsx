@@ -44,6 +44,7 @@ const experienceData = [
 
 const WorkExperience = () => {
   const { DarkMode } = useSelector((state) => state.theme);
+  const experienceCss = useSelector((state) => state.experienceCard);
 
   const CustomStepIconRoot = styled("div")(() => ({
     backgroundColor: DarkMode ? "black" : "#e0e7ff",

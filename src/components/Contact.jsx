@@ -11,15 +11,14 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import {
   IconBrandGithub,
   IconBrandInstagram,
   IconBrandLinkedin,
   IconBrandWhatsapp,
+  IconLocation,
+  IconMail,
+  IconMapPin,
 } from "@tabler/icons-react";
 
 export default function ContactSection() {
@@ -44,6 +43,50 @@ export default function ContactSection() {
     alert("Thank you! Your message has been sent.");
   };
 
+  const textFieldCss = {
+    // Label color when not focused
+    "& label": {
+      color: "", // change to your preferred color
+    },
+    // Label color when focused
+    "& label.Mui-focused": {
+      color: "#1976d2",
+    },
+    // Default border color
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "",
+      },
+      // Border color on hover
+      "&:hover fieldset": {
+        borderColor: "",
+      },
+      // Border color when focused
+      "&.Mui-focused fieldset": {
+        borderColor: "#1976d2",
+      },
+    },
+  };
+
+  const centerCss = {
+    display: "flex",
+    alignItems: "center",
+    // justifyContent: "center",
+  };
+
+  const customeCss = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "rgba(255, 255, 255, 0)",
+    backdropFilter: "blur(12px)",
+    WebkitBackdropFilter: "blur(12px)",
+    border: `1px solid rgba(255, 255, 255, 0.3)`,
+    boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+    p: 1,
+    borderRadius: "50%",
+  };
+
   return (
     <>
       <Typography
@@ -60,10 +103,11 @@ export default function ContactSection() {
       </Typography>
       <Box
         sx={{
-          p: 3,
+          p: 5,
           minHeight: 190,
           borderRadius: 5,
           background: "rgba(255, 255, 255, 0)",
+          // background: `linear-gradient(135deg, #FF4081 0%, #1976d2 100%)`,
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
           border: `1px solid rgba(255, 255, 255, 0.3)`,
@@ -78,14 +122,71 @@ export default function ContactSection() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                flexDirection: isMobile ? "row" : "column",
-                gap: 3,
+                flexDirection: "column",
+                gap: 2,
+                px: 4,
               }}
             >
-              <IconBrandGithub size={35} color="#1876D2" />
-              <IconBrandLinkedin size={35} color="#1876D2" />
-              <IconBrandInstagram size={35} color="#1876D2" />
-              <IconBrandWhatsapp size={35} color="#1876D2" />
+              <Box sx={{ width: "100%" }}>
+                <Box
+                  sx={{
+                    ...centerCss,
+                    gap: 3,
+                  }}
+                >
+                  <Box sx={{ ...customeCss }}>
+                    <IconMail size={35} color="#1876D2" />
+                  </Box>
+                  <Typography>inirav114@gmail.com</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    ...centerCss,
+                    gap: 3,
+                    mt: 2,
+                  }}
+                >
+                  <Box sx={{ ...customeCss }}>
+                    <IconBrandWhatsapp size={35} color="#1876D2" />
+                  </Box>
+                  <Typography>+91 95868 37258</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    ...centerCss,
+                    gap: 3,
+                    mt: 2,
+                  }}
+                >
+                  <Box sx={{ ...customeCss }}>
+                    <IconMapPin size={35} color="#1876D2" />
+                  </Box>
+                  <Typography>Pune, Maharashtra</Typography>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: 2,
+                  width: "100%",
+                  mt: 1,
+                }}
+              >
+                <Box sx={{ ...customeCss }}>
+                  <IconBrandGithub size={35} color="#1876D2" />
+                </Box>
+                <Box sx={{ ...customeCss }}>
+                  <IconBrandLinkedin size={35} color="#1876D2" />
+                </Box>
+                <Box sx={{ ...customeCss }}>
+                  <IconBrandInstagram size={35} color="#1876D2" />
+                </Box>
+                <Box sx={{ ...customeCss }}>
+                  <IconBrandWhatsapp size={35} color="#1876D2" />
+                </Box>
+              </Box>
             </Box>
           </Grid>
 
@@ -99,6 +200,7 @@ export default function ContactSection() {
                   label="Name"
                   value={formData.name}
                   onChange={handleChange}
+                  sx={{ ...textFieldCss }}
                 />
               </Grid>
               <Grid item size={{ xs: 12, sm: 6 }}>
@@ -110,6 +212,7 @@ export default function ContactSection() {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
+                  sx={{ ...textFieldCss }}
                 />
               </Grid>
               <Grid item size={{ xs: 12, sm: 6 }}>
@@ -121,6 +224,7 @@ export default function ContactSection() {
                   type="tel"
                   value={formData.mobile}
                   onChange={handleChange}
+                  sx={{ ...textFieldCss }}
                 />
               </Grid>
               <Grid item size={{ xs: 12, sm: 6 }}>
@@ -131,7 +235,8 @@ export default function ContactSection() {
                   label="Subject"
                   value={formData.subject}
                   onChange={handleChange}
-                />
+                  sx={{ ...textFieldCss }}
+                  />
               </Grid>
               <Grid item size={12}>
                 <TextField
@@ -143,6 +248,7 @@ export default function ContactSection() {
                   minRows={4}
                   value={formData.description}
                   onChange={handleChange}
+                  sx={{ ...textFieldCss }}
                 />
               </Grid>
               <Grid item size={12}>

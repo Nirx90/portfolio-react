@@ -18,6 +18,11 @@ const navbarSlice = createSlice({
       state.BackgroundColor = BackgroundColor;
       state.TextColor = TextColor;
     },
+    setNavBarThemeThunk: (state, action) => {
+      const data = action.payload;
+      state.BackgroundColor = data.BackgroundColor;
+      state.TextColor = data.TextColor;
+    },
     setNavBarBackgroundColor: (state, action) => {
       const data = action.payload;
       state.BackgroundColor = data.BackgroundColor;
@@ -56,6 +61,7 @@ export const {
   setNavBarBorderWidth,
   setNavBarBorderRadious,
   setNavBarTransparency,
-  setNavBarTextColor
+  setNavBarTextColor,
+  setNavBarThemeThunk
 } = navbarSlice.actions;
 export default navbarSlice.reducer;

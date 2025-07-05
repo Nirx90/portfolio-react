@@ -26,6 +26,12 @@ const serviceCardSlice = createSlice({
       state.PrimaryTextColor = data.PrimaryTextColor;
       state.SecondaryTextColor = data.SecondaryTextColor;
     },
+    setserviceCardThemeThunk: (state, action) => {
+      const data = action.payload;
+      state.BackgroundColor = data.BackgroundColor;
+      state.PrimaryTextColor = data.PrimaryTextColor;
+      state.SecondaryTextColor = data.SecondaryTextColor;
+    },
     setserviceCardBorderWidth: (state, action) => {
       const { BorderWidth } = action.payload;
       state.BorderWidth = BorderWidth;
@@ -54,6 +60,7 @@ export const {
   setserviceCardBorderColor,
   setserviceCardTransparency,
   setserviceCardDarkMode,
+  setserviceCardThemeThunk,
   resetserviceCard,
 } = serviceCardSlice.actions;
 

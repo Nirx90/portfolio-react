@@ -10,6 +10,7 @@ import { resetNavbar } from "../slices/navbarSlice";
 import SettingNavBar from "./settings/SettingNavBar";
 import SettingLayout from "./settings/SettingLayout";
 import { resetSkillCard } from "../slices/skillSlice";
+import SettingTheme from "./settings/SettingTheme";
 
 export default function SideDrawer({ open, onClose }) {
   const [tab, setTab] = React.useState("layout");
@@ -28,8 +29,10 @@ export default function SideDrawer({ open, onClose }) {
   };
 
   return (
-    <Drawer anchor="right" open={open} onClose={onClose}>
-      <Box width={isMobile ? 300 : 450}>
+    <Drawer anchor="right" open={open} onClose={onClose} >
+      <Box width={isMobile ? 300 : 450} sx={{
+        // backgroundColor:'black'
+      }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
             value={tab}
@@ -64,7 +67,7 @@ export default function SideDrawer({ open, onClose }) {
           </Tabs>
         </Box>
 
-        {tab === "theme" && <Box sx={{ p: 2 }}></Box>}
+        {tab === "theme" && <SettingTheme />}
         {tab === "navbar" && <SettingNavBar />}
         {tab === "layout" && <SettingLayout />}
         {tab === "drawer" && <Box sx={{ p: 2 }}>drawer</Box>}

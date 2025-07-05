@@ -11,60 +11,54 @@ const initialState = {
   BorderColor: "",
 };
 
-const skillCardSlice = createSlice({
-  name: "skillCard",
+const experienceCardSlice = createSlice({
+  name: "experienceCard",
   initialState,
   reducers: {
-    setSkillCardBackgroundColor: (state, action) => {
+    setExperienceCardBackgroundColorThunk: (state, action) => {
       const data = action.payload;
       state.BackgroundColor = data.BackgroundColor;
     },
-    setSkillCardDarkMode: (state, action) => {
+    setExperienceCardDarkModeThunk: (state, action) => {
       const data = action.payload;
       state.TextColor = data.TextColor;
       // state.BorderColor = data.BorderColor;
     },
-    setSkillCardThunk: (state, action) => {
-      const data = action.payload;
-      state.TextColor = data.TextColor;
-      state.BorderColor = data.BorderColor;
-    },
-    setSkillCardBorderWidth: (state, action) => {
+    setExperienceCardBorderWidthThunk: (state, action) => {
       const { BorderWidth } = action.payload;
       state.BorderWidth = BorderWidth;
     },
-    setSkillCardTextColorThunk: (state, action) => {
+    setExperienceCardTextColorThunk: (state, action) => {
       const { TextColor, IconColor } = action.payload;
       state.TextColor = TextColor;
       state.IconColor = IconColor;
     },
-    setSkillCardBorderColorThunk: (state, action) => {
+    setExperienceCardBorderColorThunk: (state, action) => {
       const { BorderColor } = action.payload;
       state.BorderColor = BorderColor;
     },
-    setSkillCardBorderRadious: (state, action) => {
+    setExperienceCardBorderRadiousThunk: (state, action) => {
       const { BorderRadious } = action.payload;
       state.BorderRadious = BorderRadious;
     },
-    setSkillCardTransparency: (state, action) => {
+    setExperienceCardTransparencyThunk: (state, action) => {
       const { Transparency } = action.payload;
       state.Transparency = Transparency;
     },
-    resetSkillCard: () => initialState,
+    resetExperienceCard: () => initialState,
   },
   extraReducers: (builder) => {},
 });
 
 export const {
-  setSkillCardBackgroundColor,
-  setSkillCardTextColorThunk,
-  setSkillCardBorderWidth,
-  setSkillCardBorderRadious,
-  setSkillCardBorderColorThunk,
-  setSkillCardTransparency,
-  setSkillCardDarkMode,
-  setSkillCardThunk,
-  resetSkillCard,
-} = skillCardSlice.actions;
+  setExperienceCardBackgroundColorThunk,
+  setExperienceCardTextColorThunk,
+  setExperienceCardBorderWidthThunk,
+  setExperienceCardBorderRadiousThunk,
+  setExperienceCardBorderColorThunk,
+  setExperienceCardTransparencyThunk,
+  setExperienceCardDarkModeThunk,
+  resetExperienceCard,
+} = experienceCardSlice.actions;
 
-export default skillCardSlice.reducer;
+export default experienceCardSlice.reducer;
