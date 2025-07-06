@@ -33,6 +33,8 @@ import {
   setserviceCardDarkMode,
 } from "../slices/serviceCardSlice";
 import { resetSkillCard, setSkillCardDarkMode } from "../slices/skillSlice";
+import { resetReview, setReviewDarkModeThunk } from "../slices/reviewSlice";
+import { resetContact, setContactDarkModeThunk } from "../slices/contactSlice";
 
 const navItems = ["Home", "About", "Projects", "Contact"];
 
@@ -75,10 +77,11 @@ export default function NavBar() {
       );
       dispatch(
         setThemeColors({
-          backgroundColor: "black",
-          primaryTextColor: "whitesmoke",
-          secondaryTextColor: "whitesmoke",
+          BackgroundColor: "black",
+          PrimaryTextColor: "whitesmoke",
+          SecondaryTextColor: "whitesmoke",
           BoxShadow: "none",
+          DarkMode : true
         })
       );
       dispatch(
@@ -95,11 +98,23 @@ export default function NavBar() {
           // BorderColor : "#FFFFFF4D"
         })
       );
+      dispatch(
+        setReviewDarkModeThunk({
+          TextColor: "whitesmoke",
+        })
+      );
+      dispatch(
+        setContactDarkModeThunk({
+          TextColor: "whitesmoke",
+        })
+      );
     } else {
       dispatch(resetNavbar());
       dispatch(resetTheme());
       dispatch(resetserviceCard());
       dispatch(resetSkillCard());
+      dispatch(resetReview());
+      dispatch(resetContact())
     }
   };
 

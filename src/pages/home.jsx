@@ -27,6 +27,7 @@ import ServiceCards from "../components/ServiceCards";
 import WorkExperience from "../components/WorkExperience";
 import ContactSection from "../components/Contact";
 import ReviewsSection from "../components/Reviews";
+import Footer from "../components/Footer";
 
 const PortfolioHomepage = () => {
   const theme = useTheme();
@@ -35,7 +36,7 @@ const PortfolioHomepage = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   const dispatch = useDispatch();
-  const { backgroundColor, primaryTextColor, secondaryTextColor, BoxShadow } =
+  const { BackgroundColor, PrimaryTextColor, SecondaryTextColor, BoxShadow } =
     useSelector((state) => state.theme);
 
   // Animation variants
@@ -72,8 +73,8 @@ const PortfolioHomepage = () => {
           // background: darkMode
           //   ? "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)"
           //   : "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-          background: backgroundColor,
-          py: isMobile ? 2 : 4,
+          background: BackgroundColor,
+          py: isMobile ? 2 : 10,
           position: "relative",
           overflow: "hidden",
           "&::before": {
@@ -98,7 +99,7 @@ const PortfolioHomepage = () => {
           },
         }}
       >
-        <Box sx={{ position: "relative" }}>
+        <Box>
           <Container>
             {/* Hero Section */}
             <motion.div
@@ -142,7 +143,7 @@ const PortfolioHomepage = () => {
                       variant="h5"
                       sx={{
                         mb: 3,
-                        color: primaryTextColor,
+                        color: PrimaryTextColor,
                       }}
                     >
                       Hi, I'm{" "}
@@ -159,7 +160,7 @@ const PortfolioHomepage = () => {
                       sx={{
                         mb: 4,
                         fontSize: "1.1rem",
-                        color: secondaryTextColor,
+                        color: SecondaryTextColor,
                       }}
                     >
                       I build performant, accessible, and beautiful web
@@ -291,6 +292,7 @@ const PortfolioHomepage = () => {
           </Container>
         </Box>
       </Box>
+      <Footer />
     </>
   );
 };

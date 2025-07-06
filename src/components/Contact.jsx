@@ -15,16 +15,26 @@ import {
   IconBrandGithub,
   IconBrandInstagram,
   IconBrandLinkedin,
+  IconBrandTwitter,
   IconBrandWhatsapp,
   IconLocation,
   IconMail,
   IconMapPin,
+  IconSettings,
 } from "@tabler/icons-react";
+import { useSelector } from "react-redux";
+import SettingContact from "./settings/SettingContact";
 
 export default function ContactSection() {
   const theme = useTheme();
 
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const { DarkMode } = useSelector((state) => state.theme);
+  const contactCss = useSelector((state) => state.contact);
+
+  const [settingDialog, setSettingDialog] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -46,27 +56,55 @@ export default function ContactSection() {
   const textFieldCss = {
     // Label color when not focused
     "& label": {
-      color: "", // change to your preferred color
+      color: contactCss.TextColor, // change to your preferred color
     },
     // Label color when focused
     "& label.Mui-focused": {
-      color: "#1976d2",
+      color: contactCss.TextColor,
     },
     // Default border color
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        borderColor: "",
+        borderColor: contactCss.TextColor,
       },
       // Border color on hover
       "&:hover fieldset": {
-        borderColor: "",
+        borderColor: contactCss.TextColor,
       },
       // Border color when focused
       "&.Mui-focused fieldset": {
-        borderColor: "#1976d2",
+        borderColor: contactCss.TextColor,
       },
     },
+    // Input text color
+    "& .MuiInputBase-input": {
+      color: contactCss.TextColor, // change to your preferred input text color
+    },
   };
+  // const textFieldCss = {
+  //   // Label color when not focused
+  //   "& label": {
+  //     color: "", // change to your preferred color
+  //   },
+  //   // Label color when focused
+  //   "& label.Mui-focused": {
+  //     color: "#1976d2",
+  //   },
+  //   // Default border color
+  //   "& .MuiOutlinedInput-root": {
+  //     "& fieldset": {
+  //       borderColor: "",
+  //     },
+  //     // Border color on hover
+  //     "&:hover fieldset": {
+  //       borderColor: "",
+  //     },
+  //     // Border color when focused
+  //     "&.Mui-focused fieldset": {
+  //       borderColor: "#1976d2",
+  //     },
+  //   },
+  // };
 
   const centerCss = {
     display: "flex",
@@ -81,7 +119,7 @@ export default function ContactSection() {
     background: "rgba(255, 255, 255, 0)",
     backdropFilter: "blur(12px)",
     WebkitBackdropFilter: "blur(12px)",
-    border: `1px solid rgba(255, 255, 255, 0.3)`,
+    border: `2px solid ${contactCss.BorderColor}`,
     boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
     p: 1,
     borderRadius: "50%",
@@ -94,8 +132,7 @@ export default function ContactSection() {
         sx={{
           textAlign: "center",
           fontWeight: 700,
-          //   color: DarkMode ? "whitesmoke" : "black",
-          color: "black",
+          color: DarkMode ? "whitesmoke" : "black",
           mb: 10,
         }}
       >
@@ -106,15 +143,33 @@ export default function ContactSection() {
           p: 5,
           minHeight: 190,
           borderRadius: 5,
-          background: "rgba(255, 255, 255, 0)",
+          background: contactCss.BackgroundColor,
           // background: `linear-gradient(135deg, #FF4081 0%, #1976d2 100%)`,
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
-          border: `1px solid rgba(255, 255, 255, 0.3)`,
+          border: `1px solid ${contactCss.BorderColor}`,
           boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
           transition: "transform 0.3s ease",
+          "&:hover .settings-popup": {
+            opacity: 1,
+            color: contactCss.TextColor,
+          },
         }}
       >
+        <Box
+          className="settings-popup"
+          sx={{
+            position: "absolute",
+            right: 10,
+            top: 10,
+            opacity: 0,
+          }}
+        >
+          <IconSettings
+            onClick={() => setSettingDialog(true)}
+            cursor="pointer"
+          />
+        </Box>
         <Grid container spacing={4}>
           <Grid item size={{ xs: 12, md: 4 }}>
             <Box
@@ -134,10 +189,12 @@ export default function ContactSection() {
                     gap: 3,
                   }}
                 >
-                  <Box sx={{ ...customeCss }}>
-                    <IconMail size={35} color="#1876D2" />
+                  <Box sx={{ ...customeCss, color: contactCss.IconColor }}>
+                    <IconMail size={35} />
                   </Box>
-                  <Typography>inirav114@gmail.com</Typography>
+                  <Typography sx={{ color: contactCss.TextColor }}>
+                    inirav114@gmail.com
+                  </Typography>
                 </Box>
                 <Box
                   sx={{
@@ -146,10 +203,12 @@ export default function ContactSection() {
                     mt: 2,
                   }}
                 >
-                  <Box sx={{ ...customeCss }}>
-                    <IconBrandWhatsapp size={35} color="#1876D2" />
+                  <Box sx={{ ...customeCss, color: contactCss.IconColor }}>
+                    <IconBrandWhatsapp size={35} />
                   </Box>
-                  <Typography>+91 95868 37258</Typography>
+                  <Typography sx={{ color: contactCss.TextColor }}>
+                    +91 95868 37258
+                  </Typography>
                 </Box>
                 <Box
                   sx={{
@@ -158,10 +217,15 @@ export default function ContactSection() {
                     mt: 2,
                   }}
                 >
-                  <Box sx={{ ...customeCss }}>
-                    <IconMapPin size={35} color="#1876D2" />
+                  <Box sx={{ ...customeCss, color: contactCss.IconColor }}>
+                    <IconMapPin
+                      size={35}
+                      sx={{ color: contactCss.IconColor }}
+                    />
                   </Box>
-                  <Typography>Pune, Maharashtra</Typography>
+                  <Typography sx={{ color: contactCss.TextColor }}>
+                    Pune, Maharashtra
+                  </Typography>
                 </Box>
               </Box>
               <Box
@@ -174,17 +238,29 @@ export default function ContactSection() {
                   mt: 1,
                 }}
               >
-                <Box sx={{ ...customeCss }}>
-                  <IconBrandGithub size={35} color="#1876D2" />
+                <Box sx={{ ...customeCss, color: contactCss.IconColor }}>
+                  <IconBrandGithub
+                    size={35}
+                    sx={{ color: contactCss.IconColor }}
+                  />
                 </Box>
-                <Box sx={{ ...customeCss }}>
-                  <IconBrandLinkedin size={35} color="#1876D2" />
+                <Box sx={{ ...customeCss, color: contactCss.IconColor }}>
+                  <IconBrandLinkedin
+                    size={35}
+                    sx={{ color: contactCss.IconColor }}
+                  />
                 </Box>
-                <Box sx={{ ...customeCss }}>
-                  <IconBrandInstagram size={35} color="#1876D2" />
+                <Box sx={{ ...customeCss, color: contactCss.IconColor }}>
+                  <IconBrandInstagram
+                    size={35}
+                    sx={{ color: contactCss.IconColor }}
+                  />
                 </Box>
-                <Box sx={{ ...customeCss }}>
-                  <IconBrandWhatsapp size={35} color="#1876D2" />
+                <Box sx={{ ...customeCss, color: contactCss.IconColor }}>
+                  <IconBrandTwitter
+                    size={35}
+                    sx={{ color: contactCss.IconColor }}
+                  />
                 </Box>
               </Box>
             </Box>
@@ -218,7 +294,6 @@ export default function ContactSection() {
               <Grid item size={{ xs: 12, sm: 6 }}>
                 <TextField
                   fullWidth
-                  required
                   name="mobile"
                   label="Mobile"
                   type="tel"
@@ -236,7 +311,7 @@ export default function ContactSection() {
                   value={formData.subject}
                   onChange={handleChange}
                   sx={{ ...textFieldCss }}
-                  />
+                />
               </Grid>
               <Grid item size={12}>
                 <TextField
@@ -272,6 +347,10 @@ export default function ContactSection() {
             </Grid>
           </Grid>
         </Grid>
+        <SettingContact
+          open={settingDialog}
+          onClose={() => setSettingDialog(false)}
+        />
       </Box>
     </>
   );

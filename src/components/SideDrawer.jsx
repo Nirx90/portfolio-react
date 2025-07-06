@@ -11,12 +11,14 @@ import SettingNavBar from "./settings/SettingNavBar";
 import SettingLayout from "./settings/SettingLayout";
 import { resetSkillCard } from "../slices/skillSlice";
 import SettingTheme from "./settings/SettingTheme";
+import { resetReview } from "../slices/reviewSlice";
+import { resetContact } from "../slices/contactSlice";
 
 export default function SideDrawer({ open, onClose }) {
   const [tab, setTab] = React.useState("layout");
   const dispatch = useDispatch();
 
-  const theme = useTheme()
+  const theme = useTheme();
 
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -24,15 +26,22 @@ export default function SideDrawer({ open, onClose }) {
     dispatch(resetTheme());
     dispatch(resetNavbar());
     dispatch(resetserviceCard());
-    dispatch(resetSkillCard())
+    dispatch(resetSkillCard());
+    dispatch(resetReview());
+    dispatch(resetContact());
     onClose();
   };
 
   return (
-    <Drawer anchor="right" open={open} onClose={onClose} >
-      <Box width={isMobile ? 300 : 450} sx={{
-        // backgroundColor:'black'
-      }}>
+    <Drawer anchor="right" open={open} onClose={onClose}>
+      <Box
+        width={isMobile ? 300 : 450}
+        sx={
+          {
+            // backgroundColor:'black'
+          }
+        }
+      >
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
             value={tab}

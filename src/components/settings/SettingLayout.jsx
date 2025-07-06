@@ -25,9 +25,9 @@ export default function SettingLayout() {
     }));
     dispatch(
       setThemeColors({
-        backgroundColor: formData.bgColor,
-        primaryTextColor: "whitesmoke",
-        secondaryTextColor: "whitesmoke",
+        BackgroundColor: formData.bgColor,
+        PrimaryTextColor: "whitesmoke",
+        SecondaryTextColor: "whitesmoke",
         BoxShadow: "none",
       })
     );

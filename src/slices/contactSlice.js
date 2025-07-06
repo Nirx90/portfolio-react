@@ -3,70 +3,70 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   BackgroundColor: "rgba(255, 255, 255, 0)",
   TextColor: "",
-  IconColor : "",
+  // IconColor : "#2196f3",
+  IconColor : "#1876D2",
   BoxShadow: "",
   BorderRadious: 3,
   BorderWidth: 1,
   Transparency: "none",
-  BorderColor: "",
+  BorderColor: "rgba(255, 255, 255, 0.3)",
 };
 
-const skillCardSlice = createSlice({
-  name: "skillCard",
+const contactSlice = createSlice({
+  name: "contact",
   initialState,
   reducers: {
-    setSkillCardBackgroundColor: (state, action) => {
+    setContactBackgroundColorThunk: (state, action) => {
       const data = action.payload;
       state.BackgroundColor = data.BackgroundColor;
     },
-    setSkillCardDarkMode: (state, action) => {
+    setContactDarkModeThunk: (state, action) => {
       const data = action.payload;
       state.TextColor = data.TextColor;
       // state.BorderColor = data.BorderColor;
     },
-    setSkillCardThemeThunk: (state, action) => {
+    setContactThemeThunk: (state, action) => {
       const data = action.payload;
       state.TextColor = data.TextColor;
-      state.BackgroundColor = data.BackgroundColor;
       state.BorderColor = data.BorderColor;
-      state.IconColor = data.IconColor;
+      state.BackgroundColor = data.BackgroundColor;
     },
-    setSkillCardBorderWidth: (state, action) => {
+    setContactBorderWidthThunk: (state, action) => {
       const { BorderWidth } = action.payload;
       state.BorderWidth = BorderWidth;
     },
-    setSkillCardTextColorThunk: (state, action) => {
+    setContactTextColorThunk: (state, action) => {
       const { TextColor, IconColor } = action.payload;
       state.TextColor = TextColor;
       state.IconColor = IconColor;
     },
-    setSkillCardBorderColorThunk: (state, action) => {
+    setContactBorderColorThunk: (state, action) => {
       const { BorderColor } = action.payload;
       state.BorderColor = BorderColor;
     },
-    setSkillCardBorderRadious: (state, action) => {
+    setContactBorderRadiousThunk: (state, action) => {
       const { BorderRadious } = action.payload;
       state.BorderRadious = BorderRadious;
     },
-    setSkillCardTransparency: (state, action) => {
+    setContactTransparencyThunk: (state, action) => {
       const { Transparency } = action.payload;
       state.Transparency = Transparency;
     },
-    resetSkillCard: () => initialState,
+    resetContact: () => initialState,
   },
   extraReducers: (builder) => {},
 });
 
 export const {
-  setSkillCardBackgroundColor,
-  setSkillCardTextColorThunk,
-  setSkillCardBorderWidth,
-  setSkillCardBorderRadious,
-  setSkillCardBorderColorThunk,
-  setSkillCardTransparency,
-  setSkillCardDarkMode,
-  setSkillCardThemeThunk,
-  resetSkillCard,
-} = skillCardSlice.actions;
+  setContactBackgroundColorThunk,
+  setContactTextColorThunk,
+  setContactBorderWidthThunk,
+  setContactBorderRadiousThunk,
+  setContactBorderColorThunk,
+  setContactTransparencyThunk,
+  setContactDarkModeThunk,
+  setContactThemeThunk,
+  resetContact,
+} = contactSlice.actions;
 
-export default skillCardSlice.reducer;
+export default contactSlice.reducer;
