@@ -81,30 +81,6 @@ export default function ContactSection() {
       color: contactCss.TextColor, // change to your preferred input text color
     },
   };
-  // const textFieldCss = {
-  //   // Label color when not focused
-  //   "& label": {
-  //     color: "", // change to your preferred color
-  //   },
-  //   // Label color when focused
-  //   "& label.Mui-focused": {
-  //     color: "#1976d2",
-  //   },
-  //   // Default border color
-  //   "& .MuiOutlinedInput-root": {
-  //     "& fieldset": {
-  //       borderColor: "",
-  //     },
-  //     // Border color on hover
-  //     "&:hover fieldset": {
-  //       borderColor: "",
-  //     },
-  //     // Border color when focused
-  //     "&.Mui-focused fieldset": {
-  //       borderColor: "#1976d2",
-  //     },
-  //   },
-  // };
 
   const centerCss = {
     display: "flex",

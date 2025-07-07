@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -8,70 +8,52 @@ import {
   StepContent,
   styled,
   Paper,
+  Divider,
 } from "@mui/material";
 import WorkIcon from "@mui/icons-material/Work";
 import SchoolIcon from "@mui/icons-material/School";
 import CodeIcon from "@mui/icons-material/Code";
 import { useSelector } from "react-redux";
-
-const experienceData = [
-  {
-    title: "Application Developer Associate",
-    company: "Accenture PLTD.",
-    duration: "August 2025 - Present",
-    description: "Building Scalable web applications.",
-  },
-  {
-    title: "Web Developer",
-    company: "Digitalks Techno LLP.",
-    duration: "September 2024 - July 2025",
-    description:
-      "Building reusable UI components and optimizing performance with React and MUI.",
-  },
-  {
-    title: "Web Developer Intern",
-    company: "Pratian Technologies",
-    duration: "August 2022 - March 2023",
-    description:
-      "Worked on internal dashboards, built responsive UIs, and learned agile workflows.",
-  },
-  {
-    title: "Education",
-    company: "Mechanical Engineer at SVNIT - Surat",
-    duration: "July 2018 - May 2022 6.7 CGPA",
-  },
-];
+import { IconSettings } from "@tabler/icons-react";
+import SettingExperience from "./settings/SettingExperience";
 
 const WorkExperience = () => {
+  const [settingDialog, setSettingDialog] = useState(false);
   const { DarkMode } = useSelector((state) => state.theme);
-  const experienceCss = useSelector((state) => state.experienceCard);
+  const experienceCss = useSelector((state) => state.experience);
 
-  const CustomStepIconRoot = styled("div")(() => ({
-    backgroundColor: DarkMode ? "black" : "#e0e7ff",
-    width: 32,
-    height: 32,
-    display: "flex",
-    borderRadius: "50%",
-    justifyContent: "center",
-    alignItems: "center",
-    border: DarkMode ? "2px solid rgba(255, 255, 255, 0.3)" : "2px solid #1976D2",
-    zIndex: 1,
-    "& .MuiSvgIcon-root": {
-      fontSize: "1rem",
+  const experienceData = [
+    {
+      icon: <WorkIcon sx={{ color: DarkMode ? "white" : "#1976D2" }} />,
+      title: "Application Developer Associate",
+      company: "Accenture PLTD.",
+      duration: "August 2025 - Present",
+      description: "Building Scalable web applications.",
     },
-  }));
-
-  const iconMap = {
-    1: <WorkIcon  sx={{color : DarkMode ? "white" : "#1976D2"}} />,
-    2: <WorkIcon sx={{color : DarkMode ? "white" : "#1976D2"}} />,
-    3: <CodeIcon sx={{color : DarkMode ? "white" : "#1976D2"}} />,
-    4: <SchoolIcon sx={{color : DarkMode ? "white" : "#1976D2"}} />,
-  };
-
-  const CustomStepIcon = (props) => {
-    const { icon } = props;
-    return <CustomStepIconRoot>{iconMap[String(icon)]}</CustomStepIconRoot>;
-  };
+    {
+      icon: <WorkIcon sx={{ color: DarkMode ? "white" : "#1976D2" }} />,
+      title: "Executive Developer",
+      company: "Digitalks Techno LLP.",
+      duration: "September 2024 - July 2025",
+      description:
+        "Building reusable UI components and optimizing performance with React and MUI.",
+    },
+    {
+      icon: <CodeIcon sx={{ color: DarkMode ? "white" : "#1976D2" }} />,
+      title: "Web Developer Intern",
+      company: "Pratian Technologies",
+      duration: "August 2022 - March 2023",
+      description:
+        "Worked on internal dashboards, built responsive UIs, and learned agile workflows.",
+    },
+    {
+      icon: <SchoolIcon sx={{ color: DarkMode ? "white" : "#1976D2" }} />,
+      title: "Education",
+      company: "Mechanical Engineer at SVNIT - Surat",
+      duration: "July 2018 - May 2022",
+      description: "6.7 CGPA",
+    },
+  ];
 
   return (
     <Box
@@ -103,45 +85,99 @@ const WorkExperience = () => {
           boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
           transition: "transform 0.3s ease",
           p: 5,
+          "&:hover .settings-popup": {
+            opacity: 1,
+            // color: contactCss.TextColor,
+          },
         }}
       >
-        <Stepper orientation="vertical" activeStep={experienceData.length}>
-          {experienceData.map((exp, index) => (
-            <Step key={index} active>
-              <StepLabel StepIconComponent={CustomStepIcon}>
-                <Typography
-                  variant="h6"
-                  color={DarkMode ? "whitesmoke" : "rgba(0, 0, 0, 0.87)"}
-                >
-                  {exp.title}
-                </Typography>
-              </StepLabel>
-              <StepContent>
-                <Typography
-                  variant="subtitle1"
-                  color={DarkMode ? "whitesmoke" : "rgba(0, 0, 0, 0.87)"}
-                  // color="text.secondary"
-                >
-                  {exp.company}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ fontStyle: "italic", mb: 1 }}
-                  color={DarkMode ? "whitesmoke" : "rgba(0, 0, 0, 0.87)"}
-                >
-                  {exp?.duration}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color={DarkMode ? "whitesmoke" : "rgba(0, 0, 0, 0.87)"}
-                >
-                  {exp.description}
-                </Typography>
-              </StepContent>
-            </Step>
-          ))}
-        </Stepper>
+        <Box
+          className="settings-popup"
+          sx={{
+            position: "absolute",
+            right: 10,
+            top: 10,
+            opacity: 0,
+          }}
+        >
+          <IconSettings
+            onClick={() => setSettingDialog(true)}
+            cursor="pointer"
+          />
+        </Box>
+        {experienceData.map((exp, index) => (
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              // justifyContent: "center",
+              gap: 2,
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+              }}
+            >
+              <Box
+                sx={{
+                  border: "2px solid #1976D2",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  p: 1,
+                  borderRadius: "50%",
+                }}
+              >
+                {exp.icon}
+              </Box>
+              <Divider
+                orientation="vertical"
+                sx={{
+                  background: "#1976D2",
+                  width: 1.5,
+                  height: 95,
+                  opacity: index === experienceData.length - 1 ? 0 : 1,
+                }}
+              />
+            </Box>
+            <Box sx={{ mb: 2.9, mt: 0.8 }}>
+              <Typography
+                variant="h6"
+                color={DarkMode ? "whitesmoke" : "rgba(0, 0, 0, 0.87)"}
+              >
+                {exp.title}
+              </Typography>
+              <Typography
+                variant="subtitle1"
+                color={DarkMode ? "whitesmoke" : "rgba(0, 0, 0, 0.87)"}
+              >
+                {exp.company}
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{ fontStyle: "italic", mb: 1 }}
+                color={DarkMode ? "whitesmoke" : "rgba(0, 0, 0, 0.87)"}
+              >
+                {exp?.duration}
+              </Typography>
+              <Typography
+                variant="body2"
+                color={DarkMode ? "whitesmoke" : "rgba(0, 0, 0, 0.87)"}
+              >
+                {exp.description}
+              </Typography>
+            </Box>
+          </Box>
+        ))}
       </Paper>
+      <SettingExperience
+        open={settingDialog}
+        onClose={() => setSettingDialog(false)}
+      />
     </Box>
   );
 };

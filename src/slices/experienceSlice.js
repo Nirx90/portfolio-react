@@ -11,54 +11,53 @@ const initialState = {
   BorderColor: "",
 };
 
-const experienceCardSlice = createSlice({
-  name: "experienceCard",
+const experienceSlice = createSlice({
+  name: "experience",
   initialState,
   reducers: {
-    setExperienceCardBackgroundColorThunk: (state, action) => {
+    setExperienceBackgroundColorThunk: (state, action) => {
       const data = action.payload;
       state.BackgroundColor = data.BackgroundColor;
     },
-    setExperienceCardDarkModeThunk: (state, action) => {
+    setExperienceDarkModeThunk: (state, action) => {
       const data = action.payload;
       state.TextColor = data.TextColor;
-      // state.BorderColor = data.BorderColor;
     },
-    setExperienceCardBorderWidthThunk: (state, action) => {
+    setExperienceBorderWidthThunk: (state, action) => {
       const { BorderWidth } = action.payload;
       state.BorderWidth = BorderWidth;
     },
-    setExperienceCardTextColorThunk: (state, action) => {
+    setExperienceTextColorThunk: (state, action) => {
       const { TextColor, IconColor } = action.payload;
       state.TextColor = TextColor;
       state.IconColor = IconColor;
     },
-    setExperienceCardBorderColorThunk: (state, action) => {
+    setExperienceBorderColorThunk: (state, action) => {
       const { BorderColor } = action.payload;
       state.BorderColor = BorderColor;
     },
-    setExperienceCardBorderRadiousThunk: (state, action) => {
+    setExperienceBorderRadiousThunk: (state, action) => {
       const { BorderRadious } = action.payload;
       state.BorderRadious = BorderRadious;
     },
-    setExperienceCardTransparencyThunk: (state, action) => {
+    setExperienceTransparencyThunk: (state, action) => {
       const { Transparency } = action.payload;
       state.Transparency = Transparency;
     },
-    resetExperienceCard: () => initialState,
+    resetExperience: () => initialState,
   },
   extraReducers: (builder) => {},
 });
 
 export const {
-  setExperienceCardBackgroundColorThunk,
-  setExperienceCardTextColorThunk,
-  setExperienceCardBorderWidthThunk,
-  setExperienceCardBorderRadiousThunk,
-  setExperienceCardBorderColorThunk,
-  setExperienceCardTransparencyThunk,
-  setExperienceCardDarkModeThunk,
-  resetExperienceCard,
-} = experienceCardSlice.actions;
+  setExperienceBackgroundColorThunk,
+  setExperienceTextColorThunk,
+  setExperienceBorderWidthThunk,
+  setExperienceBorderRadiousThunk,
+  setExperienceBorderColorThunk,
+  setExperienceTransparencyThunk,
+  setExperienceDarkModeThunk,
+  resetExperience,
+} = experienceSlice.actions;
 
-export default experienceCardSlice.reducer;
+export default experienceSlice.reducer;

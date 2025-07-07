@@ -15,7 +15,7 @@ import { resetReview } from "../slices/reviewSlice";
 import { resetContact } from "../slices/contactSlice";
 
 export default function SideDrawer({ open, onClose }) {
-  const [tab, setTab] = React.useState("layout");
+  const [tab, setTab] = React.useState("theme");
   const dispatch = useDispatch();
 
   const theme = useTheme();

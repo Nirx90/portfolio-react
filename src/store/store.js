@@ -3,7 +3,7 @@ import themeReducer from "../slices/themeSlice";
 import navbarReducer from "../slices/navbarSlice";
 import serviceCardReducer from "../slices/serviceCardSlice";
 import skillCardReducer from "../slices/skillSlice";
-import experienceCardReducer from "../slices/experienceSlice";
+import experienceReducer from "../slices/experienceSlice";
 import reviewReducer from "../slices/reviewSlice";
 import contactReducer from "../slices/contactSlice";
 
@@ -13,7 +13,7 @@ const store = configureStore({
     navbar: navbarReducer,
     serviceCard: serviceCardReducer,
     skillCard: skillCardReducer,
-    experienceCard: experienceCardReducer,
+    experience: experienceReducer,
     review: reviewReducer,
     contact: contactReducer,
   },

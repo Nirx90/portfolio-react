@@ -20,6 +20,18 @@ export default function SettingTheme() {
       color: "linear-gradient(135deg, #FF4081 0%, #1976d2 100%)",
       gradient: true,
     },
+    {
+      color: "linear-gradient(135deg, #68A063 0%, #1976d2 100%)",
+      gradient: true,
+    },
+    {
+      color: "linear-gradient(135deg, #589636 0%, #1976d2 100%)",
+      gradient: true,
+    },
+    {
+      color: "linear-gradient(135deg, #764ABC 0%, #1976d2 100%)",
+      gradient: true,
+    },
   ];
 
   const setTheme = (theme) => {

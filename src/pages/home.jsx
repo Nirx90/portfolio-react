@@ -66,37 +66,15 @@ const PortfolioHomepage = () => {
       <NavBar />
       <Box
         sx={{
-          minHeight: "100vh",
           // background: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
           // background: "linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)",
           // background: "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)",
           // background: darkMode
           //   ? "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)"
           //   : "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+          // background: "radial-gradient(circle, rgba(56, 19, 220, 0.8) 0%, transparent 70%)",
           background: BackgroundColor,
           py: isMobile ? 2 : 10,
-          position: "relative",
-          overflow: "hidden",
-          "&::before": {
-            content: '""',
-            position: "absolute",
-            top: "-30%",
-            left: "-20%",
-            width: "150%",
-            height: "150%",
-            background:
-              "radial-gradient(circle, rgba(25,118,210,0.08) 0%, transparent 70%)",
-          },
-          "&::after": {
-            content: '""',
-            position: "absolute",
-            bottom: 0,
-            right: 0,
-            width: "300px",
-            height: "300px",
-            background:
-              "radial-gradient(circle, rgba(25,118,210,0.1) 0%, transparent 80%)",
-          },
         }}
       >
         <Box>
