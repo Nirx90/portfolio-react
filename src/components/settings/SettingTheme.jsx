@@ -9,6 +9,8 @@ import { setserviceCardThemeThunk } from "../../slices/serviceCardSlice";
 import { setSkillCardThemeThunk } from "../../slices/skillSlice";
 import { setReviewThemeThunk } from "../../slices/reviewSlice";
 import { setContactThemeThunk } from "../../slices/contactSlice";
+import { setExperienceThemeThunk } from "../../slices/experienceSlice";
+import { setHeroThemeThunk } from "../../slices/heroSlice";
 
 export default function SettingTheme() {
   const dispatch = useDispatch();
@@ -59,6 +61,15 @@ export default function SettingTheme() {
         BackgroundColor : theme.gradient ? color : 'rgba(255, 255, 255, 0)',
         PrimaryTextColor: theme.gradient ? 'white' : color,
         SecondaryTextColor: theme.gradient ? 'white' : color,
+        IconColor: theme.gradient ? 'white' : color,
+        BorderColor: color,
+      })
+    );
+    dispatch(
+      setExperienceThemeThunk({
+        BackgroundColor : theme.gradient ? color : 'rgba(255, 255, 255, 0)',
+        TextColor: theme.gradient ? 'white' : color,
+        IconColor: theme.gradient ? 'white' : color,
         BorderColor: color,
       })
     );
@@ -87,6 +98,12 @@ export default function SettingTheme() {
         IconColor: theme.gradient ? 'white' : color,
         TextColor: theme.gradient ? 'white' : color,
         BorderColor: color,
+      })
+    );
+
+    dispatch(
+      setHeroThemeThunk({
+        BackgroundColor : color
       })
     );
   };

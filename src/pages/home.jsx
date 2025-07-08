@@ -33,11 +33,9 @@ const PortfolioHomepage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const [darkMode, setDarkMode] = useState(false);
-
   const dispatch = useDispatch();
-  const { BackgroundColor, PrimaryTextColor, SecondaryTextColor, BoxShadow } =
-    useSelector((state) => state.theme);
+  const { BackgroundColor, PrimaryTextColor, SecondaryTextColor, BoxShadow, DarkMode } = useSelector((state) => state.theme);
+  const heroCss = useSelector((state) => state.hero);
 
   // Animation variants
   const containerVariants = {
@@ -106,8 +104,7 @@ const PortfolioHomepage = () => {
                       sx={{
                         fontWeight: 600,
                         mb: 2,
-                        background:
-                          "linear-gradient(45deg, #1976d2 20%, #4dabf5 80%)",
+                        background: heroCss.BackgroundColor,
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                       }}
@@ -192,18 +189,14 @@ const PortfolioHomepage = () => {
                         backdropFilter: "blur(14px)",
                         WebkitBackdropFilter: "blur(14px)",
                         // boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
-                        boxShadow: darkMode
-                          ? "none"
-                          : "0 8px 32px rgba(31, 38, 135, 0.2)",
+                        boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
                         borderRadius: "50%",
                       }}
                     >
                       <Box
                         sx={{
-                          background: darkMode
-                            ? "none"
-                            : "linear-gradient(45deg, #1976d2, #4dabf5)",
-                          // background: backgroundColor,
+                          background: heroCss.BackgroundColor,
+                          // "linear-gradient(45deg, #1976d2, #4dabf5)",
                           borderRadius: "50%",
                           p: 3,
                         }}

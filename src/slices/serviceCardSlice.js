@@ -10,6 +10,7 @@ const initialState = {
   BorderWidth: 1,
   Transparency: "none",
   BorderColor: "#FFFFFF4D",
+  IconColor : "#1976D2"
 };
 
 const serviceCardSlice = createSlice({
@@ -32,6 +33,7 @@ const serviceCardSlice = createSlice({
       state.PrimaryTextColor = data.PrimaryTextColor;
       state.SecondaryTextColor = data.SecondaryTextColor;
       state.BorderColor = data.BorderColor;
+      state.IconColor = data.IconColor;
     },
     setserviceCardBorderWidth: (state, action) => {
       const { BorderWidth } = action.payload;

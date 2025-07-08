@@ -24,14 +24,14 @@ const WorkExperience = () => {
 
   const experienceData = [
     {
-      icon: <WorkIcon sx={{ color: DarkMode ? "white" : "#1976D2" }} />,
+      icon: <WorkIcon sx={{ color: experienceCss.IconColor }} />,
       title: "Application Developer Associate",
       company: "Accenture PLTD.",
       duration: "August 2025 - Present",
       description: "Building Scalable web applications.",
     },
     {
-      icon: <WorkIcon sx={{ color: DarkMode ? "white" : "#1976D2" }} />,
+      icon: <WorkIcon sx={{ color: experienceCss.IconColor }} />,
       title: "Executive Developer",
       company: "Digitalks Techno LLP.",
       duration: "September 2024 - July 2025",
@@ -39,7 +39,7 @@ const WorkExperience = () => {
         "Building reusable UI components and optimizing performance with React and MUI.",
     },
     {
-      icon: <CodeIcon sx={{ color: DarkMode ? "white" : "#1976D2" }} />,
+      icon: <CodeIcon sx={{ color: experienceCss.IconColor }} />,
       title: "Web Developer Intern",
       company: "Pratian Technologies",
       duration: "August 2022 - March 2023",
@@ -47,7 +47,7 @@ const WorkExperience = () => {
         "Worked on internal dashboards, built responsive UIs, and learned agile workflows.",
     },
     {
-      icon: <SchoolIcon sx={{ color: DarkMode ? "white" : "#1976D2" }} />,
+      icon: <SchoolIcon sx={{ color: experienceCss.IconColor }} />,
       title: "Education",
       company: "Mechanical Engineer at SVNIT - Surat",
       duration: "July 2018 - May 2022",
@@ -77,9 +77,9 @@ const WorkExperience = () => {
       </Typography>
       <Paper
         sx={{
-          backgroundColor: DarkMode ? "black" : "rgba(255, 255, 255, 0)",
-          borderRadius: 5,
-          border: `1px solid rgba(255, 255, 255, 0.3)`,
+          background: experienceCss.BackgroundColor,
+          borderRadius: experienceCss.BorderRadious,
+          border: `${experienceCss.BorderWidth}px solid ${experienceCss.BorderColor}`,
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
           boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
@@ -87,7 +87,7 @@ const WorkExperience = () => {
           p: 5,
           "&:hover .settings-popup": {
             opacity: 1,
-            // color: contactCss.TextColor,
+            color: experienceCss.TextColor,
           },
         }}
       >
@@ -124,7 +124,7 @@ const WorkExperience = () => {
             >
               <Box
                 sx={{
-                  border: "2px solid #1976D2",
+                  border: `2px solid ${experienceCss.IconColor}`,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -137,7 +137,7 @@ const WorkExperience = () => {
               <Divider
                 orientation="vertical"
                 sx={{
-                  background: "#1976D2",
+                  background: experienceCss.IconColor,
                   width: 1.5,
                   height: 95,
                   opacity: index === experienceData.length - 1 ? 0 : 1,
@@ -147,26 +147,25 @@ const WorkExperience = () => {
             <Box sx={{ mb: 2.9, mt: 0.8 }}>
               <Typography
                 variant="h6"
-                color={DarkMode ? "whitesmoke" : "rgba(0, 0, 0, 0.87)"}
-              >
+                sx={{color : experienceCss.TextColor}}
+                >
                 {exp.title}
               </Typography>
               <Typography
                 variant="subtitle1"
-                color={DarkMode ? "whitesmoke" : "rgba(0, 0, 0, 0.87)"}
-              >
+                sx={{color : experienceCss.TextColor}}
+                >
                 {exp.company}
               </Typography>
               <Typography
                 variant="body2"
-                sx={{ fontStyle: "italic", mb: 1 }}
-                color={DarkMode ? "whitesmoke" : "rgba(0, 0, 0, 0.87)"}
-              >
+                sx={{color : experienceCss.TextColor, fontStyle: "italic", mb: 1}}
+                >
                 {exp?.duration}
               </Typography>
               <Typography
                 variant="body2"
-                color={DarkMode ? "whitesmoke" : "rgba(0, 0, 0, 0.87)"}
+                sx={{color : experienceCss.TextColor}}
               >
                 {exp.description}
               </Typography>

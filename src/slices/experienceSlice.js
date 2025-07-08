@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   BackgroundColor: "rgba(255, 255, 255, 0)",
-  TextColor: "",
-  IconColor : "",
+  TextColor: "rgba(0, 0, 0, 0.87)",
+  IconColor: "#1976D2",
   BoxShadow: "",
-  BorderRadious: 3,
+  BorderRadious: 5,
   BorderWidth: 1,
   Transparency: "none",
-  BorderColor: "",
+  BorderColor: "rgba(255, 255, 255, 0.3)",
 };
 
 const experienceSlice = createSlice({
@@ -26,6 +26,13 @@ const experienceSlice = createSlice({
     setExperienceBorderWidthThunk: (state, action) => {
       const { BorderWidth } = action.payload;
       state.BorderWidth = BorderWidth;
+    },
+    setExperienceThemeThunk: (state, action) => {
+      const data = action.payload;
+      state.TextColor = data.TextColor;
+      state.IconColor = data.IconColor;
+      state.BorderColor = data.BorderColor;
+      state.BackgroundColor = data.BackgroundColor;
     },
     setExperienceTextColorThunk: (state, action) => {
       const { TextColor, IconColor } = action.payload;
@@ -57,6 +64,7 @@ export const {
   setExperienceBorderColorThunk,
   setExperienceTransparencyThunk,
   setExperienceDarkModeThunk,
+  setExperienceThemeThunk,
   resetExperience,
 } = experienceSlice.actions;
 

@@ -6,6 +6,7 @@ import skillCardReducer from "../slices/skillSlice";
 import experienceReducer from "../slices/experienceSlice";
 import reviewReducer from "../slices/reviewSlice";
 import contactReducer from "../slices/contactSlice";
+import heroReducer from "../slices/heroSlice";
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     experience: experienceReducer,
     review: reviewReducer,
     contact: contactReducer,
+    hero : heroReducer
   },
 });
 

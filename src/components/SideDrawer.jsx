@@ -13,6 +13,8 @@ import { resetSkillCard } from "../slices/skillSlice";
 import SettingTheme from "./settings/SettingTheme";
 import { resetReview } from "../slices/reviewSlice";
 import { resetContact } from "../slices/contactSlice";
+import { resetExperience } from "../slices/experienceSlice";
+import { resetHero } from "../slices/heroSlice";
 
 export default function SideDrawer({ open, onClose }) {
   const [tab, setTab] = React.useState("theme");
@@ -29,6 +31,8 @@ export default function SideDrawer({ open, onClose }) {
     dispatch(resetSkillCard());
     dispatch(resetReview());
     dispatch(resetContact());
+    dispatch(resetExperience());
+    dispatch(resetHero());
     onClose();
   };
 

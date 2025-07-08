@@ -35,6 +35,7 @@ import {
 import { resetSkillCard, setSkillCardDarkMode } from "../slices/skillSlice";
 import { resetReview, setReviewDarkModeThunk } from "../slices/reviewSlice";
 import { resetContact, setContactDarkModeThunk } from "../slices/contactSlice";
+import { resetExperience, setExperienceDarkModeThunk } from "../slices/experienceSlice";
 
 const navItems = ["Home", "About", "Projects", "Contact"];
 
@@ -108,6 +109,11 @@ export default function NavBar() {
           TextColor: "whitesmoke",
         })
       );
+      dispatch(
+        setExperienceDarkModeThunk({
+          TextColor: "whitesmoke",
+        })
+      );
     } else {
       dispatch(resetNavbar());
       dispatch(resetTheme());
@@ -115,6 +121,7 @@ export default function NavBar() {
       dispatch(resetSkillCard());
       dispatch(resetReview());
       dispatch(resetContact())
+      dispatch(resetExperience())
     }
   };
 

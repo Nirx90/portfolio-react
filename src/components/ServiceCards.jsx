@@ -99,12 +99,12 @@ const ServiceCards = () => {
                       height: 60,
                       borderRadius: "50%",
                       // background: "linear-gradient(45deg, #1976d2, #4dabf5)",
-                      border : '2px solid #4dabf5',
+                      border : `2px solid ${serviceCardCss.IconColor}`,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       mb: 2,
-                      color: "#4dabf5",
+                      color: serviceCardCss.IconColor,
                     }}
                   >
                     {skill.icon}
