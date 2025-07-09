@@ -121,6 +121,8 @@ export default function ContactSection() {
           borderRadius: 5,
           background: contactCss.BackgroundColor,
           // background: `linear-gradient(135deg, #FF4081 0%, #1976d2 100%)`,
+          // backgroundSize: "400% 400%",
+          // animation: "gradientShift 8s ease infinite",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
           border: `1px solid ${contactCss.BorderColor}`,
