@@ -1,25 +1,14 @@
 import React, { useState, useEffect } from "react";
-import {
-  Box,
-  Typography,
-  useTheme,
-  Grid,
-  Paper,
-} from "@mui/material";
-import {
-  Code,
-  DesignServices,
-  Terminal,
-} from "@mui/icons-material";
+import { Box, Typography, useTheme, Grid, Paper } from "@mui/material";
+import { Code, DesignServices, Terminal } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 
 const ServiceCards = () => {
-
   const serviceCardCss = useSelector((state) => state.serviceCard);
 
-  const { DarkMode } = useSelector((state) => state.theme);
-  
+  const { DarkMode, Animation } = useSelector((state) => state.theme);
+
   return (
     <Box sx={{ position: "relative" }}>
       <Box sx={{ mt: 10 }}>
@@ -80,6 +69,8 @@ const ServiceCards = () => {
 
                     // background: "rgba(255, 255, 255, 0.05)",
                     background: serviceCardCss.BackgroundColor,
+                    backgroundSize: Animation ? "400% 400%" : "100%",
+                    animation: "gradientShift 8s ease infinite",
                     backdropFilter: "blur(12px)",
                     WebkitBackdropFilter: "blur(12px)",
                     // border: "1px solid rgba(255, 255, 255, 0.3)",
@@ -99,7 +90,7 @@ const ServiceCards = () => {
                       height: 60,
                       borderRadius: "50%",
                       // background: "linear-gradient(45deg, #1976d2, #4dabf5)",
-                      border : `2px solid ${serviceCardCss.IconColor}`,
+                      border: `2px solid ${serviceCardCss.IconColor}`,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",

@@ -24,7 +24,7 @@ import { useSelector } from "react-redux";
 import "./SkillCard.css";
 
 const SkillCard = () => {
-  const { DarkMode } = useSelector((state) => state.theme);
+  const { DarkMode, Animation } = useSelector((state) => state.theme);
   const skillCardCss = useSelector((state) => state.skillCard);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [hoveredSkill, setHoveredSkill] = useState(null);
@@ -135,7 +135,7 @@ const SkillCard = () => {
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        gap:5
+        gap: 5,
       }}
     >
       <Typography
@@ -153,7 +153,7 @@ const SkillCard = () => {
           <button
             key={category.name}
             onClick={() => {
-              setSelectedCategory(category.name)
+              setSelectedCategory(category.name);
             }}
             className={`category-tab ${
               selectedCategory === category.name ? "active" : ""
@@ -190,14 +190,20 @@ const SkillCard = () => {
                   borderRadius: skillCardCss.BorderRadious,
 
                   background: skillCardCss.BackgroundColor,
+                  backgroundSize: Animation ? "400% 400%" : "100%",
+                  animation: "gradientShift 8s ease infinite",
                   backdropFilter: "blur(12px)",
                   WebkitBackdropFilter: "blur(12px)",
-                  border: `${skillCardCss.BorderWidth}px solid ${skillCardCss.BorderColor || '#FFFFFF4D'}`,
+                  border: `${skillCardCss.BorderWidth}px solid ${
+                    skillCardCss.BorderColor || "#FFFFFF4D"
+                  }`,
                   boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
                   transition: "transform 0.3s ease",
                   "&:hover": {
                     borderColor: skillCardCss.BorderColor || skill.color,
-                    boxShadow: `0 8px 24px ${skillCardCss.BorderColor || skill.color}50`,
+                    boxShadow: `0 8px 24px ${
+                      skillCardCss.BorderColor || skill.color
+                    }50`,
                   },
                 }}
               >
@@ -210,7 +216,9 @@ const SkillCard = () => {
                     gap: 1,
                   }}
                 >
-                  <Box style={{ color: skillCardCss.IconColor || skill.color }}>{skill.icon}</Box>
+                  <Box style={{ color: skillCardCss.IconColor || skill.color }}>
+                    {skill.icon}
+                  </Box>
                   <Typography
                     sx={{
                       color: skillCardCss.TextColor || "black",
@@ -232,7 +240,9 @@ const SkillCard = () => {
                   sx={{
                     borderRadius: 5,
                     height: 10,
-                    backgroundColor: `${skillCardCss.IconColor || skill.color}33`,
+                    backgroundColor: `${
+                      skillCardCss.IconColor || skill.color
+                    }33`,
                     "& .MuiLinearProgress-bar": {
                       backgroundColor: skillCardCss.IconColor || skill.color,
                       borderRadius: 5,

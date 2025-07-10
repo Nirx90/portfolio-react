@@ -7,7 +7,8 @@ const initialState = {
   PrimaryTextColor: "rgba(0, 0, 0, 0.87)",
   SecondaryTextColor: "rgba(0, 0, 0, 0.6)",
   BoxShadow : "0 8px 32px rgba(31, 38, 135, 0.2)",
-  DarkMode : false
+  DarkMode : false,
+  Animation : false
 };
 
 const themeSlice = createSlice({
@@ -21,6 +22,7 @@ const themeSlice = createSlice({
       state.SecondaryTextColor = data.SecondaryTextColor;
       state.BoxShadow = data.BoxShadow;
       state.DarkMode = data.DarkMode;
+      state.Animation = data.Animation;
     },
     resetTheme: () => initialState,
   },

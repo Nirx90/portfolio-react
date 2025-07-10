@@ -22,7 +22,6 @@ import { motion } from "framer-motion";
 import SkillCard from "../components/SkillCard";
 import NavBar from "../components/NavBar";
 import { useDispatch, useSelector } from "react-redux";
-import { setThemeColors } from "../slices/themeSlice";
 import ServiceCards from "../components/ServiceCards";
 import WorkExperience from "../components/WorkExperience";
 import ContactSection from "../components/Contact";
@@ -34,7 +33,14 @@ const PortfolioHomepage = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const dispatch = useDispatch();
-  const { BackgroundColor, PrimaryTextColor, SecondaryTextColor, BoxShadow, DarkMode } = useSelector((state) => state.theme);
+  const {
+    BackgroundColor,
+    PrimaryTextColor,
+    SecondaryTextColor,
+    BoxShadow,
+    DarkMode,
+    Animation,
+  } = useSelector((state) => state.theme);
   const heroCss = useSelector((state) => state.hero);
 
   // Animation variants
@@ -64,13 +70,6 @@ const PortfolioHomepage = () => {
       <NavBar />
       <Box
         sx={{
-          // background: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-          // background: "linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)",
-          // background: "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)",
-          // background: darkMode
-          //   ? "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)"
-          //   : "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-          // background: "radial-gradient(circle, rgba(56, 19, 220, 0.8) 0%, transparent 70%)",
           background: BackgroundColor,
           py: isMobile ? 2 : 10,
         }}
@@ -105,6 +104,8 @@ const PortfolioHomepage = () => {
                         fontWeight: 600,
                         mb: 2,
                         background: heroCss.BackgroundColor,
+                        backgroundSize: Animation ? "400% 400%" : "100%",
+                        animation: "gradientShift 8s ease infinite",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                       }}
@@ -150,7 +151,14 @@ const PortfolioHomepage = () => {
                         variant="contained"
                         size="large"
                         endIcon={<ArrowRightAlt />}
-                        sx={{ borderRadius: "50px", px: 4, py: 1 }}
+                        sx={{
+                          borderRadius: "50px",
+                          px: 4,
+                          py: 1,
+                          background: heroCss.BackgroundColor,
+                          backgroundSize: Animation ? "400% 400%" : "100%",
+                          animation: "gradientShift 8s ease infinite",
+                        }}
                       >
                         View Projects
                       </Button>
@@ -197,6 +205,8 @@ const PortfolioHomepage = () => {
                         sx={{
                           background: heroCss.BackgroundColor,
                           // "linear-gradient(45deg, #1976d2, #4dabf5)",
+                          backgroundSize: Animation ? "400% 400%" : "100%",
+                          animation: "gradientShift 8s ease infinite",
                           borderRadius: "50%",
                           p: 3,
                         }}

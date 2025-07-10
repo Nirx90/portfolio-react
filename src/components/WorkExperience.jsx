@@ -19,7 +19,7 @@ import SettingExperience from "./settings/SettingExperience";
 
 const WorkExperience = () => {
   const [settingDialog, setSettingDialog] = useState(false);
-  const { DarkMode } = useSelector((state) => state.theme);
+  const { DarkMode, Animation } = useSelector((state) => state.theme);
   const experienceCss = useSelector((state) => state.experience);
 
   const experienceData = [
@@ -78,6 +78,8 @@ const WorkExperience = () => {
       <Paper
         sx={{
           background: experienceCss.BackgroundColor,
+          backgroundSize: Animation ? "400% 400%" : "100%",
+          animation: "gradientShift 8s ease infinite",
           borderRadius: experienceCss.BorderRadious,
           border: `${experienceCss.BorderWidth}px solid ${experienceCss.BorderColor}`,
           backdropFilter: "blur(12px)",

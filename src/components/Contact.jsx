@@ -30,7 +30,7 @@ export default function ContactSection() {
 
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const { DarkMode } = useSelector((state) => state.theme);
+  const { DarkMode, Animation } = useSelector((state) => state.theme);
   const contactCss = useSelector((state) => state.contact);
 
   const [settingDialog, setSettingDialog] = useState(false);
@@ -121,8 +121,8 @@ export default function ContactSection() {
           borderRadius: 5,
           background: contactCss.BackgroundColor,
           // background: `linear-gradient(135deg, #FF4081 0%, #1976d2 100%)`,
-          // backgroundSize: "400% 400%",
-          // animation: "gradientShift 8s ease infinite",
+          backgroundSize: Animation ? "400% 400%" : "100%",
+          animation: "gradientShift 8s ease infinite",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
           border: `1px solid ${contactCss.BorderColor}`,

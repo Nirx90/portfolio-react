@@ -58,7 +58,7 @@ export default function NavBar() {
   const dispatch = useDispatch();
 
   const navBarCss = useSelector((state) => state.navbar);
-  const {DarkMode} = useSelector((state) => state.theme);
+  const {DarkMode, Animation} = useSelector((state) => state.theme);
 
   const toggleDrawer = (open) => () => setDrawerOpen(open);
 
@@ -150,6 +150,8 @@ export default function NavBar() {
           // background: "rgba(255, 255, 255, 0.02)", // subtle tint, almost transparent
           // background: "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)"
           background: navBarCss.BackgroundColor,
+          backgroundSize: Animation ? "400% 400%" : "100%",
+          animation: "gradientShift 8s ease infinite",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)", // Safari support
           border: "1px solid rgba(255, 255, 255, 0.1)", // soft frosted border

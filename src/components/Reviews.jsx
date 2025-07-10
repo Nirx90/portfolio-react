@@ -56,7 +56,7 @@ const reviews = [
 ];
 
 export default function ReviewsSection() {
-  const { DarkMode } = useSelector((state) => state.theme);
+  const { DarkMode, Animation } = useSelector((state) => state.theme);
   const reviewCss = useSelector((state) => state.review);
 
   const [settingDialog, setSettingDialog] = useState(false);
@@ -84,13 +84,15 @@ export default function ReviewsSection() {
                   p: 3,
                   borderRadius: 5,
                   background: reviewCss.BackgroundColor,
+                  backgroundSize: Animation ? "400% 400%" : "100%",
+                  animation: "gradientShift 8s ease infinite",
                   backdropFilter: "blur(12px)",
                   WebkitBackdropFilter: "blur(12px)",
                   border: `${reviewCss.BorderWidth}px solid ${reviewCss.BorderColor}`,
                   boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
                   "&:hover .settings-popup": {
-                    opacity:1,
-                    color: reviewCss.TextColor
+                    opacity: 1,
+                    color: reviewCss.TextColor,
                   },
                 }}
               >
@@ -101,10 +103,13 @@ export default function ReviewsSection() {
                       position: "absolute",
                       right: 10,
                       top: 10,
-                      opacity:0
+                      opacity: 0,
                     }}
                   >
-                    <IconSettings onClick={()=> setSettingDialog(true)} cursor="pointer" />
+                    <IconSettings
+                      onClick={() => setSettingDialog(true)}
+                      cursor="pointer"
+                    />
                   </Box>
                   <Stack spacing={2} alignItems="center">
                     <Avatar
