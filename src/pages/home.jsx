@@ -72,11 +72,12 @@ const PortfolioHomepage = () => {
         sx={{
           background: BackgroundColor,
           py: isMobile ? 2 : 10,
+          m:0
         }}
       >
         <Box>
           <Container>
-            {/* Hero Section */}
+            
             <motion.div
               initial="hidden"
               animate="visible"

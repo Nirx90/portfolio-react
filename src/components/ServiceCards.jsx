@@ -63,18 +63,12 @@ const ServiceCards = () => {
                     p: 3,
                     minHeight: 190,
                     borderRadius: serviceCardCss.BorderRadious,
-                    // borderRadius: `${serviceCardCss.BorderRadious}%`,
-                    // background: "rgba(255, 255, 255, 0.15)",
-                    // background: "rgba(255, 255, 255, 0.05)",
 
-                    // background: "rgba(255, 255, 255, 0.05)",
                     background: serviceCardCss.BackgroundColor,
                     backgroundSize: Animation ? "400% 400%" : "100%",
                     animation: "gradientShift 8s ease infinite",
                     backdropFilter: "blur(12px)",
                     WebkitBackdropFilter: "blur(12px)",
-                    // border: "1px solid rgba(255, 255, 255, 0.3)",
-                    // border: `${serviceCardCss.BorderWidth}px solid rgba(255, 255, 255, 0.3)`,
                     border: `${serviceCardCss.BorderWidth}px solid ${serviceCardCss.BorderColor}`,
                     // boxShadow: darkMode
                     //   ? "none"
