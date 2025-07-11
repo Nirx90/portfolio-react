@@ -84,7 +84,7 @@ const WorkExperience = () => {
           border: `${experienceCss.BorderWidth}px solid ${experienceCss.BorderColor}`,
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
-          boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+          boxShadow: experienceCss.BoxShadow,
           transition: "transform 0.3s ease",
           p: 5,
           "&:hover .settings-popup": {

@@ -197,7 +197,7 @@ const SkillCard = () => {
                   border: `${skillCardCss.BorderWidth}px solid ${
                     skillCardCss.BorderColor || "#FFFFFF4D"
                   }`,
-                  boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+                  boxShadow: skillCardCss.BoxShadow,
                   transition: "transform 0.3s ease",
                   "&:hover": {
                     borderColor: skillCardCss.BorderColor || skill.color,

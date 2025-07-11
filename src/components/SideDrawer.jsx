@@ -15,6 +15,7 @@ import { resetReview } from "../slices/reviewSlice";
 import { resetContact } from "../slices/contactSlice";
 import { resetExperience } from "../slices/experienceSlice";
 import { resetHero } from "../slices/heroSlice";
+import SettingNeumorphism from "./settings/SettingNeumorphism";
 
 export default function SideDrawer({ open, onClose }) {
   const [tab, setTab] = React.useState("theme");
@@ -67,11 +68,11 @@ export default function SideDrawer({ open, onClose }) {
               label="Layout"
               sx={{ textTransform: "none", minWidth: "unset" }}
             />
-            <Tab
+            {/* <Tab
               value="drawer"
               label="Drawer"
               sx={{ textTransform: "none", minWidth: "unset" }}
-            />
+            /> */}
             <Tab
               value="neomorphism"
               label="Neomorphism"
@@ -83,6 +84,7 @@ export default function SideDrawer({ open, onClose }) {
         {tab === "theme" && <SettingTheme />}
         {tab === "navbar" && <SettingNavBar />}
         {tab === "layout" && <SettingLayout />}
+        {tab === "neomorphism" && <SettingNeumorphism />}
         {tab === "drawer" && <Box sx={{ p: 2 }}>drawer</Box>}
 
         <Box

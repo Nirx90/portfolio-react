@@ -5,7 +5,7 @@ const initialState = {
   TextColor: "",
   // IconColor : "#2196f3",
   IconColor : "#1876D2",
-  BoxShadow: "",
+  BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
   BorderRadious: 3,
   BorderWidth: 1,
   Transparency: "none",
@@ -31,6 +31,7 @@ const contactSlice = createSlice({
       state.IconColor = data.IconColor;
       state.BorderColor = data.BorderColor;
       state.BackgroundColor = data.BackgroundColor;
+      state.BoxShadow = data.BoxShadow;
     },
     setContactBorderWidthThunk: (state, action) => {
       const { BorderWidth } = action.payload;

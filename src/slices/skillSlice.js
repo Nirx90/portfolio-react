@@ -4,7 +4,7 @@ const initialState = {
   BackgroundColor: "rgba(255, 255, 255, 0)",
   TextColor: "",
   IconColor : "",
-  BoxShadow: "",
+  BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
   BorderRadious: 3,
   BorderWidth: 1,
   Transparency: "none",
@@ -30,6 +30,7 @@ const skillCardSlice = createSlice({
       state.BackgroundColor = data.BackgroundColor;
       state.BorderColor = data.BorderColor;
       state.IconColor = data.IconColor;
+      state.BoxShadow = data.BoxShadow;
     },
     setSkillCardBorderWidth: (state, action) => {
       const { BorderWidth } = action.payload;

@@ -7,6 +7,7 @@ const initialState = {
   BorderRadious: 25,
   Padding: 12,
   Transparency: 2,
+  BoxShadow : "0 8px 24px rgba(0, 0, 0, 0.3)"
 };
 
 const navbarSlice = createSlice({
@@ -22,6 +23,7 @@ const navbarSlice = createSlice({
       const data = action.payload;
       state.BackgroundColor = data.BackgroundColor;
       state.TextColor = data.TextColor;
+      state.BoxShadow = data.BoxShadow;
     },
     setNavBarBackgroundColor: (state, action) => {
       const data = action.payload;

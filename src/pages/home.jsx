@@ -104,7 +104,7 @@ const PortfolioHomepage = () => {
                       sx={{
                         fontWeight: 600,
                         mb: 2,
-                        background: heroCss.BackgroundColor,
+                        background: heroCss.TextColor,
                         backgroundSize: Animation ? "400% 400%" : "100%",
                         animation: "gradientShift 8s ease infinite",
                         WebkitBackgroundClip: "text",
@@ -159,6 +159,8 @@ const PortfolioHomepage = () => {
                           background: heroCss.BackgroundColor,
                           backgroundSize: Animation ? "400% 400%" : "100%",
                           animation: "gradientShift 8s ease infinite",
+                          boxShadow : heroCss.BoxShadow,
+                          color : heroCss.TextColor
                         }}
                       >
                         View Projects
@@ -198,7 +200,8 @@ const PortfolioHomepage = () => {
                         backdropFilter: "blur(14px)",
                         WebkitBackdropFilter: "blur(14px)",
                         // boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
-                        boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+                        // boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+                        boxShadow: heroCss.BoxShadow,
                         borderRadius: "50%",
                       }}
                     >

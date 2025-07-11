@@ -89,7 +89,7 @@ export default function ReviewsSection() {
                   backdropFilter: "blur(12px)",
                   WebkitBackdropFilter: "blur(12px)",
                   border: `${reviewCss.BorderWidth}px solid ${reviewCss.BorderColor}`,
-                  boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+                  boxShadow: reviewCss.BoxShadow,
                   "&:hover .settings-popup": {
                     opacity: 1,
                     color: reviewCss.TextColor,

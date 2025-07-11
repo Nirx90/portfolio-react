@@ -4,7 +4,7 @@ const initialState = {
   BackgroundColor: "rgba(255, 255, 255, 0)",
   TextColor: "rgba(0, 0, 0, 0.87)",
   IconColor: "#1976D2",
-  BoxShadow: "",
+  BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
   BorderRadious: 5,
   BorderWidth: 1,
   Transparency: "none",
@@ -33,6 +33,7 @@ const experienceSlice = createSlice({
       state.IconColor = data.IconColor;
       state.BorderColor = data.BorderColor;
       state.BackgroundColor = data.BackgroundColor;
+      state.BoxShadow = data.BoxShadow;
     },
     setExperienceTextColorThunk: (state, action) => {
       const { TextColor, IconColor } = action.payload;

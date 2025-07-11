@@ -96,7 +96,7 @@ export default function ContactSection() {
     backdropFilter: "blur(12px)",
     WebkitBackdropFilter: "blur(12px)",
     border: `2px solid ${contactCss.BorderColor}`,
-    boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+    boxShadow: contactCss.BoxShadow,
     p: 1,
     borderRadius: "50%",
   };
@@ -126,7 +126,7 @@ export default function ContactSection() {
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
           border: `1px solid ${contactCss.BorderColor}`,
-          boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+          boxShadow: contactCss.BoxShadow,
           transition: "transform 0.3s ease",
           "&:hover .settings-popup": {
             opacity: 1,

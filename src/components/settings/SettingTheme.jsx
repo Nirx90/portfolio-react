@@ -229,6 +229,7 @@ export default function SettingTheme() {
         SecondaryTextColor: theme.gradient ? "white" : color,
         IconColor: theme.gradient ? "white" : color,
         BorderColor: color,
+        BoxShadow : "0 8px 32px rgba(31, 38, 135, 0.2)"
       })
     );
     dispatch(
@@ -237,39 +238,45 @@ export default function SettingTheme() {
         TextColor: theme.gradient ? "white" : color,
         IconColor: theme.gradient ? "white" : color,
         BorderColor: color,
+        BoxShadow : "0 8px 32px rgba(31, 38, 135, 0.2)"
       })
     );
-
+    
     dispatch(
       setSkillCardThemeThunk({
         BackgroundColor: theme.gradient ? color : "rgba(255, 255, 255, 0)",
         IconColor: theme.gradient ? "white" : color,
         TextColor: theme.gradient ? "white" : color,
         BorderColor: color,
+        BoxShadow : "0 8px 32px rgba(31, 38, 135, 0.2)"
       })
     );
-
+    
     dispatch(
       setReviewThemeThunk({
         BackgroundColor: theme.gradient ? color : "rgba(255, 255, 255, 0)",
         IconColor: theme.gradient ? "white" : color,
         TextColor: theme.gradient ? "white" : color,
         BorderColor: color,
+        BoxShadow : "0 8px 32px rgba(31, 38, 135, 0.2)"
       })
     );
-
+    
     dispatch(
       setContactThemeThunk({
         BackgroundColor: theme.gradient ? color : "rgba(255, 255, 255, 0)",
         IconColor: theme.gradient ? "white" : color,
         TextColor: theme.gradient ? "white" : color,
         BorderColor: color,
+        BoxShadow : "0 8px 32px rgba(31, 38, 135, 0.2)"
       })
     );
-
+    
     dispatch(
       setHeroThemeThunk({
+        TextColor : color,
         BackgroundColor: color,
+        BoxShadow : "0 8px 32px rgba(31, 38, 135, 0.2)"
       })
     );
   };

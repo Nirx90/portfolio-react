@@ -157,7 +157,8 @@ export default function NavBar() {
           border: "1px solid rgba(255, 255, 255, 0.1)", // soft frosted border
           borderBottomRightRadius: navBarCss.BorderRadious,
           borderBottomLeftRadius: navBarCss.BorderRadious,
-          boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)", // deeper shadow for stronger float on dark background
+          // boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)", // deeper shadow for stronger float on dark background
+          boxShadow: navBarCss.BoxShadow, // deeper shadow for stronger float on dark background
           transition: "all 0.3s ease",
           px: isMobile ? 0 : navBarCss.Padding,
           // py: 1,
