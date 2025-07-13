@@ -82,7 +82,8 @@ export default function NavBar() {
           PrimaryTextColor: "whitesmoke",
           SecondaryTextColor: "whitesmoke",
           BoxShadow: "none",
-          DarkMode : true
+          DarkMode : true,
+          HeaderColor : "whitesmoke"
         })
       );
       dispatch(

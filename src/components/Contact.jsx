@@ -30,7 +30,7 @@ export default function ContactSection() {
 
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const { DarkMode, Animation } = useSelector((state) => state.theme);
+  const { DarkMode, Animation, HeaderColor } = useSelector((state) => state.theme);
   const contactCss = useSelector((state) => state.contact);
 
   const [settingDialog, setSettingDialog] = useState(false);
@@ -108,7 +108,7 @@ export default function ContactSection() {
         sx={{
           textAlign: "center",
           fontWeight: 700,
-          color: DarkMode ? "whitesmoke" : "black",
+          color: HeaderColor,
           mb: 10,
         }}
       >

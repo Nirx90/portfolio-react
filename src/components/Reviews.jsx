@@ -56,7 +56,7 @@ const reviews = [
 ];
 
 export default function ReviewsSection() {
-  const { DarkMode, Animation } = useSelector((state) => state.theme);
+  const { DarkMode, Animation, HeaderColor } = useSelector((state) => state.theme);
   const reviewCss = useSelector((state) => state.review);
 
   const [settingDialog, setSettingDialog] = useState(false);
@@ -70,7 +70,7 @@ export default function ReviewsSection() {
             textAlign: "center",
             fontWeight: 700,
             mb: 10,
-            color: DarkMode ? "whitesmoke" : "",
+            color: HeaderColor
           }}
         >
           Latest Reviews

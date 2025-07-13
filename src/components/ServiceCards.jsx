@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 const ServiceCards = () => {
   const serviceCardCss = useSelector((state) => state.serviceCard);
 
-  const { DarkMode, Animation } = useSelector((state) => state.theme);
+  const { DarkMode, Animation, HeaderColor } = useSelector((state) => state.theme);
 
   return (
     <Box sx={{ position: "relative" }}>
@@ -18,7 +18,7 @@ const ServiceCards = () => {
             textAlign: "center",
             mb: 4,
             fontWeight: 700,
-            color: DarkMode ? "whitesmoke" : "black",
+            color: HeaderColor,
           }}
         >
           What I Do

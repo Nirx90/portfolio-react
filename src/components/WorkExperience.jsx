@@ -19,7 +19,7 @@ import SettingExperience from "./settings/SettingExperience";
 
 const WorkExperience = () => {
   const [settingDialog, setSettingDialog] = useState(false);
-  const { DarkMode, Animation } = useSelector((state) => state.theme);
+  const { DarkMode, Animation, HeaderColor } = useSelector((state) => state.theme);
   const experienceCss = useSelector((state) => state.experience);
 
   const experienceData = [
@@ -70,7 +70,7 @@ const WorkExperience = () => {
         sx={{
           fontWeight: 700,
           mb: 10,
-          color: DarkMode ? "whitesmoke" : "rgba(0, 0, 0, 0.87)",
+          color: HeaderColor,
         }}
       >
         Work Experience

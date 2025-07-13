@@ -10,22 +10,15 @@ export default function SettingLayout() {
 
   const dispatch = useDispatch();
 
-  const [formData, setFormData] = React.useState({
-    bgColor: "",
-    borderRadious: "",
-  });
+  const [bgColor, setBgColor] = React.useState("");
 
   const themeCss = useSelector((state) => state.theme);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setBgColor(e.target.value);
     dispatch(
       setThemeColors({
-        BackgroundColor: formData.bgColor,
+        BackgroundColor: e.target.value,
         PrimaryTextColor: "whitesmoke",
         SecondaryTextColor: "whitesmoke",
         BoxShadow: "none",
@@ -52,7 +45,7 @@ export default function SettingLayout() {
               label="Background Color"
               name="bgColor"
               size="small"
-              value={formData.bgColor}
+              value={bgColor}
               onChange={handleChange}
               type="text"
               style={{ width: "100%" }}
@@ -63,7 +56,7 @@ export default function SettingLayout() {
             <TextField
               name="bgColor"
               size="small"
-              value={formData.bgColor}
+              value={bgColor}
               onChange={handleChange}
               type="color"
               style={{ width: "100%" }}

@@ -24,7 +24,7 @@ import { useSelector } from "react-redux";
 import "./SkillCard.css";
 
 const SkillCard = () => {
-  const { DarkMode, Animation } = useSelector((state) => state.theme);
+  const { DarkMode, Animation, HeaderColor } = useSelector((state) => state.theme);
   const skillCardCss = useSelector((state) => state.skillCard);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [hoveredSkill, setHoveredSkill] = useState(null);
@@ -143,7 +143,7 @@ const SkillCard = () => {
         sx={{
           textAlign: "center",
           fontWeight: 700,
-          color: DarkMode ? "whitesmoke" : "black",
+          color: HeaderColor,
         }}
       >
         My Tech Stack

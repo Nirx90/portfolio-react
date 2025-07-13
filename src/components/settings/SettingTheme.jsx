@@ -219,6 +219,7 @@ export default function SettingTheme() {
         BoxShadow: "none",
         DarkMode: true,
         Animation: theme.animation,
+        HeaderColor : theme.animation ? "whitesmoke" : color
       })
     );
 
