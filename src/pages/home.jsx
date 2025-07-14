@@ -72,7 +72,7 @@ const PortfolioHomepage = () => {
         sx={{
           background: BackgroundColor,
           py: isMobile ? 2 : 10,
-          m: 0,
+          // mx:5
         }}
       >
         <Container>

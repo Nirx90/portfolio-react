@@ -79,6 +79,12 @@ export default function SettingTheme() {
       type: "gradient",
     },
     {
+      color: "linear-gradient(45deg, #00fffc, #fc00ff, #00fffc)",
+      gradient: true,
+      animation: false,
+      type: "gradient",
+    },
+    {
       color: "linear-gradient(-45deg, #00ffff, #ff4da6, #b026ff, #00ffff)",
       gradient: true,
       animation: true,

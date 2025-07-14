@@ -63,16 +63,13 @@ const ServiceCards = () => {
                     p: 3,
                     minHeight: 190,
                     borderRadius: serviceCardCss.BorderRadious,
-
+                    
                     background: serviceCardCss.BackgroundColor,
                     backgroundSize: Animation ? "400% 400%" : "100%",
                     animation: "gradientShift 8s ease infinite",
                     backdropFilter: "blur(12px)",
                     WebkitBackdropFilter: "blur(12px)",
                     border: `${serviceCardCss.BorderWidth}px solid ${serviceCardCss.BorderColor}`,
-                    // boxShadow: darkMode
-                    //   ? "none"
-                    //   : "0 8px 32px rgba(31, 38, 135, 0.2)",
                     boxShadow: serviceCardCss.BoxShadow,
                     // boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
                     transition: "transform 0.3s ease",
