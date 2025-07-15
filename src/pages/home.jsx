@@ -42,6 +42,7 @@ const PortfolioHomepage = () => {
     Animation,
   } = useSelector((state) => state.theme);
   const heroCss = useSelector((state) => state.hero);
+  const reviewCss = useSelector((state) => state.review);
 
   // Animation variants
   const containerVariants = {
@@ -158,7 +159,7 @@ const PortfolioHomepage = () => {
                         backgroundSize: Animation ? "400% 400%" : "100%",
                         animation: "gradientShift 8s ease infinite",
                         boxShadow: heroCss.BoxShadow,
-                        color: "whitesmoke",
+                        color: reviewCss.TextColor,
                       }}
                     >
                       View Projects

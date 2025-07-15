@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Paper, TextField, Typography } from "@mui/material";
+import { Button, Paper, Switch, TextField, Typography } from "@mui/material";
 import { setNavBarThemeThunk } from "../../slices/navbarSlice";
 import { setThemeColors } from "../../slices/themeSlice";
 import { setserviceCardThemeThunk } from "../../slices/serviceCardSlice";
@@ -237,7 +237,8 @@ export default function SettingNeumorphism() {
     {
       color: "#352f1b",
       BoxShadow: "8px 8px 16px #242011, -8px -8px 16px #463e25",
-      InsetBoxShadow: "inset 8px 8px 16px #242011, inset -8px -8px 16px #463e25",
+      InsetBoxShadow:
+        "inset 8px 8px 16px #242011, inset -8px -8px 16px #463e25",
       IconColor: "#ffecb3",
       TextColor: "#ffecb3",
       DarkMode: true,
@@ -273,6 +274,122 @@ export default function SettingNeumorphism() {
       InsetBoxShadow: "inset 4px 4px 8px #3d1420, inset -4px -4px 8px #772a3e",
       IconColor: "#ec407a",
       TextColor: "#ec407a",
+      DarkMode: true,
+    },
+
+    //gradient
+    {
+      color: "linear-gradient(135deg, #f8e1e7, #ffffff)",
+      BoxShadow: "8px 8px 16px #dcb8c5, -8px -8px 16px #ffffff",
+      InsetBoxShadow: "inset 4px 4px 8px #dcb8c5, inset -4px -4px 8px #ffffff",
+      IconColor: "#8c4b5a",
+      TextColor: "#4a2c31",
+      DarkMode: false,
+    },
+    {
+      color: "linear-gradient(135deg, #dbeafe, #f0f4f8)",
+      BoxShadow: "8px 8px 16px #b2c2d6, -8px -8px 16px #ffffff",
+      InsetBoxShadow: "inset 4px 4px 8px #b2c2d6, inset -4px -4px 8px #ffffff",
+      IconColor: "#3b82f6",
+      TextColor: "#1e3a8a",
+      DarkMode: false,
+    },
+    {
+      color: "linear-gradient(145deg, #fdf2e9, #ffffff)",
+      BoxShadow: "8px 8px 16px #e0d1c8, -8px -8px 16px #ffffff",
+      InsetBoxShadow: "inset 4px 4px 8px #e0d1c8, inset -4px -4px 8px #ffffff",
+      IconColor: "#d97706",
+      TextColor: "#92400e",
+      DarkMode: false,
+    },
+    {
+      color: "linear-gradient(135deg, #d9f8f2, #ffffff)",
+      BoxShadow: "8px 8px 16px #b2d8cf, -8px -8px 16px #ffffff",
+      InsetBoxShadow: "inset 4px 4px 8px #b2d8cf, inset -4px -4px 8px #ffffff",
+      IconColor: "#10b981",
+      TextColor: "#065f46",
+      DarkMode: false,
+    },
+
+    {
+      color: "linear-gradient(145deg, #2a2a40, #1e1e30)",
+      BoxShadow: "8px 8px 16px #1a1a2a, -8px -8px 16px #343454",
+      InsetBoxShadow: "inset 4px 4px 8px #1a1a2a, inset -4px -4px 8px #343454",
+      IconColor: "#9ba0f2",
+      TextColor: "#f0f0f3",
+      DarkMode: true,
+    },
+    {
+      color: "linear-gradient(135deg, #3d2d2d, #2a1f1f)",
+      BoxShadow: "8px 8px 16px #1a1414, -8px -8px 16px #503838",
+      InsetBoxShadow: "inset 4px 4px 8px #1a1414, inset -4px -4px 8px #503838",
+      IconColor: "#f28b82",
+      TextColor: "#fce8e6",
+      DarkMode: true,
+    },
+    {
+      color: "linear-gradient(145deg, #233d3d, #1a2e2e)",
+      BoxShadow: "8px 8px 16px #0f1f1f, -8px -8px 16px #335050",
+      InsetBoxShadow: "inset 4px 4px 8px #0f1f1f, inset -4px -4px 8px #335050",
+      IconColor: "#67e8f9",
+      TextColor: "#d1fafc",
+      DarkMode: true,
+    },
+    {
+      color: "linear-gradient(135deg, #4a2c4c, #351f37)",
+      BoxShadow: "8px 8px 16px #1d1020, -8px -8px 16px #5c3a5f",
+      InsetBoxShadow: "inset 4px 4px 8px #1d1020, inset -4px -4px 8px #5c3a5f",
+      IconColor: "#e879f9",
+      TextColor: "#fbe4fb",
+      DarkMode: true,
+    },
+    {
+      color: "linear-gradient(135deg, #3d3d29, #2a2a1f)",
+      BoxShadow: "8px 8px 16px #1a1a10, -8px -8px 16px #505038",
+      InsetBoxShadow: "inset 4px 4px 8px #1a1a10, inset -4px -4px 8px #505038",
+      IconColor: "#facc15",
+      TextColor: "#fef9c3",
+      DarkMode: true,
+    },
+
+    {
+      color: "linear-gradient(135deg, #4b1e2f, #2a1420)",
+      BoxShadow: "8px 8px 16px #1a0c12, -8px -8px 16px #662a42",
+      InsetBoxShadow: "inset 4px 4px 8px #1a0c12, inset -4px -4px 8px #662a42",
+      IconColor: "#f472b6",
+      TextColor: "#fce7f3",
+      DarkMode: true,
+    },
+    {
+      color: "linear-gradient(145deg, #3c1e4f, #271235)",
+      BoxShadow: "8px 8px 16px #14081c, -8px -8px 16px #532868",
+      InsetBoxShadow: "inset 4px 4px 8px #14081c, inset -4px -4px 8px #532868",
+      IconColor: "#d8b4fe",
+      TextColor: "#f3e8ff",
+      DarkMode: true,
+    },
+    {
+      color: "linear-gradient(135deg, #4a1c3a, #311227)",
+      BoxShadow: "8px 8px 16px #180912, -8px -8px 16px #692650",
+      InsetBoxShadow: "inset 4px 4px 8px #180912, inset -4px -4px 8px #692650",
+      IconColor: "#fb7185",
+      TextColor: "#ffe4e6",
+      DarkMode: true,
+    },
+    {
+      color: "linear-gradient(135deg, #45224a, #2e1633)",
+      BoxShadow: "8px 8px 16px #140a18, -8px -8px 16px #5f2c67",
+      InsetBoxShadow: "inset 4px 4px 8px #140a18, inset -4px -4px 8px #5f2c67",
+      IconColor: "#f0abfc",
+      TextColor: "#fae8ff",
+      DarkMode: true,
+    },
+    {
+      color: "linear-gradient(135deg, #551a36, #341122)",
+      BoxShadow: "8px 8px 16px #1a0a12, -8px -8px 16px #70294d",
+      InsetBoxShadow: "inset 4px 4px 8px #1a0a12, inset -4px -4px 8px #70294d",
+      IconColor: "#f472b6",
+      TextColor: "#fce7f3",
       DarkMode: true,
     },
   ];
@@ -380,9 +497,16 @@ export default function SettingNeumorphism() {
             }}
           >
             <Typography>Select Theme</Typography>
-            <Button onClick={() => setUseInset(!useInset)} sx={{ mb: 1 }}>
-              {useInset ? "Use Normal Shadow" : "Use Inset Shadow"}
-            </Button>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <Typography>Use Inset</Typography>
+              <Switch onClick={() => setUseInset(!useInset)} value={useInset} />
+            </Box>
           </Box>
 
           <Box

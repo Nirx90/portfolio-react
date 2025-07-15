@@ -27,6 +27,7 @@ const reviewSlice = createSlice({
     setReviewThemeThunk: (state, action) => {
       const data = action.payload;
       state.TextColor = data.TextColor;
+      state.IconColor = data.IconColor;
       state.BorderColor = data.BorderColor;
       state.BackgroundColor = data.BackgroundColor;
       state.BoxShadow = data.BoxShadow;

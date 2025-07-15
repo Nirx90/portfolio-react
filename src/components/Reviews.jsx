@@ -8,12 +8,24 @@ import {
   Typography,
   Avatar,
   Stack,
+  IconButton,
 } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import { useSelector } from "react-redux";
-import { IconSettings } from "@tabler/icons-react";
+import {
+  IconArrowLeft,
+  IconArrowRight,
+  IconSettings,
+} from "@tabler/icons-react";
 import SettingReview from "./settings/SetingReview";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
 
 // Dummy data
 const reviews = [
@@ -39,27 +51,43 @@ const reviews = [
     rating: 3,
     image: "https://randomuser.me/api/portraits/men/53.jpg",
   },
-  // {
-  //   name: "Emily Johnson",
-  //   title: "CTO",
-  //   review: "Incredible attention to detail and modern design choices!",
-  //   rating: 5,
-  //   image: "https://randomuser.me/api/portraits/women/68.jpg",
-  // },
-  // {
-  //   name: "Chris Lee",
-  //   title: "Designer",
-  //   review: "A pleasure to work with, understands design needs perfectly.",
-  //   rating: 4,
-  //   image: "https://randomuser.me/api/portraits/men/24.jpg",
-  // },
+  {
+    name: "Emily Johnson",
+    title: "CTO",
+    review: "Incredible attention to detail and modern design choices!",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/women/68.jpg",
+  },
+  {
+    name: "Chris Lee",
+    title: "Designer",
+    review: "A pleasure to work with, understands design needs perfectly.",
+    rating: 4,
+    image: "https://randomuser.me/api/portraits/men/24.jpg",
+  },
 ];
 
 export default function ReviewsSection() {
-  const { DarkMode, Animation, HeaderColor } = useSelector((state) => state.theme);
+  const { DarkMode, Animation, HeaderColor } = useSelector(
+    (state) => state.theme
+  );
   const reviewCss = useSelector((state) => state.review);
 
   const [settingDialog, setSettingDialog] = useState(false);
+
+  const paginationDotsCss = {
+    p: 1,
+    borderRadius: 5,
+    background: reviewCss.BackgroundColor,
+    backgroundSize: Animation ? "400% 400%" : "100%",
+    animation: Animation ? "gradientShift 8s ease infinite" : "none",
+    border: `${reviewCss.BorderWidth}px solid ${reviewCss.BorderColor}`,
+    boxShadow: reviewCss.BoxShadow,
+    transition: "transform 0.3s ease",
+    position: "absolute",
+    top: "91%",
+    zIndex: 2,
+  };
 
   return (
     <Box>
@@ -70,13 +98,163 @@ export default function ReviewsSection() {
             textAlign: "center",
             fontWeight: 700,
             mb: 10,
-            color: HeaderColor
+            color: HeaderColor,
           }}
         >
           Latest Reviews
         </Typography>
 
-        <Grid container spacing={4}>
+        <Box sx={{ position: "relative", width: "100%" }}>
+          <Swiper
+            modules={[Navigation, Pagination]}
+            navigation={{
+              nextEl: ".custom-next",
+              prevEl: ".custom-prev",
+            }}
+            pagination={{ clickable: true }}
+            spaceBetween={50}
+            slidesPerView={3}
+            breakpoints={{
+              320: { slidesPerView: 1 },
+              600: { slidesPerView: 2 },
+              900: { slidesPerView: 3 },
+            }}
+            style={{ padding: "20px 25px 80px 28px" }} // reserve space for dots
+          >
+            {reviews.map((review, index) => (
+              <SwiperSlide key={index}>
+                <Card
+                  sx={{
+                    p: 3,
+                    borderRadius: 5,
+                    position: "relative",
+                    background: reviewCss.BackgroundColor,
+                    backgroundSize: Animation ? "400% 400%" : "100%",
+                    animation: Animation
+                      ? "gradientShift 8s ease infinite"
+                      : "none",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                    border: `${reviewCss.BorderWidth}px solid ${reviewCss.BorderColor}`,
+                    // boxShadow: reviewCss.BoxShadow,
+                    boxShadow: reviewCss.BoxShadow,
+                    transition: "transform 0.3s ease",
+                    "&:hover .settings-popup": {
+                      opacity: 1,
+                      color: reviewCss.TextColor,
+                    },
+                  }}
+                >
+                  <CardContent>
+                    <Box
+                      className="settings-popup"
+                      sx={{
+                        position: "absolute",
+                        right: 10,
+                        top: 10,
+                        opacity: 0,
+                        transition: "opacity 0.3s ease",
+                      }}
+                    >
+                      <IconSettings
+                        onClick={() => setSettingDialog(true)}
+                        cursor="pointer"
+                      />
+                    </Box>
+                    <Stack spacing={2} alignItems="center">
+                      <Avatar
+                        src={review.image}
+                        alt={review.name}
+                        sx={{ width: 60, height: 60 }}
+                      />
+                      <Typography
+                        variant="h6"
+                        sx={{ color: reviewCss.TextColor }}
+                      >
+                        {review.name}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{ color: reviewCss.TextColor }}
+                      >
+                        {review.title}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{ textAlign: "center", color: reviewCss.TextColor }}
+                      >
+                        "{review.review}"
+                      </Typography>
+                      <Box>
+                        {Array.from({ length: 5 }).map((_, i) =>
+                          i < review.rating ? (
+                            <StarIcon
+                              key={i}
+                              sx={{ color: reviewCss.IconColor }}
+                            />
+                          ) : (
+                            <StarBorderIcon
+                              key={i}
+                              sx={{ color: reviewCss.IconColor }}
+                            />
+                          )
+                        )}
+                      </Box>
+                    </Stack>
+                  </CardContent>
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <style jsx="true">{`
+            .swiper-pagination-bullet {
+              width: 18px;
+              height: 18px;
+              border: ${reviewCss.BorderWidth}px solid ${reviewCss.BorderColor};
+              border-radius: 50%;
+              background: ${reviewCss.BackgroundColor};
+              background-size: ${Animation ? "400% 400%" : "100%"};
+              animation: ${Animation
+                ? "gradientShift 8s ease infinite"
+                : "none"};
+              box-shadow: ${reviewCss.BoxShadow};
+              backdrop-filter: blur(12px);
+              -webkit-backdrop-filter: blur(12px);
+              transition: transform 0.3s ease, background 0.3s ease;
+              opacity: 1;
+              margin: 0 4px;
+            }
+
+            .swiper-pagination-bullet-active {
+              transform: scale(1.5);
+              border-color: ${reviewCss.BorderColor};
+            }
+          `}</style>
+
+          {/* Custom Prev/Next buttons */}
+          <IconButton
+            className="custom-prev"
+            sx={{
+              ...paginationDotsCss,
+              right: "58%",
+            }}
+          >
+            <IconArrowLeft color={`${reviewCss.IconColor}`} />
+          </IconButton>
+
+          <IconButton
+            className="custom-next"
+            sx={{
+              ...paginationDotsCss,
+              right: "37%",
+            }}
+          >
+            <IconArrowRight color={`${reviewCss.IconColor}`} />
+          </IconButton>
+        </Box>
+
+        {/* <Grid container spacing={4}>
           {reviews.map((review, index) => (
             <Grid item size={{ xs: 12, sm: 6, md: 4 }} key={index}>
               <Card
@@ -155,7 +333,7 @@ export default function ReviewsSection() {
               </Card>
             </Grid>
           ))}
-        </Grid>
+        </Grid> */}
         <SettingReview
           open={settingDialog}
           onClose={() => setSettingDialog(false)}
