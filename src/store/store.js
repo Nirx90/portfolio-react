@@ -7,6 +7,7 @@ import experienceReducer from "../slices/experienceSlice";
 import reviewReducer from "../slices/reviewSlice";
 import contactReducer from "../slices/contactSlice";
 import heroReducer from "../slices/heroSlice";
+import authReducer from "../slices/authSlice";
 
 const store = configureStore({
   reducer: {
@@ -17,7 +18,8 @@ const store = configureStore({
     experience: experienceReducer,
     review: reviewReducer,
     contact: contactReducer,
-    hero : heroReducer
+    hero : heroReducer,
+    auth : authReducer,
   },
 });
 
