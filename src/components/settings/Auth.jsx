@@ -34,7 +34,7 @@ export default function Auth() {
     <Paper
       sx={{
         p: 2,
-        mt: 2,
+        m: 2,
       }}
     >
       <Typography>Login</Typography>
@@ -61,12 +61,12 @@ export default function Auth() {
             value={formik.values.password}
             onChange={formik.handleChange}
             type="text"
-            style={{ width: "100%" }}
+            style={{ width: "100%", marginTop:10 }}
           />
         </Box>
       </Box>
 
-      <Box sx={{ width: 200 }}>
+      <Box sx={{ width: 200,mt:2 }}>
         <Button variant="contained" onClick={() => formik.handleSubmit()}>
           Login
         </Button>

@@ -22,8 +22,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetNavbar, setNavBarDarkMode } from "../slices/navbarSlice";
 import { resetTheme, setThemeColors } from "../slices/themeSlice";
 import {
+  IconMenu2,
   IconMoonFilled,
-  IconSettings,
   IconSettingsFilled,
   IconSunFilled,
 } from "@tabler/icons-react";
@@ -35,7 +35,10 @@ import {
 import { resetSkillCard, setSkillCardDarkMode } from "../slices/skillSlice";
 import { resetReview, setReviewDarkModeThunk } from "../slices/reviewSlice";
 import { resetContact, setContactDarkModeThunk } from "../slices/contactSlice";
-import { resetExperience, setExperienceDarkModeThunk } from "../slices/experienceSlice";
+import {
+  resetExperience,
+  setExperienceDarkModeThunk,
+} from "../slices/experienceSlice";
 
 const navItems = ["Home", "About", "Projects", "Contact"];
 
@@ -43,7 +46,7 @@ export default function NavBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [openSideDrwer, setOpenSideDrawer] = useState(false);
 
-  const theme = useTheme()
+  const theme = useTheme();
 
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -58,7 +61,7 @@ export default function NavBar() {
   const dispatch = useDispatch();
 
   const navBarCss = useSelector((state) => state.navbar);
-  const {DarkMode, Animation} = useSelector((state) => state.theme);
+  const { DarkMode, Animation } = useSelector((state) => state.theme);
 
   const toggleDrawer = (open) => () => setDrawerOpen(open);
 
@@ -82,8 +85,8 @@ export default function NavBar() {
           PrimaryTextColor: "whitesmoke",
           SecondaryTextColor: "whitesmoke",
           BoxShadow: "none",
-          DarkMode : true,
-          HeaderColor : "whitesmoke"
+          DarkMode: true,
+          HeaderColor: "whitesmoke",
         })
       );
       dispatch(
@@ -121,8 +124,8 @@ export default function NavBar() {
       dispatch(resetserviceCard());
       dispatch(resetSkillCard());
       dispatch(resetReview());
-      dispatch(resetContact())
-      dispatch(resetExperience())
+      dispatch(resetContact());
+      dispatch(resetExperience());
     }
   };
 
@@ -193,9 +196,9 @@ export default function NavBar() {
                 name="darkMode"
                 onClick={() => handleDarkMode()}
                 cursor="pointer"
-                />
-              ) : (
-                <IconMoonFilled
+              />
+            ) : (
+              <IconMoonFilled
                 color={navBarCss.TextColor}
                 name="darkMode"
                 onClick={() => handleDarkMode()}
@@ -203,48 +206,18 @@ export default function NavBar() {
               />
             )}
 
-            {/* <Switch
-              checked={darkMode}
-              onChange={() => handleDarkMode()}
-              name="darkMode"
-              sx={{
-                color: navBarCss.TextColor,
-              }}
-            /> */}
-
-            {/* User Menu */}
-            <IconButton color="inherit" onClick={handleUserMenuClick}>
-              <AccountCircle
-                sx={{
-                  color: navBarCss.TextColor,
-                }}
-              />
-            </IconButton>
             <IconSettingsFilled
               onClick={() => setOpenSideDrawer(true)}
               cursor="pointer"
               color={navBarCss.TextColor}
             />
-            <Menu
-              anchorEl={userMenuAnchor}
-              open={Boolean(userMenuAnchor)}
-              onClose={handleUserMenuClose}
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              transformOrigin={{ vertical: "top", horizontal: "right" }}
-            >
-              <MenuItem onClick={handleUserMenuClose}>Login</MenuItem>
-              <MenuItem onClick={handleUserMenuClose}>Logout</MenuItem>
-            </Menu>
 
-            {/* Mobile Menu Icon */}
-            <IconButton
-              edge="end"
-              color="inherit"
-              sx={{ display: { md: "none" } }}
-              onClick={toggleDrawer(true)}
-            >
-              <MenuIcon color={navBarCss.TextColor} />
-            </IconButton>
+            {isMobile && (
+              <IconMenu2
+                color={navBarCss.TextColor}
+                onClick={toggleDrawer(true)}
+              />
+            )}
           </Box>
         </Toolbar>
       </AppBar>

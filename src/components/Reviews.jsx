@@ -9,6 +9,8 @@ import {
   Avatar,
   Stack,
   IconButton,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
@@ -74,6 +76,9 @@ export default function ReviewsSection() {
   const reviewCss = useSelector((state) => state.review);
 
   const [settingDialog, setSettingDialog] = useState(false);
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const paginationDotsCss = {
     p: 1,
@@ -237,7 +242,7 @@ export default function ReviewsSection() {
             className="custom-prev"
             sx={{
               ...paginationDotsCss,
-              right: "58%",
+              right: isMobile ? "80%" : "58%",
             }}
           >
             <IconArrowLeft color={`${reviewCss.IconColor}`} />
@@ -247,7 +252,7 @@ export default function ReviewsSection() {
             className="custom-next"
             sx={{
               ...paginationDotsCss,
-              right: "37%",
+              right: isMobile ? "15%" : "37%",
             }}
           >
             <IconArrowRight color={`${reviewCss.IconColor}`} />

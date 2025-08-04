@@ -40,19 +40,14 @@ export default function SideDrawer({ open, onClose }) {
 
   return (
     <Drawer anchor="right" open={open} onClose={onClose}>
-      <Box
-        width={isMobile ? 300 : 450}
-        sx={
-          {
-            // backgroundColor:'black'
-          }
-        }
-      >
+      <Box width={isMobile ? 300 : 450}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
             value={tab}
             onChange={(e, newValue) => setTab(newValue)}
             aria-label="product or service selection"
+            scrollButtons="auto"
+            variant="scrollable"
           >
             <Tab
               value="theme"
@@ -93,24 +88,26 @@ export default function SideDrawer({ open, onClose }) {
         {tab === "neomorphism" && <SettingNeumorphism />}
         {tab === "auth" && <Auth />}
 
-        <Box
-          sx={{
-            position: "relative",
-            bottom: 20,
-            right: 20,
-            display: "flex",
-            justifyContent: "flex-end",
-            gap: 2,
-            mt: 2,
-          }}
-        >
-          <Button variant="contained" onClick={handleReset}>
-            Reset
-          </Button>
-          <Button variant="contained" onClick={() => onClose()}>
-            Apply
-          </Button>
-        </Box>
+        {tab !== "auth" && (
+          <Box
+            sx={{
+              position: "relative",
+              bottom: 20,
+              right: 20,
+              display: "flex",
+              justifyContent: "flex-end",
+              gap: 2,
+              mt: 2,
+            }}
+          >
+            <Button variant="contained" onClick={handleReset}>
+              Reset
+            </Button>
+            <Button variant="contained" onClick={() => onClose()}>
+              Apply
+            </Button>
+          </Box>
+        )}
       </Box>
     </Drawer>
   );
