@@ -1,9 +1,9 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Paper, TextField, Typography } from "@mui/material";
+import { Button, Paper, Switch, TextField, Typography } from "@mui/material";
 import { setNavBarThemeThunk } from "../../slices/navbarSlice";
-import { IconCircleFilled } from "@tabler/icons-react";
+import { IconCircleFilled, IconMoonFilled } from "@tabler/icons-react";
 import { setThemeColors } from "../../slices/themeSlice";
 import { setserviceCardThemeThunk } from "../../slices/serviceCardSlice";
 import { setSkillCardThemeThunk } from "../../slices/skillSlice";
@@ -12,18 +12,27 @@ import { setContactThemeThunk } from "../../slices/contactSlice";
 import { setExperienceThemeThunk } from "../../slices/experienceSlice";
 import { setHeroThemeThunk } from "../../slices/heroSlice";
 
+function extractFirstColorCode(str) {
+  const match = str.match(/#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})/);
+  return match ? match[0] : null;
+}
+
 export default function SettingTheme() {
   const dispatch = useDispatch();
 
+  const [standardDark, setStandardDark] = React.useState(false);
+  const [gradientDark, setGradientDark] = React.useState(false);
+  const [animatedDark, setAnimatedDark] = React.useState(false);
+
   const themes = [
-    { color: "#D4FF40", Gradient: false, type: "neon", Animation: false },
-    { color: "#00FFFF", Gradient: false, type: "neon", Animation: false },
-    { color: "#FF4DA6", Gradient: false, type: "neon", Animation: false },
-    { color: "#39FF14", Gradient: false, type: "neon", Animation: false },
-    { color: "#B026FF", Gradient: false, type: "neon", Animation: false },
-    { color: "#FF6600", Gradient: false, type: "neon", Animation: false },
-    { color: "#FF00FF", Gradient: false, type: "neon", Animation: false },
-    { color: "#8A2BE2", Gradient: false, type: "neon", Animation: false },
+    { color: "#D4FF40", Gradient: false, type: "standard", Animation: false },
+    { color: "#00FFFF", Gradient: false, type: "standard", Animation: false },
+    { color: "#FF4DA6", Gradient: false, type: "standard", Animation: false },
+    { color: "#39FF14", Gradient: false, type: "standard", Animation: false },
+    { color: "#B026FF", Gradient: false, type: "standard", Animation: false },
+    { color: "#FF6600", Gradient: false, type: "standard", Animation: false },
+    { color: "#FF00FF", Gradient: false, type: "standard", Animation: false },
+    { color: "#8A2BE2", Gradient: false, type: "standard", Animation: false },
 
     {
       color: "linear-Gradient(135deg, #00FFFF, #B026FF, #FF4DA6)",
@@ -204,29 +213,39 @@ export default function SettingTheme() {
     },
   ];
 
-  const neonTheme = themes.filter((th) => th.type === "neon");
+  const standardTheme = themes.filter((th) => th.type === "standard");
   const gradientTheme = themes.filter((th) => th.type === "Gradient");
   const animatedTheme = themes.filter((th) => th.type === "animated");
 
   const setTheme = (theme) => {
     const color = theme.color;
+    let isDark = false;
+    if (theme.type === "standard") {
+      isDark = standardDark
+    }
+    if (theme.type === "Gradient") {
+      isDark = gradientDark
+    }
+    if (theme.type === "animated") {
+      isDark = animatedDark
+    }
 
     dispatch(
       setNavBarThemeThunk({
         BackgroundColor: color,
-        TextColor: theme.Gradient ? "white" : "black",
+        TextColor: isDark ? "white" : "black",
       })
     );
 
     dispatch(
       setThemeColors({
-        BackgroundColor: "white",
-        PrimaryTextColor: "whitesmoke",
-        SecondaryTextColor: "whitesmoke",
+        BackgroundColor: isDark ? "black" : "white",
+        PrimaryTextColor: isDark ? "whitesmoke" : "black",
+        SecondaryTextColor: isDark ? "whitesmoke" : "black",
         BoxShadow: "none",
-        DarkMode: true,
+        DarkMode: isDark ? true : false,
         Animation: theme.Animation,
-        HeaderColor : theme.Animation ? "whitesmoke" : color
+        HeaderColor: isDark ? "white" : "black",
       })
     );
 
@@ -237,7 +256,7 @@ export default function SettingTheme() {
         SecondaryTextColor: theme.Gradient ? "white" : color,
         IconColor: theme.Gradient ? "white" : color,
         BorderColor: color,
-        BoxShadow : "0 8px 32px rgba(31, 38, 135, 0.2)"
+        BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
       })
     );
     dispatch(
@@ -246,45 +265,45 @@ export default function SettingTheme() {
         TextColor: theme.Gradient ? "white" : color,
         IconColor: theme.Gradient ? "white" : color,
         BorderColor: color,
-        BoxShadow : "0 8px 32px rgba(31, 38, 135, 0.2)"
+        BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
       })
     );
-    
+
     dispatch(
       setSkillCardThemeThunk({
         BackgroundColor: theme.Gradient ? color : "rgba(255, 255, 255, 0)",
         IconColor: theme.Gradient ? "white" : color,
         TextColor: theme.Gradient ? "white" : color,
         BorderColor: color,
-        BoxShadow : "0 8px 32px rgba(31, 38, 135, 0.2)"
+        BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
       })
     );
-    
+
     dispatch(
       setReviewThemeThunk({
         BackgroundColor: theme.Gradient ? color : "rgba(255, 255, 255, 0)",
         IconColor: theme.Gradient ? "white" : color,
         TextColor: theme.Gradient ? "white" : color,
         BorderColor: color,
-        BoxShadow : "0 8px 32px rgba(31, 38, 135, 0.2)"
+        BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
       })
     );
-    
+
     dispatch(
       setContactThemeThunk({
         BackgroundColor: theme.Gradient ? color : "rgba(255, 255, 255, 0)",
         IconColor: theme.Gradient ? "white" : color,
         TextColor: theme.Gradient ? "white" : color,
         BorderColor: color,
-        BoxShadow : "0 8px 32px rgba(31, 38, 135, 0.2)"
+        BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
       })
     );
-    
+
     dispatch(
       setHeroThemeThunk({
-        TextColor : color,
+        TextColor: color,
         BackgroundColor: color,
-        BoxShadow : "0 8px 32px rgba(31, 38, 135, 0.2)"
+        BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
       })
     );
   };
@@ -302,7 +321,28 @@ export default function SettingTheme() {
         }}
       >
         <Box>
-          <Typography>Neon</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Typography>Standard</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <Typography>Dark</Typography>
+              <Switch
+                onClick={() => setStandardDark(!standardDark)}
+                value={standardDark}
+              />
+            </Box>
+          </Box>
           <Box
             sx={{
               display: "flex",
@@ -310,7 +350,7 @@ export default function SettingTheme() {
               gap: 2,
             }}
           >
-            {neonTheme.map((th) => {
+            {standardTheme.map((th) => {
               return (
                 <Box
                   sx={{
@@ -340,7 +380,28 @@ export default function SettingTheme() {
           </Box>
         </Box>
         <Box>
-          <Typography>Gradient</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Typography>Gradient</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <Typography>Dark</Typography>
+              <Switch
+                onClick={() => setGradientDark(!gradientDark)}
+                value={gradientDark}
+              />
+            </Box>
+          </Box>
           <Box
             sx={{
               display: "flex",
@@ -378,7 +439,28 @@ export default function SettingTheme() {
           </Box>
         </Box>
         <Box>
-          <Typography>Animated</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Typography>Animated</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <Typography>Dark</Typography>
+              <Switch
+                onClick={() => setAnimatedDark(!animatedDark)}
+                value={animatedDark}
+              />
+            </Box>
+          </Box>
           <Box
             sx={{
               display: "flex",
