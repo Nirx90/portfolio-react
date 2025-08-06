@@ -392,6 +392,38 @@ export default function SettingNeumorphism() {
       TextColor: "#fce7f3",
       DarkMode: true,
     },
+
+    //new
+    {
+      color: "linear-gradient(135deg, #006466, #2c5866, #4d194d, #006466)",
+      gradient: true,
+      animation: true,
+      type: "animated"
+    },
+    {
+      color: "linear-gradient(135deg, #006466, #1b3a4b, #4d194d, #006466)",
+      gradient: true,
+      animation: true,
+      type: "animated"
+    },
+    {
+      color: "linear-gradient(135deg, #006466, #3c4a57, #4d194d, #006466)",
+      gradient: true,
+      animation: true,
+      type: "animated"
+    },
+    {
+      color: "linear-gradient(135deg, #006466, #2f4858, #4d194d, #006466)",
+      gradient: true,
+      animation: true,
+      type: "animated"
+    },
+    {
+      color: "linear-gradient(135deg, #006466, #274555, #4d194d, #006466)",
+      gradient: true,
+      animation: true,
+      type: "animated"
+    }
   ];
 
   const setTheme = (theme) => {

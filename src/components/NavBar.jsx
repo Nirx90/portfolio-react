@@ -171,8 +171,11 @@ export default function NavBar() {
       >
         <Toolbar sx={{ justifyContent: "space-between" }}>
           {/* Logo or Title */}
-          <Typography variant="h6" component="div" color={navBarCss.TextColor}>
+          {/* <Typography variant="h6" component="div" color={navBarCss.TextColor}>
             Nirav Chaudhari
+          </Typography> */}
+          <Typography variant="h4" component="div" color={navBarCss.TextColor}>
+            || छावा ||
           </Typography>
 
           {/* Nav Links (desktop only) */}
