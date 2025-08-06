@@ -237,7 +237,6 @@ export default function SettingTheme() {
         BackgroundColor: isDark ? "black" : "white",
         PrimaryTextColor: isDark ? "whitesmoke" : "black",
         SecondaryTextColor: isDark ? "whitesmoke" : "black",
-        BoxShadow: "none",
         DarkMode: isDark ? true : false,
         Animation: theme.Animation,
         HeaderColor: isDark ? "white" : "black",
@@ -303,7 +302,6 @@ export default function SettingTheme() {
     );
   };
 
-  const themeCss = useSelector((state) => state.theme);
 
   return (
     <Box sx={{ p: 2 }}>

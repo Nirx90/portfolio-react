@@ -37,8 +37,6 @@ const PortfolioHomepage = () => {
     BackgroundColor,
     PrimaryTextColor,
     SecondaryTextColor,
-    BoxShadow,
-    DarkMode,
     Animation,
   } = useSelector((state) => state.theme);
   const heroCss = useSelector((state) => state.hero);

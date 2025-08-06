@@ -12,8 +12,6 @@ export default function SettingLayout() {
 
   const [bgColor, setBgColor] = React.useState("");
 
-  const themeCss = useSelector((state) => state.theme);
-
   const handleChange = (e) => {
     setBgColor(e.target.value);
     dispatch(

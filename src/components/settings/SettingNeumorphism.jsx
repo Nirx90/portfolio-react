@@ -396,34 +396,14 @@ export default function SettingNeumorphism() {
     //new
     {
       color: "linear-gradient(135deg, #006466, #2c5866, #4d194d, #006466)",
-      gradient: true,
-      animation: true,
-      type: "animated"
-    },
-    {
-      color: "linear-gradient(135deg, #006466, #1b3a4b, #4d194d, #006466)",
-      gradient: true,
-      animation: true,
-      type: "animated"
-    },
-    {
-      color: "linear-gradient(135deg, #006466, #3c4a57, #4d194d, #006466)",
-      gradient: true,
-      animation: true,
-      type: "animated"
-    },
-    {
-      color: "linear-gradient(135deg, #006466, #2f4858, #4d194d, #006466)",
-      gradient: true,
-      animation: true,
-      type: "animated"
-    },
-    {
-      color: "linear-gradient(135deg, #006466, #274555, #4d194d, #006466)",
-      gradient: true,
-      animation: true,
-      type: "animated"
+      BoxShadow: "8px 8px 16px #1a0a12, -8px -8px 16px #70294d",
+      InsetBoxShadow: "inset 4px 4px 8px #1a0a12, inset -4px -4px 8px #70294d",
+      IconColor: "#f472b6",
+      TextColor: "#fce7f3",
+      DarkMode: true,
+      type: "gradient"
     }
+
   ];
 
   const setTheme = (theme) => {
@@ -442,7 +422,6 @@ export default function SettingNeumorphism() {
         BackgroundColor: color,
         PrimaryTextColor: theme.TextColor,
         SecondaryTextColor: theme.TextColor,
-        BoxShadow: "none",
         DarkMode: theme.DarkMode,
         Animation: false,
         HeaderColor: theme.TextColor,
@@ -507,8 +486,6 @@ export default function SettingNeumorphism() {
       })
     );
   };
-
-  const themeCss = useSelector((state) => state.theme);
 
   return (
     <Box sx={{ p: 2 }}>

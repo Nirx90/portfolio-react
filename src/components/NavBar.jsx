@@ -50,8 +50,6 @@ export default function NavBar() {
 
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const [userMenuAnchor, setUserMenuAnchor] = useState(null);
-
   const handleSideDrawerClose = () => {
     setOpenSideDrawer(false);
   };
@@ -64,9 +62,6 @@ export default function NavBar() {
   const { DarkMode, Animation } = useSelector((state) => state.theme);
 
   const toggleDrawer = (open) => () => setDrawerOpen(open);
-
-  const handleUserMenuClick = (event) => setUserMenuAnchor(event.currentTarget);
-  const handleUserMenuClose = () => setUserMenuAnchor(null);
 
   const handleDarkMode = () => {
     const nextMode = !darkMode;
@@ -84,7 +79,6 @@ export default function NavBar() {
           BackgroundColor: "black",
           PrimaryTextColor: "whitesmoke",
           SecondaryTextColor: "whitesmoke",
-          BoxShadow: "none",
           DarkMode: true,
           HeaderColor: "whitesmoke",
         })
