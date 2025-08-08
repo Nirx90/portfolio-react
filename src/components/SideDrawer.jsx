@@ -48,7 +48,8 @@ export default function SideDrawer({ open, onClose }) {
             onChange={(e, newValue) => setTab(newValue)}
             aria-label="product or service selection"
             scrollButtons="auto"
-            variant="scrollable"
+            variant="fullWidth"
+            centered
           >
             <Tab
               value="theme"
