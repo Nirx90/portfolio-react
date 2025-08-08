@@ -20,6 +20,7 @@ import Auth from "./settings/Auth";
 
 export default function SideDrawer({ open, onClose }) {
   const [tab, setTab] = React.useState("theme");
+  const [themeTab, setThemeTab] = React.useState("standard");
   const dispatch = useDispatch();
 
   const theme = useTheme();
@@ -69,11 +70,11 @@ export default function SideDrawer({ open, onClose }) {
               label="Drawer"
               sx={{ textTransform: "none", minWidth: "unset" }}
             /> */}
-            <Tab
+            {/* <Tab
               value="neomorphism"
               label="Neomorphism"
               sx={{ textTransform: "none", minWidth: "unset" }}
-            />
+            /> */}
             <Tab
               value="auth"
               label="Auth"
@@ -82,10 +83,33 @@ export default function SideDrawer({ open, onClose }) {
           </Tabs>
         </Box>
 
-        {tab === "theme" && <SettingTheme />}
+        {tab === "theme" && (
+          <Box  sx={{ borderBottom: 1, borderColor: "divider" , display:'flex', alignItems:'center', flexDirection:'column'}}>
+            <Tabs
+              value={themeTab}
+              onChange={(e, newValue) => setThemeTab(newValue)}
+              aria-label="product or service selection"
+              scrollButtons="auto"
+              variant="scrollable"
+            >
+              <Tab
+                value="standard"
+                label="Standard"
+                sx={{ textTransform: "none", minWidth: "unset" }}
+              />
+              <Tab
+                value="neomorphism"
+                label="Neomorphism"
+                sx={{ textTransform: "none", minWidth: "unset" }}
+              />
+            </Tabs>
+
+            {themeTab === "standard" && <SettingTheme />}
+            {themeTab === "neomorphism" && <SettingNeumorphism />}
+          </Box>
+        )}
         {tab === "navbar" && <SettingNavBar />}
         {tab === "layout" && <SettingLayout />}
-        {tab === "neomorphism" && <SettingNeumorphism />}
         {tab === "auth" && <Auth />}
 
         {tab !== "auth" && (
