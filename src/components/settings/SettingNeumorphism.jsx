@@ -23,6 +23,7 @@ export default function SettingNeumorphism() {
       IconColor: "black",
       TextColor: "black",
       DarkMode: false,
+      type: "classic",
     },
     {
       color: "#1d222b",
@@ -31,6 +32,7 @@ export default function SettingNeumorphism() {
       IconColor: "whitesmoke",
       TextColor: "whitesmoke",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#f0f0f3",
@@ -39,6 +41,7 @@ export default function SettingNeumorphism() {
       IconColor: "#333333",
       TextColor: "#333333",
       DarkMode: false,
+      type: "classic",
     },
     {
       color: "#e8edf1",
@@ -47,6 +50,7 @@ export default function SettingNeumorphism() {
       IconColor: "#222831",
       TextColor: "#222831",
       DarkMode: false,
+      type: "classic",
     },
     {
       color: "#f8d7da",
@@ -55,6 +59,7 @@ export default function SettingNeumorphism() {
       IconColor: "#721c24",
       TextColor: "#721c24",
       DarkMode: false,
+      type: "classic",
     },
     {
       color: "#d0e7ff",
@@ -63,6 +68,7 @@ export default function SettingNeumorphism() {
       IconColor: "#0d47a1",
       TextColor: "#0d47a1",
       DarkMode: false,
+      type: "classic",
     },
     {
       color: "#e2f0e4",
@@ -71,6 +77,7 @@ export default function SettingNeumorphism() {
       IconColor: "#2e7d32",
       TextColor: "#2e7d32",
       DarkMode: false,
+      type: "classic",
     },
     {
       color: "#2f2f3a",
@@ -79,6 +86,7 @@ export default function SettingNeumorphism() {
       IconColor: "#e0e0e0",
       TextColor: "#e0e0e0",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#1e3a5f",
@@ -87,6 +95,7 @@ export default function SettingNeumorphism() {
       IconColor: "#cfd8dc",
       TextColor: "#cfd8dc",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#5a3e36",
@@ -95,6 +104,7 @@ export default function SettingNeumorphism() {
       IconColor: "#fce4ec",
       TextColor: "#fce4ec",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#3b3b3b",
@@ -103,6 +113,7 @@ export default function SettingNeumorphism() {
       IconColor: "#fafafa",
       TextColor: "#fafafa",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#f3e5f5",
@@ -111,6 +122,7 @@ export default function SettingNeumorphism() {
       IconColor: "#6a1b9a",
       TextColor: "#6a1b9a",
       DarkMode: false,
+      type: "classic",
     },
     {
       color: "#e0f2f1",
@@ -119,6 +131,7 @@ export default function SettingNeumorphism() {
       IconColor: "#004d40",
       TextColor: "#004d40",
       DarkMode: false,
+      type: "classic",
     },
     {
       color: "#fff3e0",
@@ -127,6 +140,7 @@ export default function SettingNeumorphism() {
       IconColor: "#ef6c00",
       TextColor: "#ef6c00",
       DarkMode: false,
+      type: "classic",
     },
     {
       color: "#fde0dc",
@@ -135,6 +149,7 @@ export default function SettingNeumorphism() {
       IconColor: "#c2185b",
       TextColor: "#c2185b",
       DarkMode: false,
+      type: "classic",
     },
     {
       color: "#4a5568",
@@ -143,6 +158,7 @@ export default function SettingNeumorphism() {
       IconColor: "#f7fafc",
       TextColor: "#f7fafc",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#1f2937",
@@ -151,6 +167,7 @@ export default function SettingNeumorphism() {
       IconColor: "#e2e8f0",
       TextColor: "#e2e8f0",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#37474f",
@@ -159,6 +176,7 @@ export default function SettingNeumorphism() {
       IconColor: "#cfd8dc",
       TextColor: "#cfd8dc",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#fdf6e3",
@@ -167,6 +185,7 @@ export default function SettingNeumorphism() {
       IconColor: "#8d6e63",
       TextColor: "#8d6e63",
       DarkMode: false,
+      type: "classic",
     },
     {
       color: "#f1f8e9",
@@ -175,6 +194,7 @@ export default function SettingNeumorphism() {
       IconColor: "#558b2f",
       TextColor: "#558b2f",
       DarkMode: false,
+      type: "classic",
     },
     {
       color: "#7b1b1b",
@@ -183,6 +203,7 @@ export default function SettingNeumorphism() {
       IconColor: "#fddede",
       TextColor: "#fddede",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#1b5e20",
@@ -191,6 +212,7 @@ export default function SettingNeumorphism() {
       IconColor: "#c8e6c9",
       TextColor: "#c8e6c9",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#fffde7",
@@ -199,6 +221,7 @@ export default function SettingNeumorphism() {
       IconColor: "#a1887f",
       TextColor: "#a1887f",
       DarkMode: false,
+      type: "classic",
     },
 
     //new
@@ -209,6 +232,7 @@ export default function SettingNeumorphism() {
       IconColor: "#e0e0e0",
       TextColor: "#e0e0e0",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#1c2331",
@@ -217,6 +241,7 @@ export default function SettingNeumorphism() {
       IconColor: "#90caf9",
       TextColor: "#90caf9",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#3b1f2b",
@@ -225,6 +250,7 @@ export default function SettingNeumorphism() {
       IconColor: "#f8bbd0",
       TextColor: "#f8bbd0",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#1a3a2d",
@@ -233,6 +259,7 @@ export default function SettingNeumorphism() {
       IconColor: "#a5d6a7",
       TextColor: "#a5d6a7",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#352f1b",
@@ -242,6 +269,7 @@ export default function SettingNeumorphism() {
       IconColor: "#ffecb3",
       TextColor: "#ffecb3",
       DarkMode: true,
+      type: "classic",
     },
 
     {
@@ -251,6 +279,7 @@ export default function SettingNeumorphism() {
       IconColor: "#f48fb1",
       TextColor: "#f48fb1",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#4d3a10", // Dark Yellow/Gold
@@ -259,6 +288,7 @@ export default function SettingNeumorphism() {
       IconColor: "#ffd54f",
       TextColor: "#ffd54f",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#5b3c0a", // Dark Saffron / Burnt Orange
@@ -267,6 +297,7 @@ export default function SettingNeumorphism() {
       IconColor: "#ffb74d",
       TextColor: "#ffb74d",
       DarkMode: true,
+      type: "classic",
     },
     {
       color: "#5a1e2e", // Rose Red / Deep Rose
@@ -275,6 +306,7 @@ export default function SettingNeumorphism() {
       IconColor: "#ec407a",
       TextColor: "#ec407a",
       DarkMode: true,
+      type: "classic",
     },
 
     //gradient
@@ -285,6 +317,7 @@ export default function SettingNeumorphism() {
       IconColor: "#8c4b5a",
       TextColor: "#4a2c31",
       DarkMode: false,
+      type: "gradient",
     },
     {
       color: "linear-gradient(135deg, #dbeafe, #f0f4f8)",
@@ -293,6 +326,7 @@ export default function SettingNeumorphism() {
       IconColor: "#3b82f6",
       TextColor: "#1e3a8a",
       DarkMode: false,
+      type: "gradient",
     },
     {
       color: "linear-gradient(145deg, #fdf2e9, #ffffff)",
@@ -301,6 +335,7 @@ export default function SettingNeumorphism() {
       IconColor: "#d97706",
       TextColor: "#92400e",
       DarkMode: false,
+      type: "gradient",
     },
     {
       color: "linear-gradient(135deg, #d9f8f2, #ffffff)",
@@ -309,6 +344,7 @@ export default function SettingNeumorphism() {
       IconColor: "#10b981",
       TextColor: "#065f46",
       DarkMode: false,
+      type: "gradient",
     },
 
     {
@@ -318,6 +354,7 @@ export default function SettingNeumorphism() {
       IconColor: "#9ba0f2",
       TextColor: "#f0f0f3",
       DarkMode: true,
+      type: "gradient",
     },
     {
       color: "linear-gradient(135deg, #3d2d2d, #2a1f1f)",
@@ -326,6 +363,7 @@ export default function SettingNeumorphism() {
       IconColor: "#f28b82",
       TextColor: "#fce8e6",
       DarkMode: true,
+      type: "gradient",
     },
     {
       color: "linear-gradient(145deg, #233d3d, #1a2e2e)",
@@ -334,6 +372,7 @@ export default function SettingNeumorphism() {
       IconColor: "#67e8f9",
       TextColor: "#d1fafc",
       DarkMode: true,
+      type: "gradient",
     },
     {
       color: "linear-gradient(135deg, #4a2c4c, #351f37)",
@@ -342,6 +381,7 @@ export default function SettingNeumorphism() {
       IconColor: "#e879f9",
       TextColor: "#fbe4fb",
       DarkMode: true,
+      type: "gradient",
     },
     {
       color: "linear-gradient(135deg, #3d3d29, #2a2a1f)",
@@ -350,6 +390,7 @@ export default function SettingNeumorphism() {
       IconColor: "#facc15",
       TextColor: "#fef9c3",
       DarkMode: true,
+      type: "gradient",
     },
 
     {
@@ -359,6 +400,7 @@ export default function SettingNeumorphism() {
       IconColor: "#f472b6",
       TextColor: "#fce7f3",
       DarkMode: true,
+      type: "gradient",
     },
     {
       color: "linear-gradient(145deg, #3c1e4f, #271235)",
@@ -367,6 +409,7 @@ export default function SettingNeumorphism() {
       IconColor: "#d8b4fe",
       TextColor: "#f3e8ff",
       DarkMode: true,
+      type: "gradient",
     },
     {
       color: "linear-gradient(135deg, #4a1c3a, #311227)",
@@ -375,6 +418,7 @@ export default function SettingNeumorphism() {
       IconColor: "#fb7185",
       TextColor: "#ffe4e6",
       DarkMode: true,
+      type: "gradient",
     },
     {
       color: "linear-gradient(135deg, #45224a, #2e1633)",
@@ -383,6 +427,7 @@ export default function SettingNeumorphism() {
       IconColor: "#f0abfc",
       TextColor: "#fae8ff",
       DarkMode: true,
+      type: "gradient",
     },
     {
       color: "linear-gradient(135deg, #551a36, #341122)",
@@ -391,6 +436,7 @@ export default function SettingNeumorphism() {
       IconColor: "#f472b6",
       TextColor: "#fce7f3",
       DarkMode: true,
+      type: "gradient",
     },
 
     //new
@@ -401,10 +447,343 @@ export default function SettingNeumorphism() {
       IconColor: "#f472b6",
       TextColor: "#fce7f3",
       DarkMode: true,
-      type: "gradient"
-    }
+      type: "gradient",
+    },
 
+    {
+      color: "linear-gradient(135deg, #fef9d7, #d299c2, #fbc2eb, #fef9d7)",
+      BoxShadow: "8px 8px 16px #c8cad1, -8px -8px 16px #ffffff",
+      InsetBoxShadow: "inset 4px 4px 8px #c8cad1, inset -4px -4px 8px #ffffff",
+      IconColor: "#9d174d",
+      TextColor: "#312e81",
+      DarkMode: false,
+      gradient: true,
+      animation: true,
+      type: "gradient",
+    },
+
+    {
+      color: "linear-gradient(135deg, #232526, #414345)",
+      BoxShadow: "8px 8px 16px #1a1a1a, -8px -8px 16px #5a5a5a",
+      InsetBoxShadow: "inset 4px 4px 8px #1a1a1a, inset -4px -4px 8px #5a5a5a",
+      IconColor: "#cbd5e1",
+      TextColor: "#f1f5f9",
+      DarkMode: true,
+      gradient: true,
+      animation: false,
+      type: "gradient",
+    },
+
+    {
+      color: "linear-gradient(135deg, #d3cce3, #e9e4f0)",
+      BoxShadow: "8px 8px 16px #b6b6c1, -8px -8px 16px #ffffff",
+      InsetBoxShadow: "inset 4px 4px 8px #b6b6c1, inset -4px -4px 8px #ffffff",
+      IconColor: "#6b21a8",
+      TextColor: "#1e1b4b",
+      DarkMode: false,
+      gradient: true,
+      animation: false,
+      type: "gradient",
+    },
+
+    {
+      color: "linear-gradient(135deg, #3f0d12, #a71d31)",
+      BoxShadow: "8px 8px 16px #22070a, -8px -8px 16px #c63f52",
+      InsetBoxShadow: "inset 4px 4px 8px #22070a, inset -4px -4px 8px #c63f52",
+      IconColor: "#fda4af",
+      TextColor: "#fee2e2",
+      DarkMode: true,
+      gradient: true,
+      animation: false,
+      type: "gradient",
+    },
+
+    {
+      color: "rgba(30, 41, 59, 0.4)",
+      BoxShadow: "0 8px 32px rgba(15, 23, 42, 0.6)",
+      InsetBoxShadow:
+        "inset 4px 4px 8px rgba(255,255,255,0.05), inset -4px -4px 8px rgba(0,0,0,0.3)",
+      IconColor: "#38bdf8",
+      TextColor: "#e0f2fe",
+      DarkMode: true,
+      gradient: false,
+      animation: false,
+      type: "glassmorphism",
+    },
+
+    {
+      color: "linear-gradient(135deg, #1b4332, #2d6a4f)",
+      BoxShadow: "8px 8px 16px #0d251a, -8px -8px 16px #3d8968",
+      InsetBoxShadow: "inset 4px 4px 8px #0d251a, inset -4px -4px 8px #3d8968",
+      IconColor: "#bbf7d0",
+      TextColor: "#dcfce7",
+      DarkMode: true,
+      gradient: true,
+      animation: false,
+      type: "gradient",
+    },
+
+    {
+      color: "linear-gradient(135deg, #ffe4e6, #fbcfe8)",
+      BoxShadow: "8px 8px 16px #e5bfc7, -8px -8px 16px #ffffff",
+      InsetBoxShadow: "inset 4px 4px 8px #e5bfc7, inset -4px -4px 8px #ffffff",
+      IconColor: "#e11d48",
+      TextColor: "#881337",
+      DarkMode: false,
+      gradient: true,
+      animation: false,
+      type: "gradient",
+    },
+
+    {
+      color: "linear-gradient(135deg, #2c003e, #3c0753)",
+      BoxShadow: "8px 8px 16px #1a0121, -8px -8px 16px #54097a",
+      InsetBoxShadow: "inset 4px 4px 8px #1a0121, inset -4px -4px 8px #54097a",
+      IconColor: "#f0abfc",
+      TextColor: "#fdf4ff",
+      DarkMode: true,
+      gradient: true,
+      animation: false,
+      type: "gradient",
+    },
+
+    {
+      color: "rgba(49, 46, 129, 0.35)",
+      BoxShadow: "0 8px 32px rgba(30, 27, 75, 0.6)",
+      InsetBoxShadow:
+        "inset 4px 4px 8px rgba(255,255,255,0.05), inset -4px -4px 8px rgba(0,0,0,0.3)",
+      IconColor: "#a5b4fc",
+      TextColor: "#e0e7ff",
+      DarkMode: true,
+      gradient: false,
+      animation: false,
+      type: "glassmorphism",
+    },
+
+    {
+      color: "rgba(244, 63, 94, 0.35)",
+      BoxShadow: "0 8px 32px rgba(136, 19, 55, 0.4)",
+      InsetBoxShadow:
+        "inset 4px 4px 8px rgba(255,255,255,0.1), inset -4px -4px 8px rgba(0,0,0,0.2)",
+      IconColor: "#ffffff",
+      TextColor: "#ffe4e6",
+      DarkMode: true,
+      gradient: false,
+      animation: false,
+      type: "glassmorphism",
+    },
+
+    {
+      color: "rgba(96, 165, 250, 0.3)",
+      BoxShadow: "0 8px 32px rgba(37, 99, 235, 0.5)",
+      InsetBoxShadow:
+        "inset 4px 4px 8px rgba(255,255,255,0.1), inset -4px -4px 8px rgba(0,0,0,0.2)",
+      IconColor: "#60a5fa",
+      TextColor: "#eff6ff",
+      DarkMode: true,
+      gradient: false,
+      animation: false,
+      type: "glassmorphism",
+    },
+
+    {
+      color: "linear-gradient(135deg, #4b1035, #9d174d)",
+      BoxShadow: "8px 8px 16px #26081a, -8px -8px 16px #b83365",
+      InsetBoxShadow: "inset 4px 4px 8px #26081a, inset -4px -4px 8px #b83365",
+      IconColor: "#f472b6",
+      TextColor: "#fce7f3",
+      DarkMode: true,
+      gradient: true,
+      animation: false,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #5f3d00, #ff9933)",
+      BoxShadow: "8px 8px 16px #2e1f00, -8px -8px 16px #ffaa4d",
+      InsetBoxShadow: "inset 4px 4px 8px #2e1f00, inset -4px -4px 8px #ffaa4d",
+      IconColor: "#fde68a",
+      TextColor: "#fff7ed",
+      DarkMode: true,
+      gradient: true,
+      animation: false,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #00332c, #00695c)",
+      BoxShadow: "8px 8px 16px #001512, -8px -8px 16px #009688",
+      InsetBoxShadow: "inset 4px 4px 8px #001512, inset -4px -4px 8px #009688",
+      IconColor: "#5eead4",
+      TextColor: "#ccfbf1",
+      DarkMode: true,
+      gradient: true,
+      animation: false,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #2a0e37, #5d1a64)",
+      BoxShadow: "8px 8px 16px #14071c, -8px -8px 16px #7e22ce",
+      InsetBoxShadow: "inset 4px 4px 8px #14071c, inset -4px -4px 8px #7e22ce",
+      IconColor: "#d8b4fe",
+      TextColor: "#f3e8ff",
+      DarkMode: true,
+      gradient: true,
+      animation: false,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #3b2f00, #b45309)",
+      BoxShadow: "8px 8px 16px #1a1400, -8px -8px 16px #f59e0b",
+      InsetBoxShadow: "inset 4px 4px 8px #1a1400, inset -4px -4px 8px #f59e0b",
+      IconColor: "#fcd34d",
+      TextColor: "#fffbeb",
+      DarkMode: true,
+      gradient: true,
+      animation: false,
+      type: "gradient",
+    },
+
+    {
+      color: "linear-gradient(135deg, #1e3c72, #2a5298, #1e3c72)",
+      BoxShadow: "8px 8px 16px #101d3a, -8px -8px 16px #3b5ba5",
+      InsetBoxShadow: "inset 4px 4px 8px #101d3a, inset -4px -4px 8px #3b5ba5",
+      IconColor: "#93c5fd",
+      TextColor: "#dbeafe",
+      DarkMode: true,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #2f2f54, #512c62, #2f2f54)",
+      BoxShadow: "8px 8px 16px #1a1a30, -8px -8px 16px #70357c",
+      InsetBoxShadow: "inset 4px 4px 8px #1a1a30, inset -4px -4px 8px #70357c",
+      IconColor: "#c4b5fd",
+      TextColor: "#ede9fe",
+      DarkMode: true,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #004d4d, #007373, #004d4d)",
+      BoxShadow: "8px 8px 16px #002626, -8px -8px 16px #009999",
+      InsetBoxShadow: "inset 4px 4px 8px #002626, inset -4px -4px 8px #009999",
+      IconColor: "#5eead4",
+      TextColor: "#ccfbf1",
+      DarkMode: true,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #4e0329, #6a0572, #4e0329)",
+      BoxShadow: "8px 8px 16px #1f0112, -8px -8px 16px #8e1793",
+      InsetBoxShadow: "inset 4px 4px 8px #1f0112, inset -4px -4px 8px #8e1793",
+      IconColor: "#f9a8d4",
+      TextColor: "#fce7f3",
+      DarkMode: true,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #3b0a45, #5c164e, #3b0a45)",
+      BoxShadow: "8px 8px 16px #1a051f, -8px -8px 16px #7b1e65",
+      InsetBoxShadow: "inset 4px 4px 8px #1a051f, inset -4px -4px 8px #7b1e65",
+      IconColor: "#f472b6",
+      TextColor: "#fce7f3",
+      DarkMode: true,
+      type: "gradient",
+    },
+
+    {
+      color: "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
+      BoxShadow: "8px 8px 16px #091419, -8px -8px 16px #3b5c73",
+      InsetBoxShadow: "inset 4px 4px 8px #091419, inset -4px -4px 8px #3b5c73",
+      IconColor: "#7dd3fc",
+      TextColor: "#e0f2fe",
+      DarkMode: true,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #1c1c1c, #3a3a3a, #1c1c1c)",
+      BoxShadow: "8px 8px 16px #0d0d0d, -8px -8px 16px #505050",
+      InsetBoxShadow: "inset 4px 4px 8px #0d0d0d, inset -4px -4px 8px #505050",
+      IconColor: "#facc15",
+      TextColor: "#fef9c3",
+      DarkMode: true,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #1b1f3b, #3d2b56, #1b1f3b)",
+      BoxShadow: "8px 8px 16px #0d0f1e, -8px -8px 16px #503c6c",
+      InsetBoxShadow: "inset 4px 4px 8px #0d0f1e, inset -4px -4px 8px #503c6c",
+      IconColor: "#a5b4fc",
+      TextColor: "#e0e7ff",
+      DarkMode: true,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #3a0ca3, #7209b7, #f72585)",
+      BoxShadow: "8px 8px 16px #1c0552, -8px -8px 16px #fa649d",
+      InsetBoxShadow: "inset 4px 4px 8px #1c0552, inset -4px -4px 8px #fa649d",
+      IconColor: "#fbcfe8",
+      TextColor: "#ffe4e6",
+      DarkMode: true,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #16222a, #3a6073, #16222a)",
+      BoxShadow: "8px 8px 16px #0b1115, -8px -8px 16px #4c7c95",
+      InsetBoxShadow: "inset 4px 4px 8px #0b1115, inset -4px -4px 8px #4c7c95",
+      IconColor: "#7dd3fc",
+      TextColor: "#e0f2fe",
+      DarkMode: true,
+      type: "gradient",
+    },
+
+    {
+      color: "linear-gradient(135deg, #240046, #5a189a, #9d4edd)",
+      BoxShadow: "8px 8px 16px #100022, -8px -8px 16px #bb6efb",
+      InsetBoxShadow: "inset 4px 4px 8px #100022, inset -4px -4px 8px #bb6efb",
+      IconColor: "#e9d5ff",
+      TextColor: "#f3e8ff",
+      DarkMode: true,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #ff6ec7, #d63384, #7209b7)",
+      BoxShadow: "8px 8px 16px #6b0f45, -8px -8px 16px #ff91e6",
+      InsetBoxShadow: "inset 4px 4px 8px #6b0f45, inset -4px -4px 8px #ff91e6",
+      IconColor: "#fda4af",
+      TextColor: "#ffe4f2",
+      DarkMode: true,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #03045e, #023e8a, #0077b6)",
+      BoxShadow: "8px 8px 16px #001233, -8px -8px 16px #00b4d8",
+      InsetBoxShadow: "inset 4px 4px 8px #001233, inset -4px -4px 8px #00b4d8",
+      IconColor: "#7dd3fc",
+      TextColor: "#e0f2fe",
+      DarkMode: true,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #ff4d6d, #c9184a, #800f2f)",
+      BoxShadow: "8px 8px 16px #470a1b, -8px -8px 16px #ff6b81",
+      InsetBoxShadow: "inset 4px 4px 8px #470a1b, inset -4px -4px 8px #ff6b81",
+      IconColor: "#fecdd3",
+      TextColor: "#ffe4e6",
+      DarkMode: true,
+      type: "gradient",
+    },
+    {
+      color: "linear-gradient(135deg, #22223b, #4a4e69, #9a8c98)",
+      BoxShadow: "8px 8px 16px #1a1b2b, -8px -8px 16px #bcb4c4",
+      InsetBoxShadow: "inset 4px 4px 8px #1a1b2b, inset -4px -4px 8px #bcb4c4",
+      IconColor: "#e0e0ff",
+      TextColor: "#f4efff",
+      DarkMode: true,
+      type: "gradient",
+    },
   ];
+
+  const classicTheme = themes.filter((th) => th.type === "classic");
+  const gradientTheme = themes.filter((th) => th.type === "gradient");
+  const glassmorphismTheme = themes.filter((th) => th.type === "glassmorphism");
 
   const setTheme = (theme) => {
     const color = theme.color;
@@ -518,41 +897,122 @@ export default function SettingNeumorphism() {
             </Box>
           </Box>
 
-          <Box
-            sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 2,
-              mt: 1,
-            }}
-          >
-            {themes.map((th) => (
-              <Box
-                key={th.color}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: 50,
-                  height: 50,
-                  border: `5px solid ${th.color}`,
-                  borderRadius: 1,
-                  background: th.color,
-                }}
-              >
+          <Box>
+            <Typography>Classic</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 2,
+                mt: 1,
+              }}
+            >
+              {classicTheme.map((th) => (
                 <Box
-                  onClick={() => setTheme(th)}
+                  key={th.color}
                   sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 50,
+                    height: 50,
+                    // border: `2px solid ${th.color}`,
+                    borderRadius: 1,
                     background: th.color,
-                    width: 30,
-                    height: 30,
-                    borderRadius: 2,
-                    cursor: "pointer",
-                    boxShadow: useInset ? th?.InsetBoxShadow : th.BoxShadow,
                   }}
-                ></Box>
-              </Box>
-            ))}
+                >
+                  <Box
+                    onClick={() => setTheme(th)}
+                    sx={{
+                      background: th.color,
+                      width: 30,
+                      height: 30,
+                      borderRadius: 2,
+                      cursor: "pointer",
+                      boxShadow: useInset ? th?.InsetBoxShadow : th.BoxShadow,
+                    }}
+                  ></Box>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+          <Box mt={2}>
+            <Typography>Gradient</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 2,
+                mt: 1,
+              }}
+            >
+              {gradientTheme.map((th) => (
+                <Box
+                  key={th.color}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 50,
+                    height: 50,
+                    // border: `2px solid ${th.color}`,
+                    borderRadius: 1,
+                    background: th.color,
+                  }}
+                >
+                  <Box
+                    onClick={() => setTheme(th)}
+                    sx={{
+                      background: th.color,
+                      width: 30,
+                      height: 30,
+                      borderRadius: 2,
+                      cursor: "pointer",
+                      boxShadow: useInset ? th?.InsetBoxShadow : th.BoxShadow,
+                    }}
+                  ></Box>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+          <Box mt={2}>
+            <Typography>Glassmorphism</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 2,
+                mt: 1,
+              }}
+            >
+              {glassmorphismTheme.map((th) => (
+                <Box
+                  key={th.color}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 50,
+                    height: 50,
+                    // border: `2px solid ${th.color}`,
+                    borderRadius: 1,
+                    background: th.color,
+                  }}
+                >
+                  <Box
+                    onClick={() => setTheme(th)}
+                    sx={{
+                      background: th.color,
+                      width: 30,
+                      height: 30,
+                      borderRadius: 2,
+                      cursor: "pointer",
+                      boxShadow: useInset ? th?.InsetBoxShadow : th.BoxShadow,
+                    }}
+                  ></Box>
+                </Box>
+              ))}
+            </Box>
           </Box>
         </Box>
       </Paper>
