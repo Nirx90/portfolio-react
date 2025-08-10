@@ -40,8 +40,8 @@ export default function SideDrawer({ open, onClose }) {
   };
 
   return (
-    <Drawer anchor="right" open={open} onClose={onClose}>
-      <Box width={isMobile ? 300 : 450}>
+    <Drawer anchor="right" open={open} onClose={onClose} >
+      <Box width={isMobile ? 320 : 470}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
             value={tab}
@@ -50,6 +50,12 @@ export default function SideDrawer({ open, onClose }) {
             scrollButtons="auto"
             variant="fullWidth"
             centered
+            sx={{
+              bgcolor: "#e0e0e0", // background color for just the tabs row
+              "& .MuiTab-root": {
+                color: "black", // text color
+              },
+            }}
           >
             <Tab
               value="theme"
@@ -85,13 +91,26 @@ export default function SideDrawer({ open, onClose }) {
         </Box>
 
         {tab === "theme" && (
-          <Box  sx={{ borderBottom: 1, borderColor: "divider" , display:'flex', alignItems:'center', flexDirection:'column'}}>
+          <Box
+            sx={{
+              borderBottom: 1,
+              borderColor: "divider",
+              flexDirection: "column",
+              width: "100%",
+            }}
+          >
             <Tabs
               value={themeTab}
               onChange={(e, newValue) => setThemeTab(newValue)}
               aria-label="product or service selection"
               scrollButtons="auto"
-              variant="scrollable"
+              variant="fullWidth"
+              sx={{
+                bgcolor: "#e0e0e0", // background color for just the tabs row
+                "& .MuiTab-root": {
+                  color: "black", // text color
+                },
+              }}
             >
               <Tab
                 value="standard"

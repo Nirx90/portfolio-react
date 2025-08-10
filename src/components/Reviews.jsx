@@ -242,7 +242,7 @@ export default function ReviewsSection() {
             className="custom-prev"
             sx={{
               ...paginationDotsCss,
-              right: isMobile ? "80%" : "58%",
+              right: isMobile ? "75%" : "58%",
             }}
           >
             <IconArrowLeft color={`${reviewCss.IconColor}`} />
@@ -252,7 +252,7 @@ export default function ReviewsSection() {
             className="custom-next"
             sx={{
               ...paginationDotsCss,
-              right: isMobile ? "15%" : "37%",
+              right: isMobile ? "10%" : "37%",
             }}
           >
             <IconArrowRight color={`${reviewCss.IconColor}`} />
