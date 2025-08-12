@@ -12,9 +12,9 @@ const Contact = () => {
           Feel free to reach out via email or connect on GitHub/LinkedIn.
         </Typography>
         <Box sx={{ mt: 2 }}>
-          <Link href="mailto:you@example.com" sx={{ mx: 1 }}>
+          {/* <Link href="mailto:you@example.com" sx={{ mx: 1 }}>
             <Email fontSize="large" />
-          </Link>
+          </Link> */}
           <Link
             href="https://github.com/yourusername"
             target="_blank"
