@@ -127,14 +127,13 @@ export default function NavBar() {
     navItems.map((item) => (
       <Button
         key={item}
-        // color="inherit"
         sx={{
           my: 1,
           mx: isMobile ? 0 : 1,
           width: isMobile ? "100%" : "auto",
           color: navBarCss.TextColor,
         }}
-        href={`#${item.toLowerCase()}`}
+        href={`#${item.toLowerCase()}`} 
       >
         {item}
       </Button>

@@ -5,22 +5,14 @@ import {
   Button,
   useTheme,
   useMediaQuery,
-  Grid,
   Paper,
-  Avatar,
-  Divider,
-  IconButton,
   Container,
 } from "@mui/material";
 import {
   ArrowRightAlt,
-  Code,
-  DesignServices,
-  Terminal,
 } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import SkillCard from "../components/SkillCard";
-import NavBar from "../components/NavBar";
 import { useDispatch, useSelector } from "react-redux";
 import ServiceCards from "../components/ServiceCards";
 import WorkExperience from "../components/WorkExperience";
@@ -32,7 +24,6 @@ const PortfolioHomepage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const dispatch = useDispatch();
   const {
     BackgroundColor,
     PrimaryTextColor,
@@ -66,7 +57,6 @@ const PortfolioHomepage = () => {
 
   return (
     <>
-      <NavBar />
       <Box
         sx={{
           background: BackgroundColor,
@@ -242,28 +232,6 @@ const PortfolioHomepage = () => {
             <SkillCard />
           </Box>
 
-          {/* <Box sx={{
-              background:'#2196f3',
-              p:5,
-              display:'flex',
-              alignItems:'center',
-              justifyContent:'center',
-              flexDirection:'column',
-              gap:3,
-              mt:10
-            }}>
-              <Typography variant="h5" color="white">Do you have any project?</Typography>
-              <Typography variant="h4" color="white">I'm Available for Freelancing Project</Typography>
-              <Button sx={{
-                color:'white',
-                border:'1px solid white'
-              }}
-              variant="outlined"
-              >
-                Hire Me
-              </Button>
-            </Box> */}
-
           <Box sx={{ mt: 10 }}>
             <ReviewsSection />
           </Box>
@@ -273,9 +241,29 @@ const PortfolioHomepage = () => {
           </Box>
         </Container>
       </Box>
-      <Footer />
     </>
   );
 };
 
 export default PortfolioHomepage;
+{/* <Box sx={{
+  background: '#2196f3',
+  p: 5,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  gap: 3,
+  mt: 10
+}}>
+  <Typography variant="h5" color="white">Do you have any project?</Typography>
+  <Typography variant="h4" color="white">I'm Available for Freelancing Project</Typography>
+  <Button sx={{
+    color: 'white',
+    border: '1px solid white'
+  }}
+    variant="outlined"
+  >
+    Hire Me
+  </Button>
+</Box> */}

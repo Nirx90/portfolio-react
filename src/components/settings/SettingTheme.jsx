@@ -20,14 +20,14 @@ export default function SettingTheme() {
   const [animatedDark, setAnimatedDark] = React.useState(false);
 
   const themes = [
-    { color: "#D4FF40", Gradient: false, type: "Standard", Animation: false },
-    { color: "#00FFFF", Gradient: false, type: "Standard", Animation: false },
-    { color: "#FF4DA6", Gradient: false, type: "Standard", Animation: false },
-    { color: "#39FF14", Gradient: false, type: "Standard", Animation: false },
-    { color: "#B026FF", Gradient: false, type: "Standard", Animation: false },
-    { color: "#FF6600", Gradient: false, type: "Standard", Animation: false },
-    { color: "#FF00FF", Gradient: false, type: "Standard", Animation: false },
-    { color: "#8A2BE2", Gradient: false, type: "Standard", Animation: false },
+    { name: "Light Yellow", color: "#D4FF40", Gradient: false, type: "Standard", Animation: false },
+    { name: "Light Aqua", color: "#00FFFF", Gradient: false, type: "Standard", Animation: false },
+    { name: "Medium Pink", color: "#FF4DA6", Gradient: false, type: "Standard", Animation: false },
+    { name: "Light Green", color: "#39FF14", Gradient: false, type: "Standard", Animation: false },
+    { name: "Light Purple", color: "#B026FF", Gradient: false, type: "Standard", Animation: false },
+    { name: "Dark Orange", color: "#FF6600", Gradient: false, type: "Standard", Animation: false },
+    { name: "Dark Pink", color: "#FF00FF", Gradient: false, type: "Standard", Animation: false },
+    { name: "Dark Purple", color: "#8A2BE2", Gradient: false, type: "Standard", Animation: false },
 
     {
       color: "linear-gradient(135deg, #00FFFF, #B026FF, #FF4DA6)",
@@ -345,29 +345,17 @@ export default function SettingTheme() {
           >
             {standardTheme.map((th) => {
               return (
+
                 <Box
+                  onClick={() => setTheme(th)}
                   sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: 30,
-                    height: 30,
-                    border: `5px solid ${th.Gradient ? "#1976d2" : th.color}`,
-                    borderRadius: "50%",
+                    background: th.color,
+                    width: 45,
+                    height: 45,
+                    borderRadius: 2,
+                    cursor: "pointer",
                   }}
-                >
-                  <Box
-                    onClick={() => setTheme(th)}
-                    sx={{
-                      background: th.color,
-                      width: 20,
-                      height: 20,
-                      borderRadius: "50%",
-                      cursor: "pointer",
-                    }}
-                    on
-                  ></Box>
-                </Box>
+                ></Box>
               );
             })}
           </Box>
@@ -405,28 +393,16 @@ export default function SettingTheme() {
             {gradientTheme.map((th) => {
               return (
                 <Box
+                  onClick={() => setTheme(th)}
                   sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: 30,
-                    height: 30,
-                    border: `5px solid ${th.Gradient ? "#1976d2" : th.color}`,
-                    borderRadius: "50%",
+                    background: th.color,
+                    width: 45,
+                    height: 45,
+                    borderRadius: 2,
+                    cursor: "pointer",
                   }}
-                >
-                  <Box
-                    onClick={() => setTheme(th)}
-                    sx={{
-                      background: th.color,
-                      width: 20,
-                      height: 20,
-                      borderRadius: "50%",
-                      cursor: "pointer",
-                    }}
-                    on
-                  ></Box>
-                </Box>
+                  on
+                ></Box>
               );
             })}
           </Box>
@@ -464,28 +440,16 @@ export default function SettingTheme() {
             {animatedTheme.map((th) => {
               return (
                 <Box
+                  onClick={() => setTheme(th)}
                   sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: 30,
-                    height: 30,
-                    border: `5px solid ${th.Gradient ? "#1976d2" : th.color}`,
-                    borderRadius: "50%",
+                    background: th.color,
+                    width: 45,
+                    height: 45,
+                    borderRadius: 2,
+                    cursor: "pointer",
                   }}
-                >
-                  <Box
-                    onClick={() => setTheme(th)}
-                    sx={{
-                      background: th.color,
-                      width: 20,
-                      height: 20,
-                      borderRadius: "50%",
-                      cursor: "pointer",
-                    }}
-                    on
-                  ></Box>
-                </Box>
+                  on
+                ></Box>
               );
             })}
           </Box>

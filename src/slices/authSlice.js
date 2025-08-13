@@ -7,6 +7,7 @@ export const loginThunk = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const response = await axios.post(endpoints.login, data);
+      localStorage.setItem("token", response.data.data.token)
       return response.data.data;
     } catch (error) {
       return rejectWithValue(

@@ -136,7 +136,7 @@ export default function SideDrawer({ open, onClose }) {
           <Box
             sx={{
               position: "relative",
-              bottom: 20,
+              // bottom: 20,
               right: 20,
               display: "flex",
               justifyContent: "flex-end",

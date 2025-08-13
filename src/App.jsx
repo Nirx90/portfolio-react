@@ -1,12 +1,17 @@
 
 import './App.css'
-import PortfolioHomepage from './pages/home'
+import Footer from './components/Footer';
+import NavBar from './components/NavBar';
 import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return (
-    <AppRoutes />
-  )
+    <>
+      <NavBar />
+      <AppRoutes />
+      <Footer />
+    </>
+  ) 
 }
 
 export default App

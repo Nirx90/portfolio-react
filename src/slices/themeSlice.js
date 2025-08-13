@@ -1,14 +1,36 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import { endpoints } from "../api/endpoints";
 
-// bgcolor : "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)"
+export const getAllThemesThunk = createAsyncThunk(
+  "theme/getall",
+  async (_, { rejectWithValue }) => {  // Add getState here
+    try {
+      const token = localStorage.getItem("token");
+
+      const response = await axios.get(endpoints.get_themes);
+
+      return response.data.data;  // Return response.data instead of full response
+    } catch (error) {
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to fetch themes"
+      );
+    }
+  }
+);
+
+
 const initialState = {
   //   backgroundColor: "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)",
+  Themes: [],
   BackgroundColor: "#ffff",
   PrimaryTextColor: "rgba(0, 0, 0, 0.87)",
   SecondaryTextColor: "rgba(0, 0, 0, 0.6)",
-  DarkMode : false,
-  Animation : false,
-  HeaderColor : "black"
+  DarkMode: false,
+  Animation: false,
+  HeaderColor: "black",
+  loading: false,
+  error: false,
 };
 
 const themeSlice = createSlice({
@@ -24,10 +46,31 @@ const themeSlice = createSlice({
       state.Animation = data.Animation;
       state.HeaderColor = data.HeaderColor;
     },
-    resetTheme: () => initialState,
+    resetTheme: (state) => {
+      state.BackgroundColor = "#ffff";
+      state.PrimaryTextColor = "rgba(0, 0, 0, 0.87)";
+      state.SecondaryTextColor = "rgba(0, 0, 0, 0.6)";
+      state.DarkMode = false;
+      state.Animation = false;
+      state.HeaderColor = "black";
+      state.loading = false;
+      state.error = false;
+    }
   },
   extraReducers: (builder) => {
-
+    builder
+      .addCase(getAllThemesThunk.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getAllThemesThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.Themes = action.payload;
+      })
+      .addCase(getAllThemesThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
   },
 });
 
