@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -39,12 +39,22 @@ import {
   resetExperience,
   setExperienceDarkModeThunk,
 } from "../slices/experienceSlice";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const navItems = ["Home", "About", "Projects", "Contact"];
+const navItems = [
+  { label: "Home", type: "page", path: "/" , id:"home", auth : false},
+  { label: "About", type: "section", id: "about", auth : false },
+  { label: "Contact", type: "section", id: "contact", auth : false },
+  { label: "Profile", type: "page", path: "/profile", auth : true },
+  { label: "Theme", type: "page", path: "/theme", auth : true },
+];
 
 export default function NavBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [openSideDrwer, setOpenSideDrawer] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const theme = useTheme();
 
@@ -58,10 +68,32 @@ export default function NavBar() {
 
   const dispatch = useDispatch();
 
+  const handleClick = (item) => {
+    if (item.type === "page") {
+      navigate(item.path);
+    } else if (item.type === "section") {
+      if (location.pathname !== "/") {
+        navigate("/", { state: { scrollTo: item.id } });
+      } else {
+        const section = document.getElementById(item.id);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  };
+
   const navBarCss = useSelector((state) => state.navbar);
   const { DarkMode, Animation } = useSelector((state) => state.theme);
+  const { token } = useSelector((state) => state.auth);
 
   const toggleDrawer = (open) => () => setDrawerOpen(open);
+
+  useEffect(()=> {
+    if(!token){
+      navItems.filter((item)=> !item.auth)
+    }
+  },[token])
 
   const handleDarkMode = () => {
     const nextMode = !darkMode;
@@ -126,16 +158,16 @@ export default function NavBar() {
   const renderNavLinks = (isMobile = false) =>
     navItems.map((item) => (
       <Button
-        key={item}
+        key={item.label}
         sx={{
           my: 1,
           mx: isMobile ? 0 : 1,
           width: isMobile ? "100%" : "auto",
           color: navBarCss.TextColor,
         }}
-        href={`#${item.toLowerCase()}`} 
+        onClick={() => handleClick(item)}
       >
-        {item}
+        {item.label}
       </Button>
     ));
 
@@ -174,7 +206,7 @@ export default function NavBar() {
           {/* Nav Links (desktop only) */}
           <Box
             sx={{
-              display: { xs: "none", md: "flex" },
+              display: "flex",
               flexGrow: 1,
               justifyContent: "center",
             }}
@@ -228,10 +260,10 @@ export default function NavBar() {
               <ListItem
                 button
                 component="a"
-                href={`#${item.toLowerCase()}`}
-                key={item}
+                key={item.label}
+                onClick={() => handleClick(item)}
               >
-                <ListItemText primary={item} />
+                <ListItemText primary={item.label} />
               </ListItem>
             ))}
           </List>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Typography,
@@ -8,9 +8,7 @@ import {
   Paper,
   Container,
 } from "@mui/material";
-import {
-  ArrowRightAlt,
-} from "@mui/icons-material";
+import { ArrowRightAlt } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import SkillCard from "../components/SkillCard";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,18 +16,31 @@ import ServiceCards from "../components/ServiceCards";
 import WorkExperience from "../components/WorkExperience";
 import ContactSection from "../components/Contact";
 import ReviewsSection from "../components/Reviews";
-import Footer from "../components/Footer";
+import { useLocation } from "react-router-dom";
+import { getAllThemesThunk } from "../slices/themeSlice";
 
 const PortfolioHomepage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const {
-    BackgroundColor,
-    PrimaryTextColor,
-    SecondaryTextColor,
-    Animation,
-  } = useSelector((state) => state.theme);
+  const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllThemesThunk());
+  }, []);
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const section = document.getElementById(location.state.scrollTo);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
+  const { BackgroundColor, PrimaryTextColor, SecondaryTextColor, Animation } =
+    useSelector((state) => state.theme);
   const heroCss = useSelector((state) => state.hero);
   const reviewCss = useSelector((state) => state.review);
 
@@ -237,7 +248,9 @@ const PortfolioHomepage = () => {
           </Box>
 
           <Box sx={{ mt: 10 }}>
-            <ContactSection />
+            <section id="contact">
+              <ContactSection />
+            </section>
           </Box>
         </Container>
       </Box>
@@ -246,7 +259,8 @@ const PortfolioHomepage = () => {
 };
 
 export default PortfolioHomepage;
-{/* <Box sx={{
+{
+  /* <Box sx={{
   background: '#2196f3',
   p: 5,
   display: 'flex',
@@ -266,4 +280,5 @@ export default PortfolioHomepage;
   >
     Hire Me
   </Button>
-</Box> */}
+</Box> */
+}

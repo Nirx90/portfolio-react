@@ -17,7 +17,7 @@ export default function SettingNeumorphism() {
 
   const themes = [
     {
-      name: "1",
+      name: "Cloth",
       color: "#e0e5ec",
       BoxShadow: "8px 8px 16px #b8bcc1, -8px -8px 16px #ffffff",
       InsetBoxShadow: "inset 4px 4px 8px #b8bcc1, inset -4px -4px 8px #ffffff",
@@ -27,7 +27,7 @@ export default function SettingNeumorphism() {
       type: "classic",
     },
     {
-      name: "2",
+      name: "Matt",
       color: "#1d222b",
       BoxShadow: "8px 8px 16px #161a21, -8px -8px 16px #262c36",
       InsetBoxShadow: "inset 4px 4px 8px #161a21, inset -4px -4px 8px #262c36",
@@ -37,7 +37,7 @@ export default function SettingNeumorphism() {
       type: "classic",
     },
     {
-      name: "3",
+      name: "White",
       color: "#f0f0f3",
       BoxShadow: "8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff",
       InsetBoxShadow: "inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff",

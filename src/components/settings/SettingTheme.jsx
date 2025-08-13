@@ -19,210 +19,19 @@ export default function SettingTheme() {
   const [gradientDark, setGradientDark] = React.useState(false);
   const [animatedDark, setAnimatedDark] = React.useState(false);
 
-  const themes = [
-    { name: "Light Yellow", color: "#D4FF40", Gradient: false, type: "Standard", Animation: false },
-    { name: "Light Aqua", color: "#00FFFF", Gradient: false, type: "Standard", Animation: false },
-    { name: "Medium Pink", color: "#FF4DA6", Gradient: false, type: "Standard", Animation: false },
-    { name: "Light Green", color: "#39FF14", Gradient: false, type: "Standard", Animation: false },
-    { name: "Light Purple", color: "#B026FF", Gradient: false, type: "Standard", Animation: false },
-    { name: "Dark Orange", color: "#FF6600", Gradient: false, type: "Standard", Animation: false },
-    { name: "Dark Pink", color: "#FF00FF", Gradient: false, type: "Standard", Animation: false },
-    { name: "Dark Purple", color: "#8A2BE2", Gradient: false, type: "Standard", Animation: false },
-
-    {
-      color: "linear-gradient(135deg, #00FFFF, #B026FF, #FF4DA6)",
-      Gradient: true,
-      type: "Gradient",
-      Animation: false,
-    },
-    {
-      color: "linear-gradient(135deg, #00FFFF 0%, #B026FF 100%)",
-      Gradient: true,
-      type: "Gradient",
-      Animation: false,
-    },
-    {
-      color: "linear-gradient(150deg, #AFFF00 0%, #3EF8E0 100%)",
-      Gradient: true,
-      type: "Gradient",
-      Animation: false,
-    },
-    {
-      color: "linear-gradient(45deg, #B026FF 0%, #FF4DA6 100%)",
-      Gradient: true,
-      type: "Gradient",
-      Animation: false,
-    },
-    {
-      color: "linear-gradient(160deg, #FF6600 0%, #00FFFF 100%)",
-      Gradient: true,
-      type: "Gradient",
-      Animation: false,
-    },
-    {
-      color: "linear-gradient(135deg, #FF4081 0%, #1976d2 100%)",
-      Gradient: true,
-      Animation: false,
-      type: "Gradient",
-    },
-    {
-      color: "linear-gradient(135deg, #68A063 0%, #1976d2 100%)",
-      Gradient: true,
-      Animation: false,
-      type: "Gradient",
-    },
-    {
-      color: "linear-gradient(135deg, #589636 0%, #1976d2 100%)",
-      Gradient: true,
-      Animation: false,
-      type: "Gradient",
-    },
-    {
-      color: "linear-gradient(135deg, #764ABC 0%, #1976d2 100%)",
-      Gradient: true,
-      Animation: false,
-      type: "Gradient",
-    },
-    {
-      color: "linear-gradient(45deg, #00fffc, #fc00ff, #00fffc)",
-      Gradient: true,
-      Animation: false,
-      type: "Gradient",
-    },
-    {
-      color: "linear-gradient(-45deg, #00ffff, #ff4da6, #b026ff, #00ffff)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(-45deg, #00ffff, #ff00ff, #8a2be2, #00ffff)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(60deg, #00f0ff, #39ff14, #9b5de5, #00f0ff)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(120deg, #ff1493, #ff6f00, #ffff00, #ff1493)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(-90deg, #00ffe0, #7b2ff7, #ff0066, #00ffe0)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(60deg, #00ffab, #1e90ff, #c77dff, #00ffab)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(-120deg, #00ffd5, #ff7f50, #ffea00, #00ffd5)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(150deg, #00ffa3, #dc1fff, #f09d51, #00ffa3)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(-75deg, #1affd5, #ff4d4d, #ffd31a, #1affd5)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(30deg, #00f0ff, #ffe600, #ff3cac, #00f0ff)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(135deg, #fbc2eb, #a6c1ee, #fde2e4, #fbc2eb)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(-75deg, #ff2e63, #08d9d6, #ff2e63, #ff2e63)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(150deg, #ff0099, #493240, #00f0ff, #ff0099)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-
-    {
-      color: "linear-gradient(45deg, #ff4d79, #ff9966, #ffcc33, #ff4d79)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(-60deg, #f72585, #7209b7, #3a0ca3, #f72585)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(120deg, #ff6ec7, #ffa600, #ff4d4d, #ff6ec7)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(-90deg, #ff4d6d, #c9184a, #800f2f, #ff4d6d)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-    {
-      color: "linear-gradient(135deg, #ff0080, #7928ca, #2afadf, #ff0080)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-
-    //gold
-    {
-      color: "linear-gradient(45deg, #C0C0C0, #D3D3D3, #F5F5F5, #C0C0C0)",
-      Gradient: true,
-      Animation: true,
-      type: "Animated",
-    },
-  ];
-
-  const standardTheme = themes.filter((th) => th.type === "Standard");
-  const gradientTheme = themes.filter((th) => th.type === "Gradient");
-  const animatedTheme = themes.filter((th) => th.type === "Animated");
+  const { Themes } = useSelector((state) => state.theme);
 
   const setTheme = (theme) => {
     const color = theme.color;
     let isDark = false;
     if (theme.type === "Standard") {
-      isDark = standardDark
+      isDark = standardDark;
     }
     if (theme.type === "Gradient") {
-      isDark = gradientDark
+      isDark = gradientDark;
     }
     if (theme.type === "Animated") {
-      isDark = animatedDark
+      isDark = animatedDark;
     }
 
     dispatch(
@@ -302,7 +111,6 @@ export default function SettingTheme() {
     );
   };
 
-
   return (
     <Box sx={{ p: 2 }}>
       <Paper
@@ -343,9 +151,8 @@ export default function SettingTheme() {
               gap: 2,
             }}
           >
-            {standardTheme.map((th) => {
+            {Themes.length > 0 && Themes.filter((th) => th.type === "Standard").map((th) => {
               return (
-
                 <Box
                   onClick={() => setTheme(th)}
                   sx={{
@@ -390,7 +197,7 @@ export default function SettingTheme() {
               gap: 2,
             }}
           >
-            {gradientTheme.map((th) => {
+            {Themes.length > 0 && Themes.filter((th) => th.type === "Gradient").map((th) => {
               return (
                 <Box
                   onClick={() => setTheme(th)}
@@ -437,7 +244,7 @@ export default function SettingTheme() {
               gap: 2,
             }}
           >
-            {animatedTheme.map((th) => {
+            {Themes.length > 0 && Themes.filter((th) => th.type === "Animated").map((th) => {
               return (
                 <Box
                   onClick={() => setTheme(th)}
