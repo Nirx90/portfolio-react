@@ -24,7 +24,7 @@ const Theme = () => {
   };
 
   return (
-    <Container sx={{ mt: 12 }}>
+    <Container sx={{ my: 12 }}>
       <Box sx={{ display: "flex", float: "right" }}>
         <Button
           variant="contained"

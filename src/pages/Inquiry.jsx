@@ -32,7 +32,7 @@ const Inquiry = () => {
     }
 
     return (
-        <Container sx={{ mt: 12 }}>
+        <Container sx={{ my: 12, minHeight:'100vh' }}>
             <TableContainer component={Paper}>
                 <Typography variant="h6" sx={{ p: 2 }}>
                     Inquiries
