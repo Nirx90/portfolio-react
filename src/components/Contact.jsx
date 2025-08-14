@@ -333,7 +333,7 @@ export default function ContactSection() {
                     type="submit"
                     variant="outlined"
                     color="primary"
-                    sx={{ mt: 2 }}
+                    sx={{ mt: 2, color: contactCss.TextColor, border: `1px solid ${contactCss.TextColor}` }}
                     onClick={() => formik.handleSubmit()}
                   >
                     Submit
