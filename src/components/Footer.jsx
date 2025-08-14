@@ -15,6 +15,7 @@ export default function Footer() {
   return (
     <Box
       sx={{
+        mt:5,
         py: 3,
         background: navBarCss.BackgroundColor,
         backgroundSize: Animation ? "400% 400%" : "100%",

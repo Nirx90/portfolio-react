@@ -9,4 +9,9 @@ export const endpoints = {
     get_themes : `${BASE_URL}theme/get`,
     update_theme : `${BASE_URL}theme/update`,
     delete_theme : `${BASE_URL}theme/delete`,
+
+    //contact inquiary
+    create_inquiry : `${BASE_URL}contact/create`,
+    get_inquies : `${BASE_URL}contact/get`,
+    delete_inquiry : `${BASE_URL}contact/delete`,
 }

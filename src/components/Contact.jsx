@@ -24,6 +24,10 @@ import {
 } from "@tabler/icons-react";
 import { useSelector } from "react-redux";
 import SettingContact from "./settings/SettingContact";
+import { useFormik } from "formik";
+import * as Yup from "yup"
+import axios from "axios";
+import { endpoints } from "../api/endpoints";
 
 export default function ContactSection() {
   const theme = useTheme();
@@ -35,23 +39,28 @@ export default function ContactSection() {
 
   const [settingDialog, setSettingDialog] = useState(false);
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    subject: "",
-    description: "",
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      mobile: "",
+      subject: "",
+      description: "",
+    },
+    validationSchema: Yup.object().shape({
+      name: Yup.string().required("Name is required"),
+      email: Yup.string().required("Email is required"),
+      subject: Yup.string().required("Subject is required"),
+      description: Yup.string().required("Description is required"),
+    }),
+    onSubmit: async (values) => {
+      try {
+        const res = await axios.post(endpoints.create_inquiry, values);
+        alert(res.data.data.message)
+        formik.resetForm()
+      } catch (error) {}
+    }
   });
-
-  const handleChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted Data:", formData);
-    alert("Thank you! Your message has been sent.");
-  };
 
   const textFieldCss = {
     // Label color when not focused
@@ -252,9 +261,11 @@ export default function ContactSection() {
                   required
                   name="name"
                   label="Name"
-                  value={formData.name}
-                  onChange={handleChange}
+                  value={formik.values.name}
+                  onChange={formik.handleChange}
                   sx={{ ...textFieldCss }}
+                  error={formik.touched.name && Boolean(formik.errors.name)}
+                  helperText={formik.touched.name && formik.errors.name}
                 />
               </Grid>
               <Grid item size={{ xs: 12, sm: 6 }}>
@@ -264,9 +275,11 @@ export default function ContactSection() {
                   name="email"
                   label="Email"
                   type="email"
-                  value={formData.email}
-                  onChange={handleChange}
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
                   sx={{ ...textFieldCss }}
+                  error={formik.touched.email && Boolean(formik.errors.email)}
+                  helperText={formik.touched.email && formik.errors.email}
                 />
               </Grid>
               <Grid item size={{ xs: 12, sm: 6 }}>
@@ -275,8 +288,8 @@ export default function ContactSection() {
                   name="mobile"
                   label="Mobile"
                   type="tel"
-                  value={formData.mobile}
-                  onChange={handleChange}
+                  value={formik.values.mobile}
+                  onChange={formik.handleChange}
                   sx={{ ...textFieldCss }}
                 />
               </Grid>
@@ -286,9 +299,11 @@ export default function ContactSection() {
                   required
                   name="subject"
                   label="Subject"
-                  value={formData.subject}
-                  onChange={handleChange}
+                  value={formik.values.subject}
+                  onChange={formik.handleChange}
                   sx={{ ...textFieldCss }}
+                  error={formik.touched.subject && Boolean(formik.errors.subject)}
+                  helperText={formik.touched.subject && formik.errors.subject}
                 />
               </Grid>
               <Grid item size={12}>
@@ -299,9 +314,11 @@ export default function ContactSection() {
                   label="Description"
                   multiline
                   minRows={4}
-                  value={formData.description}
-                  onChange={handleChange}
+                  value={formik.values.description}
+                  onChange={formik.handleChange}
                   sx={{ ...textFieldCss }}
+                  error={formik.touched.description && Boolean(formik.errors.description)}
+                  helperText={formik.touched.description && formik.errors.description}
                 />
               </Grid>
               <Grid item size={12}>
@@ -314,9 +331,10 @@ export default function ContactSection() {
                 >
                   <Button
                     type="submit"
-                    variant="contained"
+                    variant="outlined"
                     color="primary"
                     sx={{ mt: 2 }}
+                    onClick={() => formik.handleSubmit()}
                   >
                     Submit
                   </Button>

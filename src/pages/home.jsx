@@ -39,8 +39,7 @@ const PortfolioHomepage = () => {
     }
   }, [location]);
 
-  const { BackgroundColor, PrimaryTextColor, SecondaryTextColor, Animation } =
-    useSelector((state) => state.theme);
+  const { BackgroundColor, PrimaryTextColor, SecondaryTextColor, Animation } = useSelector((state) => state.theme);
   const heroCss = useSelector((state) => state.hero);
   const reviewCss = useSelector((state) => state.review);
 
@@ -67,15 +66,14 @@ const PortfolioHomepage = () => {
   };
 
   return (
-    <>
-      <Box
-        sx={{
-          background: BackgroundColor,
-          py: isMobile ? 2 : 10,
-          // mx:5
-        }}
-      >
-        <Container>
+    <Box
+      sx={{
+        background: BackgroundColor,
+        py: isMobile ? 2 : 10,
+      }}
+    >
+      <Container>
+        <section id="home">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -232,29 +230,31 @@ const PortfolioHomepage = () => {
               </Box>
             </Box>
           </motion.div>
+        </section>
 
+        <section id="service">
           <ServiceCards />
+        </section>
 
-          <Box mt={10}>
-            <WorkExperience />
-          </Box>
+        <Box mt={10}>
+          <WorkExperience />
+        </Box>
 
-          <Box sx={{ mt: 10 }}>
-            <SkillCard />
-          </Box>
+        <Box sx={{ mt: 10 }}>
+          <SkillCard />
+        </Box>
 
-          <Box sx={{ mt: 10 }}>
-            <ReviewsSection />
-          </Box>
+        <Box sx={{ mt: 10 }}>
+          <ReviewsSection />
+        </Box>
 
-          <Box sx={{ mt: 10 }}>
-            <section id="contact">
-              <ContactSection />
-            </section>
-          </Box>
-        </Container>
-      </Box>
-    </>
+        <Box sx={{ mt: 10 }}>
+          <section id="contact">
+            <ContactSection />
+          </section>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

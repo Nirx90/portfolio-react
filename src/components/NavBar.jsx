@@ -42,11 +42,12 @@ import {
 import { useLocation, useNavigate } from "react-router-dom";
 
 const navItems = [
-  { label: "Home", type: "page", path: "/" , id:"home", auth : false},
-  { label: "About", type: "section", id: "about", auth : false },
-  { label: "Contact", type: "section", id: "contact", auth : false },
-  { label: "Profile", type: "page", path: "/profile", auth : true },
-  { label: "Theme", type: "page", path: "/theme", auth : true },
+  { label: "Home", type: "page", path: "/", id: "home", auth: false },
+  { label: "Service", type: "section", id: "service", auth: false },
+  { label: "Contact", type: "section", id: "contact", auth: false },
+  { label: "Profile", type: "page", path: "/profile", auth: true },
+  { label: "Theme", type: "page", path: "/theme", auth: true },
+  { label: "Inquiry", type: "page", path: "/inquiry", auth: true },
 ];
 
 export default function NavBar() {
@@ -88,12 +89,6 @@ export default function NavBar() {
   const { token } = useSelector((state) => state.auth);
 
   const toggleDrawer = (open) => () => setDrawerOpen(open);
-
-  useEffect(()=> {
-    if(!token){
-      navItems.filter((item)=> !item.auth)
-    }
-  },[token])
 
   const handleDarkMode = () => {
     const nextMode = !darkMode;
@@ -155,22 +150,6 @@ export default function NavBar() {
     }
   };
 
-  const renderNavLinks = (isMobile = false) =>
-    navItems.map((item) => (
-      <Button
-        key={item.label}
-        sx={{
-          my: 1,
-          mx: isMobile ? 0 : 1,
-          width: isMobile ? "100%" : "auto",
-          color: navBarCss.TextColor,
-        }}
-        onClick={() => handleClick(item)}
-      >
-        {item.label}
-      </Button>
-    ));
-
   return (
     <>
       <AppBar
@@ -204,15 +183,32 @@ export default function NavBar() {
           </Typography>
 
           {/* Nav Links (desktop only) */}
-          <Box
-            sx={{
-              display: "flex",
-              flexGrow: 1,
-              justifyContent: "center",
-            }}
-          >
-            {renderNavLinks()}
-          </Box>
+          {!isMobile && (
+            <Box
+              sx={{
+                display: "flex",
+                flexGrow: 1,
+                justifyContent: "center",
+              }}
+            >
+              {navItems
+                .filter(it => token ? true : !it.auth)
+                .map((item) => (
+                  <Button
+                    key={item.label}
+                    sx={{
+                      my: 1,
+                      mx: isMobile ? 0 : 1,
+                      width: isMobile ? "100%" : "auto",
+                      color: navBarCss.TextColor,
+                    }}
+                    onClick={() => handleClick(item)}
+                  >
+                    {item.label}
+                  </Button>
+                ))}
+            </Box>
+          )}
 
           {/* Right Side Icons */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
@@ -256,7 +252,7 @@ export default function NavBar() {
       <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
         <Box sx={{ width: 200, p: 2 }}>
           <List>
-            {navItems.map((item) => (
+            {navItems.filter(it => token ? true : !it.auth).map((item) => (
               <ListItem
                 button
                 component="a"

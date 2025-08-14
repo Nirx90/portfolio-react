@@ -1,15 +1,16 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "../pages/home";
 import Contact from "../pages/Contact";
 import Theme from "../pages/Theme";
+import PortfolioHomepage from "../pages/home";
+import Inquiry from "../pages/Inquiry";
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/contact" element={<Contact />} />
+      <Route path="/" element={<PortfolioHomepage />} />
       <Route path="/theme" element={<Theme />} />
+      <Route path="/inquiry" element={<Inquiry />} />
     </Routes>
   );
 };
