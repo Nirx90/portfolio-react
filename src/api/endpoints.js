@@ -14,4 +14,6 @@ export const endpoints = {
     create_inquiry : `${BASE_URL}contact/create`,
     get_inquies : `${BASE_URL}contact/get`,
     delete_inquiry : `${BASE_URL}contact/delete`,
+
+    get_profile : `${BASE_URL}profile/get`,
 }

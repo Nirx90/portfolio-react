@@ -32,26 +32,25 @@ import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
 // Dummy data
 const reviews = [
   {
-    name: "John Doe",
-    title: "Project Manager",
-    review:
-      "Fantastic work! Always delivers on time and the quality is top-notch.",
+    name: "Parth Makwana",
+    title: "Web Developer",
+    review: "Fantastic work! Always delivers on time and the quality is top-notch.",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    image: "https://digitalks-crm-bucket.s3.ap-south-1.amazonaws.com/plantoo/items-images/Parth.png",
   },
   {
-    name: "Jane Smith",
-    title: "Team Lead",
+    name: "Muskaan Kazi",
+    title: "Tester",
     review: "Very responsive and creative. Love the UI/UX decisions made.",
     rating: 4,
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    image: "https://digitalks-crm-bucket.s3.ap-south-1.amazonaws.com/Plantoo/items/images/muskaan.png",
   },
   {
-    name: "Michael Brown",
-    title: "Product Owner",
+    name: "Shakshi Shankar",
+    title: "Data Anlyst",
     review: "Good communication and reliable work, happy to collaborate again.",
     rating: 3,
-    image: "https://randomuser.me/api/portraits/men/53.jpg",
+    image: "https://digitalks-crm-bucket.s3.ap-south-1.amazonaws.com/Plantoo/items/images/shakshi.png",
   },
   {
     name: "Emily Johnson",
@@ -130,7 +129,7 @@ export default function ReviewsSection() {
               <SwiperSlide key={index}>
                 <Card
                   sx={{
-                    p: 3,
+                    p: 2,
                     borderRadius: 5,
                     position: "relative",
                     background: reviewCss.BackgroundColor,
