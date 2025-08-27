@@ -28,6 +28,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup"
 import axios from "axios";
 import { endpoints } from "../api/endpoints";
+import toast from "react-hot-toast";
 
 export default function ContactSection() {
   const theme = useTheme();
@@ -49,16 +50,20 @@ export default function ContactSection() {
     },
     validationSchema: Yup.object().shape({
       name: Yup.string().required("Name is required"),
-      email: Yup.string().required("Email is required"),
+      email: Yup.string()
+        .email("Invalid email address")
+        .required("Email is required"),
       subject: Yup.string().required("Subject is required"),
       description: Yup.string().required("Description is required"),
     }),
     onSubmit: async (values) => {
       try {
         const res = await axios.post(endpoints.create_inquiry, values);
-        alert(res.data.data.message)
+        toast.success(res.data.message)
         formik.resetForm()
-      } catch (error) {}
+      } catch (error) { 
+        toast.error("Failed to submit quey. please try again later...")
+      }
     }
   });
 

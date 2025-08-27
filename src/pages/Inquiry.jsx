@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import { IconTrash } from "@tabler/icons-react";
 import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 const Inquiry = () => {
 
@@ -26,13 +27,28 @@ const Inquiry = () => {
                     Authorization: `Bearer ${token}`
                 }
             })
-            console.log("🚀 ~ getAllQuaries ~ res:", res)
             setInquires(res.data.data)
         } catch (error) { }
     }
 
+    const handleDelete = async (queryId) => {
+        try {
+            const res = await axios.delete(`${endpoints.delete_inquiry}/${queryId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+
+            toast.success("Inquiry Deleted...!")
+
+            getAllQuaries();
+        } catch (error) {
+            toast.error("Failed to delete Inquiry..!")
+        }
+    }
+
     return (
-        <Container sx={{ my: 12, minHeight:'100vh' }}>
+        <Container sx={{ my: 12, minHeight: '100vh' }}>
             <TableContainer component={Paper}>
                 <Typography variant="h6" sx={{ p: 2 }}>
                     Inquiries
@@ -60,9 +76,9 @@ const Inquiry = () => {
                                 <TableCell>
                                     {new Date(contact.createdAt).toLocaleString()}
                                 </TableCell>
-                                {token && (
+                                {true && (
                                     <TableCell>
-                                        <IconTrash />
+                                        <IconTrash onClick={() => handleDelete(contact._id)} cursor="pointer" />
                                     </TableCell>
                                 )}
                             </TableRow>
