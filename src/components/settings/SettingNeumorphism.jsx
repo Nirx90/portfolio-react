@@ -46,7 +46,7 @@ export default function SettingNeumorphism() {
         PrimaryTextColor: theme.TextColor,
         SecondaryTextColor: theme.TextColor,
         IconColor: theme.IconColor,
-        BorderColor: "none",
+        BorderColor: color,
         BoxShadow: useInset ? theme.InsetBoxShadow : theme.BoxShadow,
       })
     );

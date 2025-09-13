@@ -19,6 +19,7 @@ import ReviewsSection from "../components/Reviews";
 import { useLocation } from "react-router-dom";
 import { getAllThemesThunk } from "../slices/themeSlice";
 import { getProfileInfo } from "../slices/profileSlice";
+import { setDefaultTheme } from "../utils/helper";
 
 const PortfolioHomepage = () => {
   const theme = useTheme();
@@ -41,10 +42,19 @@ const PortfolioHomepage = () => {
     }
   }, [location]);
 
+
   const { BackgroundColor, PrimaryTextColor, SecondaryTextColor, Animation } = useSelector((state) => state.theme);
   const { selectedProfileImage } = useSelector((state) => state.profile);
   const heroCss = useSelector((state) => state.hero);
   const reviewCss = useSelector((state) => state.review);
+  const ProfileData = useSelector((state) => state.profile);
+
+
+  useEffect(() => {
+    if (ProfileData.DefaultTheme) {
+      setDefaultTheme(ProfileData.theme, dispatch)
+    }
+  }, [ProfileData])
 
   // Animation variants
   const containerVariants = {

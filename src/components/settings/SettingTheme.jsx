@@ -19,17 +19,9 @@ export default function SettingTheme() {
   const [animatedDark, setAnimatedDark] = useState(false);
 
   const { Themes } = useSelector((state) => state.theme);
-  const ProfileData = useSelector((state) => state.profile);
-
-  useEffect(()=>{
-    if(ProfileData.DefaultTheme){
-      setTheme(ProfileData.theme)
-    }
-  },[ProfileData])
 
   const setTheme = (theme) => {
     const color = theme.color;
-    const boxShadow = "0 8px 32px rgba(31, 38, 135, 0.2)";
     let isDark = false;
     if (theme.type === "Standard") {
       isDark = standardDark;
@@ -62,50 +54,50 @@ export default function SettingTheme() {
     dispatch(
       setserviceCardThemeThunk({
         BackgroundColor: theme.Gradient ? color : "rgba(255, 255, 255, 0)",
-        PrimaryTextColor: theme.Gradient ? "white" : color,
-        SecondaryTextColor: theme.Gradient ? "white" : color,
-        IconColor: theme.Gradient ? "white" : color,
+        PrimaryTextColor: theme.TextColor,
+        SecondaryTextColor: theme.TextColor,
+        IconColor: theme.TextColor,
         BorderColor: color,
-        BoxShadow: boxShadow,
+        BoxShadow: theme.BoxShadow,
       })
     );
     dispatch(
       setExperienceThemeThunk({
         BackgroundColor: theme.Gradient ? color : "rgba(255, 255, 255, 0)",
-        TextColor: theme.Gradient ? "white" : color,
-        IconColor: theme.Gradient ? "white" : color,
+        TextColor: theme.TextColor,
+        IconColor: theme.TextColor,
         BorderColor: color,
-        BoxShadow: boxShadow,
+        BoxShadow: theme.BoxShadow,
       })
     );
 
     dispatch(
       setSkillCardThemeThunk({
         BackgroundColor: theme.Gradient ? color : "rgba(255, 255, 255, 0)",
-        IconColor: theme.Gradient ? "white" : color,
-        TextColor: theme.Gradient ? "white" : color,
+        IconColor: theme.TextColor,
+        TextColor: theme.TextColor,
         BorderColor: color,
-        BoxShadow: boxShadow,
+        BoxShadow: theme.BoxShadow,
       })
     );
 
     dispatch(
       setReviewThemeThunk({
         BackgroundColor: theme.Gradient ? color : "rgba(255, 255, 255, 0)",
-        IconColor: theme.Gradient ? "white" : color,
-        TextColor: theme.Gradient ? "white" : color,
+        IconColor: theme.TextColor,
+        TextColor: theme.TextColor,
         BorderColor: color,
-        BoxShadow: boxShadow,
+        BoxShadow: theme.BoxShadow,
       })
     );
 
     dispatch(
       setContactThemeThunk({
         BackgroundColor: theme.Gradient ? color : "rgba(255, 255, 255, 0)",
-        IconColor: theme.Gradient ? "white" : color,
-        TextColor: theme.Gradient ? "white" : color,
+        IconColor: theme.TextColor,
+        TextColor: theme.TextColor,
         BorderColor: color,
-        BoxShadow: boxShadow,
+        BoxShadow: theme.BoxShadow,
       })
     );
 
@@ -113,7 +105,7 @@ export default function SettingTheme() {
       setHeroThemeThunk({
         TextColor: color,
         BackgroundColor: color,
-        BoxShadow: boxShadow,
+        BoxShadow: theme.BoxShadow,
       })
     );
   };

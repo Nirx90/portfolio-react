@@ -34,10 +34,6 @@ const Profile = () => {
 
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getProfileInfo());
-    }, [dispatch]);
-
     const formik = useFormik({
         initialValues: {
             profileImages: [{ imageUrl: "" }],
@@ -54,7 +50,8 @@ const Profile = () => {
                 formik.resetForm()
                 dispatch(getProfileInfo())
             } catch (error) {
-                toast.error("Failed to submit quey. please try again later...")
+                console.log("🚀 ~ Profile ~ error:", error)
+                toast.error(error.response.data.message || "Failed to update user. please try again later...")
             }
         }
     });
@@ -65,7 +62,7 @@ const Profile = () => {
                 profileImages: profileData.profileImages.map((item) => ({
                     imageUrl: item.imageUrl
                 })) || [],
-                defaultTheme: profileData.useDefaultTheme || false,
+                defaultTheme: profileData.defaultTheme || false,
                 selectedProfileImage: profileData.selectedProfileImage || "",
                 theme: profileData.theme._id || "",
             });
