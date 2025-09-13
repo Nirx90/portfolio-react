@@ -16,7 +16,8 @@ export default function SettingNeumorphism() {
   const [useInset, setUseInset] = React.useState(false);
 
   const { Themes } = useSelector((state) => state.theme);
-
+  const ProfileData = useSelector((state) => state.profile);
+  
   const setTheme = (theme) => {
     const color = theme.color;
 

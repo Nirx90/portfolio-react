@@ -8,6 +8,7 @@ import reviewReducer from "../slices/reviewSlice";
 import contactReducer from "../slices/contactSlice";
 import heroReducer from "../slices/heroSlice";
 import authReducer from "../slices/authSlice";
+import profileReducer from "../slices/profileSlice";
 
 const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ const store = configureStore({
     contact: contactReducer,
     hero : heroReducer,
     auth : authReducer,
+    profile : profileReducer,
   },
 });
 

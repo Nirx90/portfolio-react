@@ -8,7 +8,6 @@ function App() {
   return (
     <>
       <Toaster />
-
       <NavBar />
       <AppRoutes />
       <Footer />

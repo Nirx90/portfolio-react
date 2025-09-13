@@ -18,6 +18,7 @@ import ContactSection from "../components/Contact";
 import ReviewsSection from "../components/Reviews";
 import { useLocation } from "react-router-dom";
 import { getAllThemesThunk } from "../slices/themeSlice";
+import { getProfileInfo } from "../slices/profileSlice";
 
 const PortfolioHomepage = () => {
   const theme = useTheme();
@@ -28,6 +29,7 @@ const PortfolioHomepage = () => {
 
   useEffect(() => {
     dispatch(getAllThemesThunk());
+    dispatch(getProfileInfo());
   }, []);
 
   useEffect(() => {
@@ -40,6 +42,7 @@ const PortfolioHomepage = () => {
   }, [location]);
 
   const { BackgroundColor, PrimaryTextColor, SecondaryTextColor, Animation } = useSelector((state) => state.theme);
+  const { selectedProfileImage } = useSelector((state) => state.profile);
   const heroCss = useSelector((state) => state.hero);
   const reviewCss = useSelector((state) => state.review);
 
@@ -213,7 +216,7 @@ const PortfolioHomepage = () => {
                     >
                       <Box
                         component="img"
-                        src="https://digitalks-crm-bucket.s3.ap-south-1.amazonaws.com/CRM-ONE/staff/profileImage/profileImage-1750330132699-570439323.jpg"
+                        src={`${selectedProfileImage}`}
                         alt="Profile"
                         sx={{
                           width: 250,

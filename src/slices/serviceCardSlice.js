@@ -10,7 +10,7 @@ const initialState = {
   BorderWidth: 1,
   Transparency: "none",
   BorderColor: "#FFFFFF4D",
-  IconColor : "#1976D2"
+  IconColor: "#1976D2",
 };
 
 const serviceCardSlice = createSlice({
@@ -36,6 +36,12 @@ const serviceCardSlice = createSlice({
       state.IconColor = data.IconColor;
       state.BoxShadow = data.BoxShadow;
     },
+    setServiceCardTextColorThunk: (state, action) => {
+      const { IconColor, PrimaryTextColor, SecondaryTextColor } = action.payload;
+      state.IconColor = IconColor;
+      state.PrimaryTextColor = PrimaryTextColor;
+      state.SecondaryTextColor = SecondaryTextColor;
+    },
     setserviceCardBorderWidth: (state, action) => {
       const { BorderWidth } = action.payload;
       state.BorderWidth = BorderWidth;
@@ -54,7 +60,7 @@ const serviceCardSlice = createSlice({
     },
     resetserviceCard: () => initialState,
   },
-  extraReducers: (builder) => {},
+  extraReducers: (builder) => { },
 });
 
 export const {
@@ -66,6 +72,7 @@ export const {
   setserviceCardDarkMode,
   setserviceCardThemeThunk,
   resetserviceCard,
+  setServiceCardTextColorThunk
 } = serviceCardSlice.actions;
 
 export default serviceCardSlice.reducer;

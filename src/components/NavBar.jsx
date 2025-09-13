@@ -86,8 +86,8 @@ export default function NavBar() {
 
   const navBarCss = useSelector((state) => state.navbar);
   const { DarkMode, Animation } = useSelector((state) => state.theme);
-  const { token } = useSelector((state) => state.auth);
-
+  // const { token } = useSelector((state) => state.auth);
+  const  token  = localStorage.getItem("token");
   const toggleDrawer = (open) => () => setDrawerOpen(open);
 
   const handleDarkMode = () => {

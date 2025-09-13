@@ -2,7 +2,6 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import { useDispatch, useSelector } from "react-redux";
 import { Paper, TextField, Typography } from "@mui/material";
-import SettingService from "./SettingService";
 import { setThemeColors } from "../../slices/themeSlice";
 import SettingSkills from "./SettingSkill";
 
@@ -62,8 +61,6 @@ export default function SettingLayout() {
           </Box>
         </Box>
       </Paper>
-
-      <SettingService />
 
       <SettingSkills />
     </Box>

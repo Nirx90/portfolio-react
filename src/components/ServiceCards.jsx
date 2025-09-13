@@ -3,9 +3,15 @@ import { Box, Typography, useTheme, Grid, Paper } from "@mui/material";
 import { Code, DesignServices, Terminal } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
+import {
+  IconSettings
+} from "@tabler/icons-react";
+import SettingService from "./settings/SettingService";
 
 const ServiceCards = () => {
   const serviceCardCss = useSelector((state) => state.serviceCard);
+
+  const [settingDialog, setSettingDialog] = useState(false);
 
   const { DarkMode, Animation, HeaderColor } = useSelector((state) => state.theme);
 
@@ -63,7 +69,7 @@ const ServiceCards = () => {
                     p: 3,
                     minHeight: 190,
                     borderRadius: serviceCardCss.BorderRadious,
-                    
+
                     background: serviceCardCss.BackgroundColor,
                     backgroundSize: Animation ? "400% 400%" : "100%",
                     animation: "gradientShift 8s ease infinite",
@@ -73,8 +79,27 @@ const ServiceCards = () => {
                     boxShadow: serviceCardCss.BoxShadow,
                     // boxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
                     transition: "transform 0.3s ease",
+                    "&:hover .settings-popup": {
+                      opacity: 1,
+                      color: serviceCardCss.TextColor,
+                    },
                   }}
                 >
+                  <Box
+                    className="settings-popup"
+                    sx={{
+                      position: "absolute",
+                      right: 10,
+                      top: 10,
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                    }}
+                  >
+                    <IconSettings
+                      onClick={() => setSettingDialog(true)}
+                      cursor="pointer"
+                    />
+                  </Box>
                   <Box
                     sx={{
                       width: 60,
@@ -116,6 +141,8 @@ const ServiceCards = () => {
           ))}
         </Grid>
       </Box>
+
+      <SettingService open={settingDialog} onClose={()=> setSettingDialog(false)}/>
     </Box>
   );
 };

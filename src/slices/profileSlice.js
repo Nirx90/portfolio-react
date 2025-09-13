@@ -36,9 +36,11 @@ export const updateProfileInfo = createAsyncThunk(
 
 
 const initialState = {
-  ProfileImage : "",
+  profileImages : [],
+  selectedProfileImage : "https://digitalks-crm-bucket.s3.ap-south-1.amazonaws.com/CRM-ONE/staff/profileImage/profileImage-1750330132699-570439323.jpg",
   ResumeUrl: "",
-  DefaultTheme : false
+  DefaultTheme : false,
+  theme : false,
 };
 
 const profileSlice = createSlice({
@@ -55,7 +57,10 @@ const profileSlice = createSlice({
       })
       .addCase(getProfileInfo.fulfilled, (state, action) => {
         state.loading = false;
-        state.ProfileImage = action.payload;
+        state.selectedProfileImage = action.payload.selectedProfileImage;
+        state.profileImages = action.payload.profileImages;
+        state.DefaultTheme = action.payload.defaultTheme;
+        state.theme = action.payload.theme;
       })
       .addCase(getProfileInfo.rejected, (state, action) => {
         state.loading = false;

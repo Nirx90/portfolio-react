@@ -1,9 +1,8 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Paper, Switch, TextField, Typography } from "@mui/material";
 import { setNavBarThemeThunk } from "../../slices/navbarSlice";
-import { IconCircleFilled, IconMoonFilled } from "@tabler/icons-react";
 import { setThemeColors } from "../../slices/themeSlice";
 import { setserviceCardThemeThunk } from "../../slices/serviceCardSlice";
 import { setSkillCardThemeThunk } from "../../slices/skillSlice";
@@ -15,14 +14,22 @@ import { setHeroThemeThunk } from "../../slices/heroSlice";
 export default function SettingTheme() {
   const dispatch = useDispatch();
 
-  const [standardDark, setStandardDark] = React.useState(false);
-  const [gradientDark, setGradientDark] = React.useState(false);
-  const [animatedDark, setAnimatedDark] = React.useState(false);
+  const [standardDark, setStandardDark] = useState(false);
+  const [gradientDark, setGradientDark] = useState(false);
+  const [animatedDark, setAnimatedDark] = useState(false);
 
   const { Themes } = useSelector((state) => state.theme);
+  const ProfileData = useSelector((state) => state.profile);
+
+  useEffect(()=>{
+    if(ProfileData.DefaultTheme){
+      setTheme(ProfileData.theme)
+    }
+  },[ProfileData])
 
   const setTheme = (theme) => {
     const color = theme.color;
+    const boxShadow = "0 8px 32px rgba(31, 38, 135, 0.2)";
     let isDark = false;
     if (theme.type === "Standard") {
       isDark = standardDark;
@@ -59,7 +66,7 @@ export default function SettingTheme() {
         SecondaryTextColor: theme.Gradient ? "white" : color,
         IconColor: theme.Gradient ? "white" : color,
         BorderColor: color,
-        BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+        BoxShadow: boxShadow,
       })
     );
     dispatch(
@@ -68,7 +75,7 @@ export default function SettingTheme() {
         TextColor: theme.Gradient ? "white" : color,
         IconColor: theme.Gradient ? "white" : color,
         BorderColor: color,
-        BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+        BoxShadow: boxShadow,
       })
     );
 
@@ -78,7 +85,7 @@ export default function SettingTheme() {
         IconColor: theme.Gradient ? "white" : color,
         TextColor: theme.Gradient ? "white" : color,
         BorderColor: color,
-        BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+        BoxShadow: boxShadow,
       })
     );
 
@@ -88,7 +95,7 @@ export default function SettingTheme() {
         IconColor: theme.Gradient ? "white" : color,
         TextColor: theme.Gradient ? "white" : color,
         BorderColor: color,
-        BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+        BoxShadow: boxShadow,
       })
     );
 
@@ -98,7 +105,7 @@ export default function SettingTheme() {
         IconColor: theme.Gradient ? "white" : color,
         TextColor: theme.Gradient ? "white" : color,
         BorderColor: color,
-        BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+        BoxShadow: boxShadow,
       })
     );
 
@@ -106,7 +113,7 @@ export default function SettingTheme() {
       setHeroThemeThunk({
         TextColor: color,
         BackgroundColor: color,
-        BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+        BoxShadow: boxShadow,
       })
     );
   };
