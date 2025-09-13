@@ -21,7 +21,7 @@ import { getAllThemesThunk } from "../slices/themeSlice";
 import { getProfileInfo } from "../slices/profileSlice";
 import { setDefaultTheme } from "../utils/helper";
 
-const PortfolioHomepage = () => {
+const Home = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -271,7 +271,7 @@ const PortfolioHomepage = () => {
   );
 };
 
-export default PortfolioHomepage;
+export default Home;
 {
   /* <Box sx={{
   background: '#2196f3',
