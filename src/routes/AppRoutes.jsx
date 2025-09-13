@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Theme from "../pages/Theme";
 import Inquiry from "../pages/Inquiry";
 import Profile from "../pages/Profile";
-import Home from "../pages/Home";
+import Home from "../pages/Home.jsx";
 
 const AppRoutes = () => {
   return (
