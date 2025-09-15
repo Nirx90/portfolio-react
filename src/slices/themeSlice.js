@@ -22,6 +22,8 @@ export const getAllThemesThunk = createAsyncThunk(
 
 const initialState = {
   //   backgroundColor: "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)",
+  Name : "",
+  Type : "",
   Themes: [],
   BackgroundColor: "#ffff",
   PrimaryTextColor: "rgba(0, 0, 0, 0.87)",
@@ -45,6 +47,8 @@ const themeSlice = createSlice({
       state.DarkMode = data.DarkMode;
       state.Animation = data.Animation;
       state.HeaderColor = data.HeaderColor;
+      state.Name = data.Name;
+      state.Type = data.Type;
     },
     resetTheme: (state) => {
       state.BackgroundColor = "#ffff";
@@ -55,6 +59,8 @@ const themeSlice = createSlice({
       state.HeaderColor = "black";
       state.loading = false;
       state.error = false;
+      state.Name = "";
+      state.Type = "";
     }
   },
   extraReducers: (builder) => {

@@ -36,7 +36,8 @@ export default function SettingTheme() {
     dispatch(
       setNavBarThemeThunk({
         BackgroundColor: color,
-        TextColor: isDark ? "white" : "black",
+        // TextColor: isDark ? "white" : "black",
+        TextColor: theme.NavBarTextColor || "white",
       })
     );
 
@@ -48,6 +49,8 @@ export default function SettingTheme() {
         DarkMode: isDark ? true : false,
         Animation: theme.Animation,
         HeaderColor: isDark ? "white" : "black",
+        Name: theme.name,
+        Type: theme.type,
       })
     );
 
@@ -106,6 +109,7 @@ export default function SettingTheme() {
         TextColor: color,
         BackgroundColor: color,
         BoxShadow: theme.BoxShadow,
+        ButtonTextColor: theme.NavBarTextColor || "white"
       })
     );
   };

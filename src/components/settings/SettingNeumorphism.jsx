@@ -17,14 +17,15 @@ export default function SettingNeumorphism() {
 
   const { Themes } = useSelector((state) => state.theme);
   const ProfileData = useSelector((state) => state.profile);
-  
+
   const setTheme = (theme) => {
+    console.log("🚀 ~ setTheme ~ theme:", theme)
     const color = theme.color;
 
     dispatch(
       setNavBarThemeThunk({
         BackgroundColor: color,
-        TextColor: theme.TextColor,
+        TextColor: theme.NavBarTextColor || theme.TextColor,
         BoxShadow: useInset ? theme.InsetBoxShadow : theme.BoxShadow,
       })
     );
@@ -37,6 +38,8 @@ export default function SettingNeumorphism() {
         DarkMode: theme.DarkMode,
         Animation: false,
         HeaderColor: theme.TextColor,
+        Name: theme.name,
+        Type: theme.type,
       })
     );
 
@@ -95,6 +98,7 @@ export default function SettingNeumorphism() {
         BackgroundColor: color,
         BoxShadow: useInset ? theme.InsetBoxShadow : theme.BoxShadow,
         TextColor: theme.TextColor,
+        ButtonTextColor: theme.NavBarTextColor || "white"
       })
     );
   };
@@ -141,7 +145,7 @@ export default function SettingNeumorphism() {
               }}
             >
               {Themes.length > 0 &&
-                Themes.filter((th) => th.type === "neu-classic").map((th) => (
+                Themes.filter((th) => th.type === "Neu-Classic").map((th) => (
                   <Box>
                     <Box
                       key={th.color}
@@ -188,7 +192,7 @@ export default function SettingNeumorphism() {
               }}
             >
               {Themes.length > 0 &&
-                Themes.filter((th) => th.type === "neu-gradient").map((th) => (
+                Themes.filter((th) => th.type === "Neu-Gradient").map((th) => (
                   <Box>
                     <Box
                       key={th.color}
@@ -235,7 +239,7 @@ export default function SettingNeumorphism() {
               }}
             >
               {Themes.length > 0 &&
-                Themes.filter((th) => th.type === "neu-glassmorphism").map((th) => (
+                Themes.filter((th) => th.type === "Neu-Glassmorphism").map((th) => (
                   <Box
                     key={th.color}
                     sx={{

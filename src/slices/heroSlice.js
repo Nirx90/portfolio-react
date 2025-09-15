@@ -5,6 +5,7 @@ const initialState = {
   TextColor: "linear-gradient(45deg, #1976d2 20%, #4dabf5 80%)",
   IconColor : "#1876D2",
   BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+  ButtonTextColor : "white"
 };
 
 const heroSlice = createSlice({
@@ -21,6 +22,7 @@ const heroSlice = createSlice({
       state.BackgroundColor = data.BackgroundColor;
       state.BoxShadow = data.BoxShadow;
       state.TextColor = data.TextColor;
+      state.ButtonTextColor = data.ButtonTextColor;
     },
     setHeroTextColorThunk: (state, action) => {
       const { TextColor, IconColor } = action.payload;

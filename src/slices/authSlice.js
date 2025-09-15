@@ -8,7 +8,7 @@ export const loginThunk = createAsyncThunk(
     try {
       const response = await axios.post(endpoints.login, data);
       localStorage.setItem("token", response.data.data.token)
-      return response.data.data;
+      return response.data;
     } catch (error) {
       return rejectWithValue(
         error.response?.data?.message || "Failed to fetch leads"
@@ -38,7 +38,7 @@ const loginSlice = createSlice({
       })
       .addCase(loginThunk.fulfilled, (state, action) => {
         state.loading = false;
-        state.token = action.payload.token;
+        state.token = action.payload.data.token;
       })
       .addCase(loginThunk.rejected, (state, action) => {
         state.loading = false;

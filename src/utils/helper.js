@@ -11,6 +11,10 @@ export const setDefaultTheme = (theme, dispatch) => {
 
     const color = theme.color;
     let isDark = false;
+    let isNeu = false;
+    if (theme.type.startsWith("Neu")) {
+        isNeu = true;
+    }
 
     dispatch(
         setNavBarThemeThunk({
@@ -21,7 +25,7 @@ export const setDefaultTheme = (theme, dispatch) => {
 
     dispatch(
         setThemeColors({
-            BackgroundColor: isDark ? "black" : "white",
+            BackgroundColor: isNeu ? color :  "white",
             PrimaryTextColor: isDark ? "whitesmoke" : "black",
             SecondaryTextColor: isDark ? "whitesmoke" : "black",
             DarkMode: isDark ? true : false,
@@ -82,7 +86,7 @@ export const setDefaultTheme = (theme, dispatch) => {
 
     dispatch(
         setHeroThemeThunk({
-            TextColor: color,
+            TextColor: theme.TextColor,
             BackgroundColor: color,
             BoxShadow: theme.BoxShadow,
         })

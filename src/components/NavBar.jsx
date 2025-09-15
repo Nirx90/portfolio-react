@@ -16,8 +16,6 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import { useDispatch, useSelector } from "react-redux";
 import { resetNavbar, setNavBarDarkMode } from "../slices/navbarSlice";
 import { resetTheme, setThemeColors } from "../slices/themeSlice";
@@ -40,6 +38,7 @@ import {
   setExperienceDarkModeThunk,
 } from "../slices/experienceSlice";
 import { useLocation, useNavigate } from "react-router-dom";
+import { resetHero } from "../slices/heroSlice";
 
 const navItems = [
   { label: "Home", type: "page", path: "/", id: "home", auth: false },
@@ -121,7 +120,6 @@ export default function NavBar() {
       dispatch(
         setSkillCardDarkMode({
           TextColor: "whitesmoke",
-          // BorderColor : "#FFFFFF4D"
         })
       );
       dispatch(
@@ -147,6 +145,7 @@ export default function NavBar() {
       dispatch(resetReview());
       dispatch(resetContact());
       dispatch(resetExperience());
+      dispatch(resetHero());
     }
   };
 
@@ -175,11 +174,10 @@ export default function NavBar() {
       >
         <Toolbar sx={{ justifyContent: "space-between" }}>
           {/* Logo or Title */}
-          {/* <Typography variant="h6" component="div" color={navBarCss.TextColor}>
-            Nirav Chaudhari
-          </Typography> */}
+
           <Typography variant="h4" component="div" color={navBarCss.TextColor}>
             || छावा ||
+            {/* Jhon Doe */}
           </Typography>
 
           {/* Nav Links (desktop only) */}

@@ -20,7 +20,6 @@ import { endpoints } from "../api/endpoints";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { getProfileInfo } from "../slices/profileSlice";
-import { getAllThemesThunk } from "../slices/themeSlice";
 import { Autocomplete, TextField } from "@mui/material";
 import { useFormik } from "formik";
 
@@ -47,7 +46,6 @@ const Profile = () => {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 toast.success(res.data.message)
-                formik.resetForm()
                 dispatch(getProfileInfo())
             } catch (error) {
                 console.log("🚀 ~ Profile ~ error:", error)
@@ -57,16 +55,14 @@ const Profile = () => {
     });
 
     useEffect(() => {
-        if (profileData) {
-            formik.setValues({
-                profileImages: profileData.profileImages.map((item) => ({
-                    imageUrl: item.imageUrl
-                })) || [],
-                defaultTheme: profileData.defaultTheme || false,
-                selectedProfileImage: profileData.selectedProfileImage || "",
-                theme: profileData.theme._id || "",
-            });
-        }
+        formik.setValues({
+            profileImages: profileData.profileImages.map((item) => ({
+                imageUrl: item.imageUrl
+            })) || [],
+            defaultTheme: profileData.DefaultTheme || false,
+            selectedProfileImage: profileData.selectedProfileImage || "",
+            theme: profileData.theme._id || "",
+        });
     }, [profileData]);
 
     return (
@@ -94,7 +90,7 @@ const Profile = () => {
                 >
                     <Box
                         component="img"
-                        src={formik.values.selectedProfileImage}
+                        // src={formik.values.selectedProfileImage}
                         alt="Profile"
                         sx={{
                             width: 250,
@@ -136,7 +132,7 @@ const Profile = () => {
                         >
                             <Box
                                 component="img"
-                                src={profile.imageUrl}
+                                // src={profile.imageUrl}
                                 alt="Profile"
                                 sx={{
                                     width: 100,
@@ -164,16 +160,13 @@ const Profile = () => {
                 </FormLabel>
                 <RadioGroup
                     row
-                    value={formik.values.defaultTheme ? "yes" : "no"}
+                    value={formik.values.defaultTheme}
                     onChange={(e) =>
-                        formik.setFieldValue(
-                            "defaultTheme",
-                            e.target.value === "yes" ? true : false
-                        )
+                        formik.setFieldValue("defaultTheme", e.target.value)
                     }
                 >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <FormControlLabel value={true} control={<Radio />} label="Yes" />
+                    <FormControlLabel value={false} control={<Radio />} label="No" />
                 </RadioGroup>
             </Box>
 
@@ -182,11 +175,10 @@ const Profile = () => {
                 <FormLabel component="legend">Select Default Theme</FormLabel>
                 <Autocomplete
                     options={Themes || []}
+                    groupBy={(option) => option.type}   // 👈 group by type
                     getOptionLabel={(option) => option.name}
                     value={
-                        (Themes || []).find(
-                            (t) => t._id === formik.values.theme
-                        ) || null
+                        (Themes || []).find((t) => t._id === formik.values.theme) || null
                     }
                     onChange={(event, newValue) => {
                         formik.setFieldValue("theme", newValue ? newValue._id : "");
@@ -216,6 +208,7 @@ const Profile = () => {
                         />
                     )}
                 />
+
             </Box>
 
             <Box sx={{ textAlign: "center", mt: 5 }}>

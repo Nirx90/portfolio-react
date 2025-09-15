@@ -10,9 +10,8 @@ import {
   Typography,
 } from "@mui/material";
 import { useFormik } from "formik";
-import { endpoints } from "../../api/endpoints";
-import axios from "axios";
 import { loginThunk } from "../../slices/authSlice";
+import toast from "react-hot-toast";
 
 export default function Auth() {
   const dispatch = useDispatch();
@@ -24,8 +23,17 @@ export default function Auth() {
     },
     onSubmit: async (values) => {
       try {
-        dispatch(loginThunk(values))
+        const res = await dispatch(loginThunk(values))
+        if (res.type === "user/login/rejected") {
+          toast.error(res.payload);
+        }
+        
+        if (res.type === "user/login/fulfilled") {
+          toast.success(res.payload.message)
+          formik.resetForm()
+        }
       } catch (error) {
+        console.log("🚀 ~ Auth ~ error:", error)
       }
     },
   });
@@ -61,12 +69,12 @@ export default function Auth() {
             value={formik.values.password}
             onChange={formik.handleChange}
             type="text"
-            style={{ width: "100%", marginTop:10 }}
+            style={{ width: "100%", marginTop: 10 }}
           />
         </Box>
       </Box>
 
-      <Box sx={{ width: 200,mt:2 }}>
+      <Box sx={{ width: 200, mt: 2 }}>
         <Button variant="contained" onClick={() => formik.handleSubmit()}>
           Login
         </Button>

@@ -20,6 +20,7 @@ import { useLocation } from "react-router-dom";
 import { getAllThemesThunk } from "../slices/themeSlice";
 import { getProfileInfo } from "../slices/profileSlice";
 import { setDefaultTheme } from "../utils/helper";
+import toast from "react-hot-toast";
 
 const Home = () => {
   const theme = useTheme();
@@ -44,11 +45,8 @@ const Home = () => {
 
 
   const { BackgroundColor, PrimaryTextColor, SecondaryTextColor, Animation } = useSelector((state) => state.theme);
-  const { selectedProfileImage } = useSelector((state) => state.profile);
   const heroCss = useSelector((state) => state.hero);
-  const reviewCss = useSelector((state) => state.review);
   const ProfileData = useSelector((state) => state.profile);
-
 
   useEffect(() => {
     if (ProfileData.DefaultTheme) {
@@ -169,15 +167,31 @@ const Home = () => {
                         backgroundSize: Animation ? "400% 400%" : "100%",
                         animation: "gradientShift 8s ease infinite",
                         boxShadow: heroCss.BoxShadow,
-                        color: reviewCss.TextColor,
+                        color: heroCss.ButtonTextColor,
                       }}
+                      onClick={() => toast('प्रोजेक्ट्स अभी बाकी  हे', {
+                        icon: '⏳',
+                      })}
                     >
                       View Projects
                     </Button>
                     <Button
-                      variant="outlined"
+                      component="a"
+                      href="https://digitalks-crm-bucket.s3.ap-south-1.amazonaws.com/Plantoo/items/images/Nirav_Python.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="contained"
                       size="large"
-                      sx={{ borderRadius: "50px", px: 4, py: 1 }}
+                      sx={{
+                        borderRadius: "50px",
+                        px: 4,
+                        py: 1,
+                        background: heroCss.BackgroundColor,
+                        backgroundSize: Animation ? "400% 400%" : "100%",
+                        animation: "gradientShift 8s ease infinite",
+                        boxShadow: heroCss.BoxShadow,
+                        color: heroCss.ButtonTextColor,
+                      }}
                     >
                       Download CV
                     </Button>
@@ -226,7 +240,7 @@ const Home = () => {
                     >
                       <Box
                         component="img"
-                        src={`${selectedProfileImage}`}
+                        src={`${ProfileData.selectedProfileImage}`}
                         alt="Profile"
                         sx={{
                           width: 250,
@@ -242,8 +256,8 @@ const Home = () => {
                 </motion.div>
               </Box>
             </Box>
-          </motion.div>
-        </section>
+          </motion.div >
+        </section >
 
         <section id="service">
           <ServiceCards />
@@ -266,8 +280,9 @@ const Home = () => {
             <ContactSection />
           </section>
         </Box>
-      </Container>
-    </Box>
+      </Container >
+    </Box >
+
   );
 };
 
