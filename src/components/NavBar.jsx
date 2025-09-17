@@ -85,6 +85,7 @@ export default function NavBar() {
 
   const navBarCss = useSelector((state) => state.navbar);
   const { DarkMode, Animation } = useSelector((state) => state.theme);
+  const profileData = useSelector((state) => state.profile);
   // const { token } = useSelector((state) => state.auth);
   const  token  = localStorage.getItem("token");
   const toggleDrawer = (open) => () => setDrawerOpen(open);
@@ -176,8 +177,8 @@ export default function NavBar() {
           {/* Logo or Title */}
 
           <Typography variant="h4" component="div" color={navBarCss.TextColor}>
-            || छावा ||
-            {/* Jhon Doe */}
+            {/* || छावा || */}
+            {profileData.headerText}
           </Typography>
 
           {/* Nav Links (desktop only) */}

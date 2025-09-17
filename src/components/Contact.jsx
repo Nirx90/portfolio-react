@@ -1,23 +1,16 @@
 import React, { useState } from "react";
 import {
   Box,
-  Container,
   Grid,
   TextField,
   Button,
   Typography,
   IconButton,
-  Stack,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
 import {
-  IconBrandGithub,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-  IconBrandTwitter,
   IconBrandWhatsapp,
-  IconLocation,
   IconMail,
   IconMapPin,
   IconSettings,
@@ -29,6 +22,10 @@ import * as Yup from "yup"
 import axios from "axios";
 import { endpoints } from "../api/endpoints";
 import toast from "react-hot-toast";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 export default function ContactSection() {
   const theme = useTheme();
@@ -61,7 +58,7 @@ export default function ContactSection() {
         const res = await axios.post(endpoints.create_inquiry, values);
         toast.success(res.data.message)
         formik.resetForm()
-      } catch (error) { 
+      } catch (error) {
         toast.error("Failed to submit quey. please try again later...")
       }
     }
@@ -231,28 +228,48 @@ export default function ContactSection() {
                 }}
               >
                 <Box sx={{ ...customeCss, color: contactCss.IconColor }}>
-                  <IconBrandGithub
-                    size={35}
-                    sx={{ color: contactCss.IconColor }}
-                  />
+                  <IconButton
+                    component="a"
+                    href="https://github.com/Nirx90"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ color: contactCss.IconColor, p: 0, cursor: "pointer" }}
+                  >
+                    <GitHubIcon fontSize="large" />
+                  </IconButton>
                 </Box>
                 <Box sx={{ ...customeCss, color: contactCss.IconColor }}>
-                  <IconBrandLinkedin
-                    size={35}
-                    sx={{ color: contactCss.IconColor }}
-                  />
+                  <IconButton
+                    component="a"
+                    href="https://www.linkedin.com/in/chaudhari-nirav-18b797209/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ color: contactCss.IconColor, p: 0, cursor: "pointer" }}
+                  >
+                    <LinkedInIcon fontSize="large" />
+                  </IconButton>
                 </Box>
                 <Box sx={{ ...customeCss, color: contactCss.IconColor }}>
-                  <IconBrandInstagram
-                    size={35}
-                    sx={{ color: contactCss.IconColor }}
-                  />
+                  <IconButton
+                    component="a"
+                    href="https://www.instagram.com/nirav6035/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ color: contactCss.IconColor, p: 0, cursor: "pointer" }}
+                  >
+                    <InstagramIcon fontSize="large" />
+                  </IconButton>
                 </Box>
-                <Box sx={{ ...customeCss, color: contactCss.IconColor }}>
-                  <IconBrandTwitter
-                    size={35}
-                    sx={{ color: contactCss.IconColor }}
-                  />
+                <Box sx={{ ...customeCss, color: contactCss.IconColor }} >
+                  <IconButton
+                    component="a"
+                    href="https://x.com/ChaudhariN92636"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ color: contactCss.IconColor, p: 0, cursor: "pointer" }}
+                  >
+                    <TwitterIcon fontSize="large" />
+                  </IconButton>
                 </Box>
               </Box>
             </Box>

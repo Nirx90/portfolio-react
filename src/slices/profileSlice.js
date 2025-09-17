@@ -36,6 +36,7 @@ export const updateProfileInfo = createAsyncThunk(
 
 
 const initialState = {
+  headerText : "Nirav Chaudhari",
   profileImages : [],
   selectedProfileImage : "https://digitalks-crm-bucket.s3.ap-south-1.amazonaws.com/CRM-ONE/staff/profileImage/profileImage-1750330132699-570439323.jpg",
   ResumeUrl: "",
@@ -61,6 +62,7 @@ const profileSlice = createSlice({
         state.profileImages = action.payload.profileImages;
         state.DefaultTheme = action.payload.defaultTheme;
         state.theme = action.payload.theme;
+        state.headerText = action.payload.headerText;
       })
       .addCase(getProfileInfo.rejected, (state, action) => {
         state.loading = false;

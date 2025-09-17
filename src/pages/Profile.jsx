@@ -12,7 +12,8 @@ import {
     FormControl,
     FormLabel,
     Select,
-    MenuItem
+    MenuItem,
+    Input
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -35,12 +36,14 @@ const Profile = () => {
 
     const formik = useFormik({
         initialValues: {
+            headerText : "",
             profileImages: [{ imageUrl: "" }],
             defaultTheme: false,
             selectedProfileImage: "",
             theme: "",
         },
         onSubmit: async (values) => {
+            console.log("🚀 ~ Profile ~ values:", values)
             try {
                 const res = await axios.put(endpoints.update_profile, values, {
                     headers: { Authorization: `Bearer ${token}` },
@@ -56,6 +59,7 @@ const Profile = () => {
 
     useEffect(() => {
         formik.setValues({
+            headerText : profileData.headerText,
             profileImages: profileData.profileImages.map((item) => ({
                 imageUrl: item.imageUrl
             })) || [],
@@ -209,6 +213,16 @@ const Profile = () => {
                     )}
                 />
 
+            </Box>
+            <Box sx={{ mt: 3, maxWidth: 300 }}>
+                <TextField
+                    fullWidth
+                    name="headerText"
+                    label="Navbar Header Text"
+                    type="tel"
+                    value={formik.values.headerText}
+                    onChange={formik.handleChange}
+                />
             </Box>
 
             <Box sx={{ textAlign: "center", mt: 5 }}>
