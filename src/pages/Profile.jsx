@@ -43,7 +43,6 @@ const Profile = () => {
             theme: "",
         },
         onSubmit: async (values) => {
-            console.log("🚀 ~ Profile ~ values:", values)
             try {
                 const res = await axios.put(endpoints.update_profile, values, {
                     headers: { Authorization: `Bearer ${token}` },
