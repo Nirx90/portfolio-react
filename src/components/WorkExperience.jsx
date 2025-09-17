@@ -27,14 +27,14 @@ const WorkExperience = () => {
       icon: <WorkIcon sx={{ color: experienceCss.IconColor }} />,
       title: "Application Developer Associate",
       company: "Accenture PLTD.",
-      duration: "August 2025 - Present",
+      duration: "November 2025 - Present",
       description: "Building Scalable web applications.",
     },
     {
       icon: <WorkIcon sx={{ color: experienceCss.IconColor }} />,
       title: "Executive Developer",
       company: "Digitalks Techno LLP.",
-      duration: "September 2024 - July 2025",
+      duration: "September 2024 - October 2025",
       description:
         "Building reusable UI components and optimizing performance with React and MUI.",
     },
