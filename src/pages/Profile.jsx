@@ -90,7 +90,7 @@ const Profile = () => {
                 >
                     <Box
                         component="img"
-                        // src={formik.values.selectedProfileImage}
+                        src={formik.values.selectedProfileImage}
                         alt="Profile"
                         sx={{
                             width: 250,
@@ -132,7 +132,7 @@ const Profile = () => {
                         >
                             <Box
                                 component="img"
-                                // src={profile.imageUrl}
+                                src={profile.imageUrl}
                                 alt="Profile"
                                 sx={{
                                     width: 100,

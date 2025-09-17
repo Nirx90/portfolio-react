@@ -53,18 +53,18 @@ const reviews = [
     image: "https://digitalks-crm-bucket.s3.ap-south-1.amazonaws.com/Plantoo/items/images/shakshi.png",
   },
   {
-    name: "Emily Johnson",
-    title: "CTO",
+    name: "Manthan Vaghasiya",
+    title: "Founder & CEO",
     review: "Incredible attention to detail and modern design choices!",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
+    image: "https://digitalks-crm-bucket.s3.ap-south-1.amazonaws.com/Plantoo/staff/profileImage/Screenshot 2025-09-16 164711.png",
   },
   {
-    name: "Chris Lee",
-    title: "Designer",
-    review: "A pleasure to work with, understands design needs perfectly.",
+    name: "Prince Sojitra",
+    title: "Developer",
+    review: "A pleasure to work with, understands functionality needs perfectly.",
     rating: 4,
-    image: "https://randomuser.me/api/portraits/men/24.jpg",
+    image: "https://digitalks-crm-bucket.s3.ap-south-1.amazonaws.com/Plantoo/staff/profileImage/Screenshot 2025-09-17 144154.png",
   },
 ];
 
@@ -173,7 +173,7 @@ export default function ReviewsSection() {
                       />
                       <Typography
                         variant="h6"
-                        sx={{ color: reviewCss.TextColor }}
+                        sx={{ color: reviewCss.TextColor, textAlign:'center' }}
                       >
                         {review.name}
                       </Typography>

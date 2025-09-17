@@ -17,10 +17,30 @@ export default function SettingTheme() {
   const [standardDark, setStandardDark] = useState(false);
   const [gradientDark, setGradientDark] = useState(false);
   const [animatedDark, setAnimatedDark] = useState(false);
+  const [customeColor, setCustomeColor] = useState("");
+
+  const handleCustomeColorChange = (e) => {
+    const val = e.target.value;
+    setCustomeColor(val)
+
+    const theme = {
+      color: val,
+      type: "Standard",
+      Animation: false,
+      Gradient: false,
+      IconColor: val,
+      TextColor: val,
+      BoxShadow: "0 8px 32px rgba(31, 38, 135, 0.2)",
+      NavBarTextColor: "black"
+    }
+
+    setTheme(theme)
+  }
 
   const { Themes } = useSelector((state) => state.theme);
 
   const setTheme = (theme) => {
+    console.log("🚀 ~ setTheme ~ theme:", theme)
     const color = theme.color;
     let isDark = false;
     if (theme.type === "Standard") {
@@ -168,6 +188,25 @@ export default function SettingTheme() {
                 ></Box>
               );
             })}
+            <Box
+              onClick={() => { }}
+              sx={{
+                background: "",
+                width: 60,
+                height: 50,
+                borderRadius: 2,
+                cursor: "pointer",
+              }}
+            >
+              <TextField
+                name="bgColor"
+                size="small"
+                value={customeColor}
+                onChange={handleCustomeColorChange}
+                type="color"
+                style={{ width: "100%" }}
+              />
+            </Box>
           </Box>
         </Box>
         <Box>
