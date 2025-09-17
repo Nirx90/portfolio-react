@@ -178,8 +178,7 @@ const SkillCard = () => {
               transition: 'all 0.3s ease',
               // border: selectedCategory === category.name ? `2px solid ${skillCardCss.BorderColor || "#1976d2"}` : 'none',
               // border: selectedCategory === category.name ? `2px solid ${skillCardCss.TextColor || "#1976d2"}` : 'none',
-              border:
-                (Type?.startsWith("Neu") || Type === "Standard") &&
+              border: (Type?.startsWith("Neu") || Type === "Standard" || Type === "") &&
                   selectedCategory === category.name
                   ? `2px solid ${skillCardCss.TextColor || "#1976d2"}`
                   : "none",
