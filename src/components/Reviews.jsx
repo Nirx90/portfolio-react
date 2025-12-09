@@ -50,7 +50,7 @@ const reviews = [
     title: "Data Anlyst",
     review: "Good communication and reliable work, happy to collaborate again.",
     rating: 3,
-    image: "",
+    image: "https://digitalks-crm-bucket.s3.ap-south-1.amazonaws.com/Plantoo/items/images/shakshi.png",
   },
   {
     name: "Manthan Vaghasiya",
